@@ -1,12 +1,14 @@
 # Card Web Components
+
 Card component for the uPortal ecosystem (POC).
+
 This component aims to display an Internationalized and accessible Card in Apereo uPortal.
 So far tested in FF, Chrome, Safari and Edge (Windows, Mac, Linux, IOS & Android)
 
 ## Dependancies
 
-hyperHTML
-webcomponents-lite
+ * hyperHTML @lastest
+ * webcomponents-lite 1.2.0
 
 ## Supported Languages
  * en-US (default)
@@ -14,9 +16,13 @@ webcomponents-lite
  * es-ES
  * nl-NL
  
-## Screenchots
+## Screenshots
 
 ![Card webcomponent](/assets/cardwebcomponent.png "card in en-US")
+
+## How it works
+
+open `index.html` and change `<html lang="en-US">` to `<html lang="fr-FR">`, the component will be in french.
 
 ## Running in uPortal
 
