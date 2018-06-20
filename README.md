@@ -8,6 +8,16 @@ So far tested in FF, Chrome, Safari and Edge (Windows, Mac, Linux, IOS & Android
 hyperHTML
 webcomponents-lite
 
+## Supported Languages
+ * en-US (default)
+ * fr-FR
+ * es-ES
+ * nl-NL
+ 
+## Screenchots
+
+![Card webcomponent](/assets/cardwebcomponent.png "card in en-US")
+
 ## Running in uPortal
 
 copy all the files in a `card/` directory, then copy this folder into
