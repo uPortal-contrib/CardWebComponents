@@ -129,11 +129,12 @@
         stylesImportTag.toString();
       this.root`
 <style lang="css">
-@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css';
+@import 'https://use.fontawesome.com/releases/v5.4.2/css/all.css';
 </style>
 <style lang="css">
-@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css';
 </style>
+
 
 
   <div data-magic="${data.magic}" class="card-wrapper">
