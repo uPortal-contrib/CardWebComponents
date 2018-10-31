@@ -7,12 +7,15 @@
 border-top-left-radius: 2px;
 border-top-right-radius: 2px;
 }
-.card__article a {
-color: #007bff !important;
+.card__article a, .card__meta a {
+color: #0000ff !important;
 text-decoration: underline !important;
 }
+.card__action a.btn-default {
+color: #0000ff !important;
+}
 p a:focus-visible {
-outline: 3px #007bff dashed;
+outline: 3px #0000ff dashed;
 padding: 0.2rem;
 }
 .text-center { text-align: center; }
@@ -77,7 +80,7 @@ z-index: 1;
 
 .card__meta time {
 font-size: 1.05rem;
-color: #777;
+color: #555;
 margin-left: 0.8rem;
 }
 
