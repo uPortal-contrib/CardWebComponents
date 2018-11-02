@@ -173,11 +173,11 @@ class myCard extends HTMLElement {
   </div>
 
 `.appendChild(stylesImportTag);
-    }
   }
+}
 
-  /**
-  /* Register the new item my-card
-  /* (customizable)
-  */
-  customElements.define('my-card', myCard);
+/**
+ * Register the new item my-card
+ * (customizable)
+ */
+customElements.define('my-card', myCard);
