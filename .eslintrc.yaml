@@ -1,0 +1,11 @@
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: module
+extends:
+  - eslint:recommended
+  - plugin:import/errors
+env:
+  browser: true
+  es6: true
+plugins:
+  - import
