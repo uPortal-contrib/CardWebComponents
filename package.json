@@ -1,0 +1,41 @@
+{
+  "name": "@uportal/card-components",
+  "version": "0.1.0",
+  "description": "Card Web Components for the uPortal ecosystem",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "rollup -c",
+    "postbuild": "cp -r static/** dist",
+    "prestart": "npm run build",
+    "start": "serve dist",
+    "test": "eslint src",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cousquer/CardWebComponents.git"
+  },
+  "author": "Christian Cousquer",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/cousquer/CardWebComponents/issues"
+  },
+  "homepage": "https://github.com/cousquer/CardWebComponents#readme",
+  "dependencies": {
+    "hyperhtml": "^2.16.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "eslint": "^5.8.0",
+    "eslint-plugin-import": "^2.14.0",
+    "gh-pages": "^2.0.1",
+    "rollup": "^0.66.6",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "serve": "^10.0.2"
+  }
+}
