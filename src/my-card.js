@@ -3,140 +3,140 @@
 import { bind } from "hyperhtml";
 
 /**
-/* const langPage is the language value of the host page
-*/
-const langPage = document.documentElement.lang;
-
-/**
-/* let aplha is used to store the ID value of the webcomponent
-*/
-let alpha;
-
-/**
 /* Define Class of the webcomponent myCard
 */
 class myCard extends HTMLElement {
   // Retrieve id of the webcomponent
+  // and the path of the messages displayed in the webcomponent
+  // and the path of the css imported into the webcomponent
   static get observedAttributes() {
-    return ["id"];
-  }
-  // Retrieve the path of the messages displayed in the webcomponent
-  static get observedAttributes() {
-    return ["messagesPath"];
-  }
-  // Retrieve the path of the css imported into the webcomponent
-  static get observedAttributes() {
-    return ["cssPath"];
-  }
-  static get observedAttributes() {
-    return ["source"];
+    return ["cssPath", "id", "messagesPath"];
   }
 
   constructor(...args) {
-    super(...args);
-    var idComponent, urlMessages, urlCss;
-    let path = `${this.getAttribute("messagesPath")}`;
-    idComponent = `${this.getAttribute("id")}`;
-    urlCss = `${this.getAttribute("cssPath")}`;
+    const self = super(...args);
 
-    /**
-    /* Build the url of the messages according to host page language
-    /* Supported language: en-US, fr-FR, es-ES, nl-NL (Can be extended...)
-    /* if host language is unknowed default to en-US messages
-    */
-    switch (langPage) {
-      case "fr-FR":
-        urlMessages = path + "i18n/" + langPage;
-        break;
-      case "es-ES":
-        urlMessages = path + "i18n/" + langPage;
-        break;
-      case "en-US":
-        urlMessages = path + "i18n/" + langPage;
-        break;
-      case "nl-NL":
-        urlMessages = path + "i18n/" + langPage;
-        break;
-      default:
-        urlMessages = path + "i18n/en-US";
-    }
+    self.render = self.render.bind(self);
+    self.onclick = self.onclick.bind(self);
+    self.getMessages = self.getMessages.bind(self);
 
-    this.SD = this.attachShadow({ mode: "open" });
-    this.baseId = idComponent;
-    this.base = urlMessages;
-    this.baseCss = urlCss;
-    this.data = [];
-    //console.log(langePage);
+    const path = self.getAttribute("messagesPath");
+    const pageLang = document.documentElement.lang;
+
+    self.baseId = self.getAttribute("id");
+    self.base = self.urlMessages(path, pageLang);
+    self.baseCss = self.getAttribute("cssPath");
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    //console.log(name + ':' + newValue);
+    // skip if values have not changed
+    if (oldValue === newValue) {
+      return;
+    }
+
+    // update internal value with attribute value
+    switch (name) {
+      case "cssPath": {
+        this.baseCss = newValue;
+        break;
+      }
+      case "id": {
+        this.baseId = newValue;
+        break;
+      }
+      case "messagePath": {
+        const pageLang = document.documentElement.lang;
+        this.base = this.urlMessage(newValue, pageLang);
+        this.getMessages();
+        break;
+      }
+    }
+
+    // re-render view with new values
+    this.render();
   }
 
   connectedCallback() {
+    // only generate HTML context once the element is being added to the page
+    this.SD = this.attachShadow({ mode: "open" });
     this.root = bind(this.SD);
+
     this.getMessages();
-    /**
-    /* Send the id to the component when this one id added to the DOM
-    */
-    alpha = `${this.baseId}`;
-    return alpha;
   }
 
   /**
-  /* function onclick. use to open the toggle menu in the ShadowDOM
-  /* keyboard and touch accessible (WCAG 2.1) exterimental CSS :focus-visible enabled in Chrome
-  /* focus is managed
-  */
+   * Build the url of the messages according to host page language
+   * Supported language: en-US, fr-FR, es-ES, nl-NL (Can be extended...)
+   * if host language is unknowed default to en-US messages
+   */
+  urlMessages(path, pageLang) {
+    switch (pageLang) {
+      case "fr-FR":
+      case "es-ES":
+      case "en-US":
+      case "nl-NL": {
+        return path + "i18n/" + pageLang;
+      }
+      default: {
+        return path + "i18n/en-US";
+      }
+    }
+  }
+
+  /**
+   * function onclick. use to open the toggle menu in the ShadowDOM
+   * keyboard and touch accessible (WCAG 2.1) exterimental CSS :focus-visible enabled in Chrome
+   * focus is managed
+   */
   onclick(event) {
     event.preventDefault();
-    let shadowroot = document.getElementById(alpha).shadowRoot;
-    let shadowList = ".card__share";
-    shadowList.toString();
-    let shadowListSocial = ".card__social";
-    shadowListSocial.toString();
-    let shadowFirstItem = ".share-toggle";
-    shadowListSocial.toString();
+    const { SD: shadowroot } = this;
 
-    const articleList = shadowroot.querySelector(shadowListSocial);
-    // console.log( articleList);
-    const articleListFirstItem = shadowroot.querySelector(shadowFirstItem);
-    const articleToggle = shadowroot.querySelector(shadowList);
+    const articleList = shadowroot.querySelector(".card__social");
+    const articleToggle = shadowroot.querySelector(".card__share");
     articleList.classList.toggle("card__social--active");
     articleToggle.classList.toggle("share-expanded");
 
-    if (articleToggle.getAttribute("aria-expanded") === "false") {
-      articleToggle.setAttribute("aria-expanded", "true");
-    } else {
-      articleToggle.setAttribute("aria-expanded", "false");
+    articleToggle.toggleAttribute("aria-expanded");
+
+    if (articleToggle.getAttribute("aria-expanded") === "true") {
       articleToggle.focus();
     }
   }
 
   /**
-  /* function getMessages. fetch the messages.json
-  */
-  getMessages() {
-    fetch(`${this.base}/messages.json`)
-      .then(r => r.json())
-      .then(this._renderData.bind(this));
+   * function getMessages. fetch the messages.json
+   */
+  async getMessages() {
+    try {
+      const response = await fetch(`${this.base}/messages.json`);
+      const messages = await response.json();
+      this.data = messages;
+      this.render();
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error(err);
+    }
   }
 
-  _renderData(data) {
-    this.data = data;
+  render() {
+    const { baseCss, data, onclick, root } = this;
+
+    // exit early if no data is present
+    if (!data) {
+      return;
+    }
+
     /**
-    /* build the import style tag into the Shadow DOM and append it to the ShadowDOM
-    */
-    let stylesImportTag = document.createElement("style");
+     * build the import style tag into the Shadow DOM and append it to the ShadowDOM
+     */
+    const stylesImportTag = document.createElement("style");
     stylesImportTag.lang = "css";
-    stylesImportTag.innerHTML =
-      "@import '" + `${this.baseCss}` + "/my-card.css';";
+    stylesImportTag.innerHTML = "@import '" + `${baseCss}` + "/my-card.css';";
     stylesImportTag.toString();
-    this.root`
+    root`
 <style lang="css">
 @import 'https://use.fontawesome.com/releases/v5.4.2/css/all.css';
-</style>
-<style lang="css">
 @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css';
 </style>
 
@@ -179,9 +179,7 @@ class myCard extends HTMLElement {
       data.linkMenu3.glyphicon
     }"></span></a>
           </div>
-          <a class="share-toggle share-icon"  onclick="${
-            this.onclick
-          }" href="javascript:void(0);" aria-controls="what-is-uportal-i18n-list" aria-expanded="false" aria-label="Menu"><i class="fa fa-ellipsis-v"></i></a>
+          <a class="share-toggle share-icon"  onclick="${onclick}" href="javascript:void(0);" aria-controls="what-is-uportal-i18n-list" aria-expanded="false" aria-label="Menu"><i class="fa fa-ellipsis-v"></i></a>
 
 
         </div>
