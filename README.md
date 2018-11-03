@@ -7,14 +7,15 @@ So far tested in FF, Chrome, Safari and Edge (Windows, Mac, Linux, IOS & Android
 
 ## Dependancies
 
- * hyperHTML @lastest
- * webcomponents-lite 1.2.0
+- hyperHTML @lastest
+- webcomponents-lite 1.2.0
 
 ## Supported Languages
- * en-US (default)
- * fr-FR
- * es-ES
- * nl-NL
+
+- en-US (default)
+- fr-FR
+- es-ES
+- nl-NL
 
 ## Screenshots
 
@@ -34,7 +35,7 @@ copy all the files in a `card/` directory, then copy this folder into
 Define a SimpleCMS portlet with HTML content like the following:
 
 ```HTML
-<my-card id="what-is-uportal-i18n" messagesPath="@uPortal/card/" cssPath="@uPortal/card/css"></my-card>      
+<my-card id="what-is-uportal-i18n" messagesPath="@uPortal/card/" cssPath="@uPortal/card/css"></my-card>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js' defer></script>
 <script  src="@uPortal/card/js/index.js" defer></script>
