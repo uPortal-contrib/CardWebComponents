@@ -12,7 +12,7 @@
     "test": "eslint src",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "format": "prettier --write '**/*.{css,js,json}'"
+    "format": "prettier --write '**/*.{css,js,json,md}'"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,7 @@
   },
   "lint-staged": {
     "linters": {
-      "**/*.{css,js,json}": [
+      "**/*.{css,js,json,md}": [
         "prettier --write",
         "git add"
       ]
