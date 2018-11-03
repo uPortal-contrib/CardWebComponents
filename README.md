@@ -44,5 +44,6 @@ Define a SimpleCMS portlet with HTML content like the following:
 <my-card id="what-is-uportal-i18n" messagesPath="@uPortal/card/" cssPath="@uPortal/card/css"></my-card>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js' defer></script>
+<script src='https://unpkg.com/regenerator-runtime@0.12.1/runtime.js' defer></script>
 <script  src="@uPortal/card/js/index.js" defer></script>
 ```
