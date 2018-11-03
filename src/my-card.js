@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import { bind } from 'hyperhtml';
+import { bind } from "hyperhtml";
 
 /**
 /* const langPage is the language value of the host page
@@ -17,19 +17,27 @@ let alpha;
 */
 class myCard extends HTMLElement {
   // Retrieve id of the webcomponent
-  static get observedAttributes() { return ['id']; }
+  static get observedAttributes() {
+    return ["id"];
+  }
   // Retrieve the path of the messages displayed in the webcomponent
-  static get observedAttributes() { return ['messagesPath']; }
+  static get observedAttributes() {
+    return ["messagesPath"];
+  }
   // Retrieve the path of the css imported into the webcomponent
-  static get observedAttributes() { return ['cssPath']; }
-  static get observedAttributes() { return ['source']; }
+  static get observedAttributes() {
+    return ["cssPath"];
+  }
+  static get observedAttributes() {
+    return ["source"];
+  }
 
-  constructor(...args){
+  constructor(...args) {
     super(...args);
     var idComponent, urlMessages, urlCss;
-    let path = `${this.getAttribute('messagesPath')}`;
-    idComponent = `${this.getAttribute('id')}`;
-    urlCss = `${this.getAttribute('cssPath')}`;
+    let path = `${this.getAttribute("messagesPath")}`;
+    idComponent = `${this.getAttribute("id")}`;
+    urlCss = `${this.getAttribute("cssPath")}`;
 
     /**
     /* Build the url of the messages according to host page language
@@ -37,23 +45,23 @@ class myCard extends HTMLElement {
     /* if host language is unknowed default to en-US messages
     */
     switch (langPage) {
-      case 'fr-FR':
-        urlMessages = path + 'i18n/' + langPage;
+      case "fr-FR":
+        urlMessages = path + "i18n/" + langPage;
         break;
-      case 'es-ES':
-        urlMessages = path + 'i18n/' + langPage;
+      case "es-ES":
+        urlMessages = path + "i18n/" + langPage;
         break;
-      case 'en-US':
-        urlMessages = path + 'i18n/' + langPage;
+      case "en-US":
+        urlMessages = path + "i18n/" + langPage;
         break;
-      case 'nl-NL':
-        urlMessages = path + 'i18n/' + langPage;
+      case "nl-NL":
+        urlMessages = path + "i18n/" + langPage;
         break;
       default:
-        urlMessages = path + 'i18n/en-US';
+        urlMessages = path + "i18n/en-US";
     }
 
-    this.SD = this.attachShadow({mode: 'open'});
+    this.SD = this.attachShadow({ mode: "open" });
     this.baseId = idComponent;
     this.base = urlMessages;
     this.baseCss = urlCss;
@@ -65,7 +73,7 @@ class myCard extends HTMLElement {
     //console.log(name + ':' + newValue);
   }
 
-  connectedCallback(){
+  connectedCallback() {
     this.root = bind(this.SD);
     this.getMessages();
     /**
@@ -94,40 +102,36 @@ class myCard extends HTMLElement {
     // console.log( articleList);
     const articleListFirstItem = shadowroot.querySelector(shadowFirstItem);
     const articleToggle = shadowroot.querySelector(shadowList);
-    articleList.classList.toggle('card__social--active');
-    articleToggle.classList.toggle('share-expanded');
+    articleList.classList.toggle("card__social--active");
+    articleToggle.classList.toggle("share-expanded");
 
-    if (articleToggle.getAttribute('aria-expanded') === 'false') {
-
-      articleToggle.setAttribute('aria-expanded', 'true');
-
-    }
-    else {
-
-      articleToggle.setAttribute('aria-expanded', 'false');
+    if (articleToggle.getAttribute("aria-expanded") === "false") {
+      articleToggle.setAttribute("aria-expanded", "true");
+    } else {
+      articleToggle.setAttribute("aria-expanded", "false");
       articleToggle.focus();
-
     }
   }
 
   /**
   /* function getMessages. fetch the messages.json
   */
-  getMessages(){
-    fetch(`${this.base}/messages.json`).then( r => r.json() )
+  getMessages() {
+    fetch(`${this.base}/messages.json`)
+      .then(r => r.json())
       .then(this._renderData.bind(this));
   }
 
-  _renderData(data){
-
+  _renderData(data) {
     this.data = data;
     /**
     /* build the import style tag into the Shadow DOM and append it to the ShadowDOM
     */
     let stylesImportTag = document.createElement("style");
-      stylesImportTag.lang = "css";
-      stylesImportTag.innerHTML = "@import '" + `${this.baseCss}` + "/my-card.css';";
-      stylesImportTag.toString();
+    stylesImportTag.lang = "css";
+    stylesImportTag.innerHTML =
+      "@import '" + `${this.baseCss}` + "/my-card.css';";
+    stylesImportTag.toString();
     this.root`
 <style lang="css">
 @import 'https://use.fontawesome.com/releases/v5.4.2/css/all.css';
@@ -147,17 +151,45 @@ class myCard extends HTMLElement {
       <div class="card__content card__padding">
         <div id="what-is-uportal-i18n-list" class="card__share" tabindex="-1">
           <div class="card__social card__fix--width">
-            <a id="${data.linkMenu1.id}" tabindex="0" class="${data.linkMenu1.cssClass}" href="${data.linkMenu1.link}" title="${data.linkMenu1.label}" aria-label="${data.linkMenu1.label}" target="_blank" rel="noopener noreferrer"><span class="${data.linkMenu1.glyphicon}"></span></a>
-            <a id="${data.linkMenu2.id}" tabindex="0" class="${data.linkMenu2.cssClass}" href="${data.linkMenu2.link}" title="${data.linkMenu2.label}" aria-label="${data.linkMenu2.label}" target="_blank" rel="noopener noreferrer"><span class="${data.linkMenu2.glyphicon}"></span></a>
-            <a id="${data.linkMenu3.id}" tabindex="0" class="${data.linkMenu3.cssClass}" href="${data.linkMenu3.link}" title="${data.linkMenu3.label}" aria-label="${data.linkMenu3.label}" target="_blank" rel="noopener noreferrer"><span class="${data.linkMenu3.glyphicon}"></span></a>
+            <a id="${data.linkMenu1.id}" tabindex="0" class="${
+      data.linkMenu1.cssClass
+    }" href="${data.linkMenu1.link}" title="${
+      data.linkMenu1.label
+    }" aria-label="${
+      data.linkMenu1.label
+    }" target="_blank" rel="noopener noreferrer"><span class="${
+      data.linkMenu1.glyphicon
+    }"></span></a>
+            <a id="${data.linkMenu2.id}" tabindex="0" class="${
+      data.linkMenu2.cssClass
+    }" href="${data.linkMenu2.link}" title="${
+      data.linkMenu2.label
+    }" aria-label="${
+      data.linkMenu2.label
+    }" target="_blank" rel="noopener noreferrer"><span class="${
+      data.linkMenu2.glyphicon
+    }"></span></a>
+            <a id="${data.linkMenu3.id}" tabindex="0" class="${
+      data.linkMenu3.cssClass
+    }" href="${data.linkMenu3.link}" title="${
+      data.linkMenu3.label
+    }" aria-label="${
+      data.linkMenu3.label
+    }" target="_blank" rel="noopener noreferrer"><span class="${
+      data.linkMenu3.glyphicon
+    }"></span></a>
           </div>
-          <a class="share-toggle share-icon"  onclick="${this.onclick}" href="javascript:void(0);" aria-controls="what-is-uportal-i18n-list" aria-expanded="false" aria-label="Menu"><i class="fa fa-ellipsis-v"></i></a>
+          <a class="share-toggle share-icon"  onclick="${
+            this.onclick
+          }" href="javascript:void(0);" aria-controls="what-is-uportal-i18n-list" aria-expanded="false" aria-label="Menu"><i class="fa fa-ellipsis-v"></i></a>
 
 
         </div>
         <div class="card__meta">
           <i class="fa fa-tags" aria-label="Tag" lang="en"></i>&nbsp;:
-          <span>${data.List.map(l => ` <a href="javascript:void(0);">${l.tag}</a> -`)}</span>&nbsp;
+          <span>${data.List.map(
+            l => ` <a href="javascript:void(0);">${l.tag}</a> -`
+          )}</span>&nbsp;
           <time>${data.time}</time>
         </div>
         <div class="card__article">
@@ -166,8 +198,20 @@ class myCard extends HTMLElement {
         </div>
       </div>
       <div class="card__action">
-        <a href="${data.button1.link}" class="${data.button1.cssClass}" title="${data.button1.label}" rel="noopener noreferrer">${data.button1.name}&nbsp;<span class="${data.button1.glyphicon}" aria-hidden="true"></span></a>&nbsp;
-        <a href="${data.button2.link}" class="${data.button2.cssClass}" title="${data.button2.label}" rel="noopener noreferrer">${data.button2.name}&nbsp;<span class="${data.button2.glyphicon}" aria-hidden="true"></span></a>
+        <a href="${data.button1.link}" class="${
+      data.button1.cssClass
+    }" title="${data.button1.label}" rel="noopener noreferrer">${
+      data.button1.name
+    }&nbsp;<span class="${
+      data.button1.glyphicon
+    }" aria-hidden="true"></span></a>&nbsp;
+        <a href="${data.button2.link}" class="${
+      data.button2.cssClass
+    }" title="${data.button2.label}" rel="noopener noreferrer">${
+      data.button2.name
+    }&nbsp;<span class="${
+      data.button2.glyphicon
+    }" aria-hidden="true"></span></a>
       </div>
     </div>
   </div>
@@ -180,4 +224,4 @@ class myCard extends HTMLElement {
  * Register the new item my-card
  * (customizable)
  */
-customElements.define('my-card', myCard);
+customElements.define("my-card", myCard);

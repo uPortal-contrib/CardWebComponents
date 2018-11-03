@@ -1,54 +1,56 @@
 {
-   "imgsrc": "https://cousquer.github.io/apereo2017/assets/artworks/apereo-uportal.jpg",
-   "title": "¿Qué es uPortal?",
-   "time": "13 de junio de 2018",
-   "linkMenu1": {
-      "id": "museum-menu-item-1",
-      "cssClass": "share-icon lightblue",
-      "glyphicon": "fab fa-twitter",
-      "label": "Twitter: uPortal",
-      "link": "https://twitter.com/uPortal",
-      "name": "Twitter: uPortal"
-   },
-   "linkMenu2": {
-      "id": "museum-menu-item-2",
-      "cssClass": "share-icon strongblue",
-      "glyphicon": "fas fa-envelope",
-      "label": "Contacto",
-      "link": "mailto:uportal-user@apereo.org",
-      "name": "Contacto"
-   },
-   "linkMenu3": {
-      "id": "museum-menu-item-3",
-      "cssClass": "share-icon black",
-      "glyphicon": "fab fa-github",
-      "label": "Github : uPortal",
-      "link": "https://github.com/jasig/uPortal",
-      "name": "Github : uPortal"
-   },
-   "List": [
-      {"tag": "Fuente abierta"},
-      {"tag": "Apereo"},
-      {"tag": "Web Portal"}
-   ],
-   "paragraphs": [
-      {"para": "<a href='http://www.apereo.org/uportal' target='blank'>uPortal</a> es una plataforma de portal web gratuita y de código abierto implementada por Java, desarrollada y mantenida por participantes de toda la educación superior. bajo la coordinación de <a href='http://www.apereo.org/' target='_blank'>Apereo</a>. uPortal puede agregar contenido, presentar aplicaciones de autoservicio, personalizar la presentación y el contenido en función de los grupos y los atributos del usuario, impulsar aplicaciones de dispositivos móviles y permitir la personalización avanzada y participativa del usuario final de la experiencia del portal. uPortal admite la especificación del portlet Java JSR-286 y JSR-168 para incluir sus aplicaciones personalizadas dentro del portal."},
-      {"para": "Bienvenido a uPortal."}
-   ],
-   "button1": {
-      "id": "museum-button-1",
-      "cssClass": "btn btn-default btn-lg",
-      "glyphicon": "fab fa-github",
-      "label": "Verifica las fuentes en Github",
-      "link": "https://github.com/jasig/uportal-start",
-      "name": "uPortal-Start"
-   },
-   "button2": {
-      "id": "museum-button-2",
-      "cssClass": "btn btn-danger btn-lg",
-      "glyphicon": "fas fa-book",
-      "label": "Documentación inglesa",
-      "link": "http://jasig.github.io/uPortal/",
-      "name": "Manual"
-   }
+  "imgsrc": "https://cousquer.github.io/apereo2017/assets/artworks/apereo-uportal.jpg",
+  "title": "¿Qué es uPortal?",
+  "time": "13 de junio de 2018",
+  "linkMenu1": {
+    "id": "museum-menu-item-1",
+    "cssClass": "share-icon lightblue",
+    "glyphicon": "fab fa-twitter",
+    "label": "Twitter: uPortal",
+    "link": "https://twitter.com/uPortal",
+    "name": "Twitter: uPortal"
+  },
+  "linkMenu2": {
+    "id": "museum-menu-item-2",
+    "cssClass": "share-icon strongblue",
+    "glyphicon": "fas fa-envelope",
+    "label": "Contacto",
+    "link": "mailto:uportal-user@apereo.org",
+    "name": "Contacto"
+  },
+  "linkMenu3": {
+    "id": "museum-menu-item-3",
+    "cssClass": "share-icon black",
+    "glyphicon": "fab fa-github",
+    "label": "Github : uPortal",
+    "link": "https://github.com/jasig/uPortal",
+    "name": "Github : uPortal"
+  },
+  "List": [
+    { "tag": "Fuente abierta" },
+    { "tag": "Apereo" },
+    { "tag": "Web Portal" }
+  ],
+  "paragraphs": [
+    {
+      "para": "<a href='http://www.apereo.org/uportal' target='blank'>uPortal</a> es una plataforma de portal web gratuita y de código abierto implementada por Java, desarrollada y mantenida por participantes de toda la educación superior. bajo la coordinación de <a href='http://www.apereo.org/' target='_blank'>Apereo</a>. uPortal puede agregar contenido, presentar aplicaciones de autoservicio, personalizar la presentación y el contenido en función de los grupos y los atributos del usuario, impulsar aplicaciones de dispositivos móviles y permitir la personalización avanzada y participativa del usuario final de la experiencia del portal. uPortal admite la especificación del portlet Java JSR-286 y JSR-168 para incluir sus aplicaciones personalizadas dentro del portal."
+    },
+    { "para": "Bienvenido a uPortal." }
+  ],
+  "button1": {
+    "id": "museum-button-1",
+    "cssClass": "btn btn-default btn-lg",
+    "glyphicon": "fab fa-github",
+    "label": "Verifica las fuentes en Github",
+    "link": "https://github.com/jasig/uportal-start",
+    "name": "uPortal-Start"
+  },
+  "button2": {
+    "id": "museum-button-2",
+    "cssClass": "btn btn-danger btn-lg",
+    "glyphicon": "fas fa-book",
+    "label": "Documentación inglesa",
+    "link": "http://jasig.github.io/uPortal/",
+    "name": "Manual"
+  }
 }
