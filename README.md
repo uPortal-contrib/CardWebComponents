@@ -17,9 +17,15 @@ So far tested in FF, Chrome, Safari and Edge (Windows, Mac, Linux, IOS & Android
 - es-ES
 - nl-NL
 
+## Build
+
+use `npm install` to get dependencies.
+use `npm start` to view code in a local web server.
+use `npm test` to run lint checks
+
 ## Screenshots
 
-![Card webcomponent](public/assets/cardwebcomponent.png "card in en-US")
+![Card webcomponent](static/assets/cardwebcomponent.png "card in en-US")
 
 ## How it works
 
