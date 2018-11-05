@@ -97,9 +97,10 @@ class myCard extends HTMLElement {
     articleList.classList.toggle("card__social--active");
     articleToggle.classList.toggle("share-expanded");
 
-    articleToggle.toggleAttribute("aria-expanded");
-
     if (articleToggle.getAttribute("aria-expanded") === "true") {
+      articleToggle.setAttribute("aria-expanded", "false");
+    } else {
+      articleToggle.setAttribute("aria-expanded", "true");
       articleToggle.focus();
     }
   }
