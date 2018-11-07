@@ -1,54 +1,52 @@
 {
-   "imgsrc": "https://cousquer.github.io/apereo2017/assets/artworks/apereo-uportal.jpg",
-   "title": "Wat is uPortal?",
-   "time": "13 Juni 2018",
-   "linkMenu1": {
-      "id": "museum-menu-item-1",
-      "cssClass": "share-icon lightblue",
-      "glyphicon": "fab fa-twitter",
-      "label": "Twitter: uPortal",
-      "link": "https://twitter.com/uPortal",
-      "name": "test"
-   },
-   "linkMenu2": {
-      "id": "museum-menu-item-2",
-      "cssClass": "share-icon strongblue",
-      "glyphicon": "fas fa-envelope",
-      "label": "Contact",
-      "link": "mailto:uportal-user@apereo.org",
-      "name": "Contact"
-   },
-   "linkMenu3": {
-      "id": "museum-menu-item-3",
-      "cssClass": "share-icon black",
-      "glyphicon": "fab fa-github",
-      "label": "Github: uPortal",
-      "link": "https://github.com/jasig/uPortal",
-      "name": "Github: uPortal"
-   },
-   "List": [
-      {"tag": "Opensource"},
-      {"tag": "Apereo"},
-      {"tag": "Portal"}
-   ],
-   "paragraphs": [
-      {"para": "<a href='http://www.apereo.org/uportal' target='_blank'>uPortal</a> is een gratis en open source webportaal platform geïmplementeerd in java dat wordt ontwikkeld en onderhouden door deelnemers uit het hoger onderwijs onder de coördinatie van <a href='http://www.apereo.org/' target='_blank'>Apereo</a>. uPortal kan content uit verschillende bronnen verzamelen en tonen, applicaties tonen, presentatie en inhoud aanpassen op basis van groepen en gebruikers(attributen), toepassingen voor mobiele apparaten aansturen en maakt aanpassingen van de portal ervaring mogelijk op een geavanceerde, eindgebruikersgerichte wijze. uPortal ondersteunt de Java-portletspecificatie JSR-286 en JSR-168 voor het opnemen van uw eigen aangepaste toepassingen binnen de portal. "},
-       {"para": "Welkom bij uPortal."}
-   ],
-   "button1": {
-      "id": "museum-button-1",
-      "cssClass": "btn btn-default btn-lg",
-      "glyphicon": "fab fa-github",
-      "label": "Bekijk de broncode in Github",
-      "link": "https://github.com/jasig/uportal-start",
-      "name": "uPortal-Start"
-   },
-   "button2": {
-      "id": "museum-button-2",
-      "cssClass": "btn btn-danger btn-lg",
-      "glyphicon": "fas fa-book",
-      "label": "Engelse Documentatie",
-      "link": "http://jasig.github.io/uPortal/",
-      "name": "Handleiding (Engels)"
-   }
+  "imgsrc": "https://cousquer.github.io/apereo2017/assets/artworks/apereo-uportal.jpg",
+  "title": "Wat is uPortal?",
+  "time": "13 Juni 2018",
+  "linkMenu1": {
+    "id": "museum-menu-item-1",
+    "cssClass": "share-icon lightblue",
+    "glyphicon": "fab fa-twitter",
+    "label": "Twitter: uPortal",
+    "link": "https://twitter.com/uPortal",
+    "name": "test"
+  },
+  "linkMenu2": {
+    "id": "museum-menu-item-2",
+    "cssClass": "share-icon strongblue",
+    "glyphicon": "fas fa-envelope",
+    "label": "Contact",
+    "link": "mailto:uportal-user@apereo.org",
+    "name": "Contact"
+  },
+  "linkMenu3": {
+    "id": "museum-menu-item-3",
+    "cssClass": "share-icon black",
+    "glyphicon": "fab fa-github",
+    "label": "Github: uPortal",
+    "link": "https://github.com/jasig/uPortal",
+    "name": "Github: uPortal"
+  },
+  "List": [{ "tag": "Opensource" }, { "tag": "Apereo" }, { "tag": "Portal" }],
+  "paragraphs": [
+    {
+      "para": "<a href='http://www.apereo.org/uportal' target='_blank'>uPortal</a> is een gratis en open source webportaal platform geïmplementeerd in java dat wordt ontwikkeld en onderhouden door deelnemers uit het hoger onderwijs onder de coördinatie van <a href='http://www.apereo.org/' target='_blank'>Apereo</a>. uPortal kan content uit verschillende bronnen verzamelen en tonen, applicaties tonen, presentatie en inhoud aanpassen op basis van groepen en gebruikers(attributen), toepassingen voor mobiele apparaten aansturen en maakt aanpassingen van de portal ervaring mogelijk op een geavanceerde, eindgebruikersgerichte wijze. uPortal ondersteunt de Java-portletspecificatie JSR-286 en JSR-168 voor het opnemen van uw eigen aangepaste toepassingen binnen de portal. "
+    },
+    { "para": "Welkom bij uPortal." }
+  ],
+  "button1": {
+    "id": "museum-button-1",
+    "cssClass": "btn btn-default btn-lg",
+    "glyphicon": "fab fa-github",
+    "label": "Bekijk de broncode in Github",
+    "link": "https://github.com/jasig/uportal-start",
+    "name": "uPortal-Start"
+  },
+  "button2": {
+    "id": "museum-button-2",
+    "cssClass": "btn btn-danger btn-lg",
+    "glyphicon": "fas fa-book",
+    "label": "Engelse Documentatie",
+    "link": "http://jasig.github.io/uPortal/",
+    "name": "Handleiding (Engels)"
+  }
 }

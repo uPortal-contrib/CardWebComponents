@@ -18,18 +18,14 @@
       "type": "string",
       "title": "The Title Schema ",
       "default": "",
-      "examples": [
-        "Qu'est-ce que uPortal ?"
-      ]
+      "examples": ["Qu'est-ce que uPortal ?"]
     },
     "time": {
       "$id": "/properties/time",
       "type": "string",
       "title": "The Time Schema ",
       "default": "",
-      "examples": [
-        "13 Juin 2018"
-      ]
+      "examples": ["13 Juin 2018"]
     },
     "linkMenu1": {
       "$id": "/properties/linkMenu1",
@@ -40,54 +36,42 @@
           "type": "string",
           "title": "The Id Schema ",
           "default": "",
-          "examples": [
-            "museum-menu-item-1"
-          ]
+          "examples": ["museum-menu-item-1"]
         },
         "cssClass": {
           "$id": "/properties/linkMenu1/properties/cssClass",
           "type": "string",
           "title": "The Cssclass Schema ",
           "default": "",
-          "examples": [
-            "share-icon lightblue"
-          ]
+          "examples": ["share-icon lightblue"]
         },
         "glyphicon": {
           "$id": "/properties/linkMenu1/properties/glyphicon",
           "type": "string",
           "title": "The Glyphicon Schema ",
           "default": "",
-          "examples": [
-            "fa fa-twitter"
-          ]
+          "examples": ["fa fa-twitter"]
         },
         "label": {
           "$id": "/properties/linkMenu1/properties/label",
           "type": "string",
           "title": "The Label Schema ",
           "default": "",
-          "examples": [
-            "Twitter: mozVR"
-          ]
+          "examples": ["Twitter: mozVR"]
         },
         "link": {
           "$id": "/properties/linkMenu1/properties/link",
           "type": "string",
           "title": "The Link Schema ",
           "default": "",
-          "examples": [
-            "https://twitter.com/uPortal"
-          ]
+          "examples": ["https://twitter.com/uPortal"]
         },
         "name": {
           "$id": "/properties/linkMenu1/properties/name",
           "type": "string",
           "title": "The Name Schema ",
           "default": "",
-          "examples": [
-            "test"
-          ]
+          "examples": ["test"]
         }
       }
     },
@@ -100,54 +84,42 @@
           "type": "string",
           "title": "The Id Schema ",
           "default": "",
-          "examples": [
-            "museum-menu-item-2"
-          ]
+          "examples": ["museum-menu-item-2"]
         },
         "cssClass": {
           "$id": "/properties/linkMenu2/properties/cssClass",
           "type": "string",
           "title": "The Cssclass Schema ",
           "default": "",
-          "examples": [
-            "share-icon strongblue"
-          ]
+          "examples": ["share-icon strongblue"]
         },
         "glyphicon": {
           "$id": "/properties/linkMenu2/properties/glyphicon",
           "type": "string",
           "title": "The Glyphicon Schema ",
           "default": "",
-          "examples": [
-            "glyphicon glyphicon-envelope"
-          ]
+          "examples": ["glyphicon glyphicon-envelope"]
         },
         "label": {
           "$id": "/properties/linkMenu2/properties/label",
           "type": "string",
           "title": "The Label Schema ",
           "default": "",
-          "examples": [
-            "Contact"
-          ]
+          "examples": ["Contact"]
         },
         "link": {
           "$id": "/properties/linkMenu2/properties/link",
           "type": "string",
           "title": "The Link Schema ",
           "default": "",
-          "examples": [
-            "mailto:uportal-user@apereo.org"
-          ]
+          "examples": ["mailto:uportal-user@apereo.org"]
         },
         "name": {
           "$id": "/properties/linkMenu2/properties/name",
           "type": "string",
           "title": "The Name Schema ",
           "default": "",
-          "examples": [
-            "test"
-          ]
+          "examples": ["test"]
         }
       }
     },
@@ -160,54 +132,42 @@
           "type": "string",
           "title": "The Id Schema ",
           "default": "",
-          "examples": [
-            "museum-menu-item-3"
-          ]
+          "examples": ["museum-menu-item-3"]
         },
         "cssClass": {
           "$id": "/properties/linkMenu3/properties/cssClass",
           "type": "string",
           "title": "The Cssclass Schema ",
           "default": "",
-          "examples": [
-            "share-icon black"
-          ]
+          "examples": ["share-icon black"]
         },
         "glyphicon": {
           "$id": "/properties/linkMenu3/properties/glyphicon",
           "type": "string",
           "title": "The Glyphicon Schema ",
           "default": "",
-          "examples": [
-            "fa fa-github"
-          ]
+          "examples": ["fa fa-github"]
         },
         "label": {
           "$id": "/properties/linkMenu3/properties/label",
           "type": "string",
           "title": "The Label Schema ",
           "default": "",
-          "examples": [
-            "Github: uPortal"
-          ]
+          "examples": ["Github: uPortal"]
         },
         "link": {
           "$id": "/properties/linkMenu3/properties/link",
           "type": "string",
           "title": "The Link Schema ",
           "default": "",
-          "examples": [
-            "https://github.com/jasig/uPortal"
-          ]
+          "examples": ["https://github.com/jasig/uPortal"]
         },
         "name": {
           "$id": "/properties/linkMenu3/properties/name",
           "type": "string",
           "title": "The Name Schema ",
           "default": "",
-          "examples": [
-            "test"
-          ]
+          "examples": ["test"]
         }
       }
     },
@@ -223,9 +183,7 @@
             "type": "string",
             "title": "The Tag Schema ",
             "default": "",
-            "examples": [
-              "Open Source"
-            ]
+            "examples": ["Open Source"]
           }
         }
       }
@@ -258,54 +216,42 @@
           "type": "string",
           "title": "The Id Schema ",
           "default": "",
-          "examples": [
-            "museum-button-1"
-          ]
+          "examples": ["museum-button-1"]
         },
         "cssClass": {
           "$id": "/properties/button1/properties/cssClass",
           "type": "string",
           "title": "The Cssclass Schema ",
           "default": "",
-          "examples": [
-            "btn btn-default"
-          ]
+          "examples": ["btn btn-default"]
         },
         "glyphicon": {
           "$id": "/properties/button1/properties/glyphicon",
           "type": "string",
           "title": "The Glyphicon Schema ",
           "default": "",
-          "examples": [
-            "fa fa-github"
-          ]
+          "examples": ["fa fa-github"]
         },
         "label": {
           "$id": "/properties/button1/properties/label",
           "type": "string",
           "title": "The Label Schema ",
           "default": "",
-          "examples": [
-            "Aller sur les sources Github"
-          ]
+          "examples": ["Aller sur les sources Github"]
         },
         "link": {
           "$id": "/properties/button1/properties/link",
           "type": "string",
           "title": "The Link Schema ",
           "default": "",
-          "examples": [
-            "https://github.com/jasig/uportal-start"
-          ]
+          "examples": ["https://github.com/jasig/uportal-start"]
         },
         "name": {
           "$id": "/properties/button1/properties/name",
           "type": "string",
           "title": "The Name Schema ",
           "default": "",
-          "examples": [
-            "uPortal-Start"
-          ]
+          "examples": ["uPortal-Start"]
         }
       }
     },
@@ -318,57 +264,44 @@
           "type": "string",
           "title": "The Id Schema ",
           "default": "",
-          "examples": [
-            "museum-button-2"
-          ]
+          "examples": ["museum-button-2"]
         },
         "cssClass": {
           "$id": "/properties/button2/properties/cssClass",
           "type": "string",
           "title": "The Cssclass Schema ",
           "default": "",
-          "examples": [
-            "btn btn-danger"
-          ]
+          "examples": ["btn btn-danger"]
         },
         "glyphicon": {
           "$id": "/properties/button2/properties/glyphicon",
           "type": "string",
           "title": "The Glyphicon Schema ",
           "default": "",
-          "examples": [
-            "fa fa-book"
-          ]
+          "examples": ["fa fa-book"]
         },
         "label": {
           "$id": "/properties/button2/properties/label",
           "type": "string",
           "title": "The Label Schema ",
           "default": "",
-          "examples": [
-            "Documentation française"
-          ]
+          "examples": ["Documentation française"]
         },
         "link": {
           "$id": "/properties/button2/properties/link",
           "type": "string",
           "title": "The Link Schema ",
           "default": "",
-          "examples": [
-            "http://jasig.github.io/uPortal/fr/"
-          ]
+          "examples": ["http://jasig.github.io/uPortal/fr/"]
         },
         "name": {
           "$id": "/properties/button2/properties/name",
           "type": "string",
           "title": "The Name Schema ",
           "default": "",
-          "examples": [
-            "Manuel"
-          ]
+          "examples": ["Manuel"]
         }
       }
     }
   }
 }
-

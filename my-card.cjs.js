@@ -14,6 +14,42 @@ function _typeof(obj) {
   return _typeof(obj);
 }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -1893,7 +1929,7 @@ var bind = function bind(context) {
 setup(content); // everything is exported directly or through the
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n<style lang=\"css\">\n@import 'https://use.fontawesome.com/releases/v5.4.2/css/all.css';\n</style>\n<style lang=\"css\">\n@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css';\n</style>\n\n\n\n  <div data-magic=\"", "\" class=\"card-wrapper\">\n    <div class=\"card radius shadowDepth1\">\n      <div class=\"card__image border-tlr-radius\">\n        <!--<img src=\"csm_hellink_268d15ec81 - Copie.jpg\" alt=\"image\" class=\"border-tlr-radius\" />-->\n        <img src=\"", "\" alt=\"\" class=\"border-tlr-radius\" />\n      </div>\n      <div class=\"card__content card__padding\">\n        <div id=\"what-is-uportal-i18n-list\" class=\"card__share\" tabindex=\"-1\">\n          <div class=\"card__social card__fix--width\">\n            <a id=\"", "\" tabindex=\"0\" class=\"", "\" href=\"", "\" title=\"", "\" aria-label=\"", "\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"", "\"></span></a>\n            <a id=\"", "\" tabindex=\"0\" class=\"", "\" href=\"", "\" title=\"", "\" aria-label=\"", "\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"", "\"></span></a>\n            <a id=\"", "\" tabindex=\"0\" class=\"", "\" href=\"", "\" title=\"", "\" aria-label=\"", "\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"", "\"></span></a>\n          </div>\n          <a class=\"share-toggle share-icon\"  onclick=\"", "\" href=\"javascript:void(0);\" aria-controls=\"what-is-uportal-i18n-list\" aria-expanded=\"false\" aria-label=\"Menu\"><i class=\"fa fa-ellipsis-v\"></i></a>\n\n\n        </div>\n        <div class=\"card__meta\">\n          <i class=\"fa fa-tags\" aria-label=\"Tag\" lang=\"en\"></i>&nbsp;:\n          <span>", "</span>&nbsp;\n          <time>", "</time>\n        </div>\n        <div class=\"card__article\">\n          <h2>", "</h2>\n          <div>", "</div>\n        </div>\n      </div>\n      <div class=\"card__action\">\n        <a href=\"", "\" class=\"", "\" title=\"", "\" rel=\"noopener noreferrer\">", "&nbsp;<span class=\"", "\" aria-hidden=\"true\"></span></a>&nbsp;\n        <a href=\"", "\" class=\"", "\" title=\"", "\" rel=\"noopener noreferrer\">", "&nbsp;<span class=\"", "\" aria-hidden=\"true\"></span></a>\n      </div>\n    </div>\n  </div>\n\n"]);
+  var data = _taggedTemplateLiteral(["\n<style lang=\"css\">\n@import 'https://use.fontawesome.com/releases/v5.4.2/css/all.css';\n@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css';\n</style>\n\n\n\n  <div data-magic=\"", "\" class=\"card-wrapper\">\n    <div class=\"card radius shadowDepth1\">\n      <div class=\"card__image border-tlr-radius\">\n        <!--<img src=\"csm_hellink_268d15ec81 - Copie.jpg\" alt=\"image\" class=\"border-tlr-radius\" />-->\n        <img src=\"", "\" alt=\"\" class=\"border-tlr-radius\" />\n      </div>\n      <div class=\"card__content card__padding\">\n        <div id=\"what-is-uportal-i18n-list\" class=\"card__share\" tabindex=\"-1\">\n          <div class=\"card__social card__fix--width\">\n            <a id=\"", "\" tabindex=\"0\" class=\"", "\" href=\"", "\" title=\"", "\" aria-label=\"", "\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"", "\"></span></a>\n            <a id=\"", "\" tabindex=\"0\" class=\"", "\" href=\"", "\" title=\"", "\" aria-label=\"", "\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"", "\"></span></a>\n            <a id=\"", "\" tabindex=\"0\" class=\"", "\" href=\"", "\" title=\"", "\" aria-label=\"", "\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"", "\"></span></a>\n          </div>\n          <a class=\"share-toggle share-icon\"  onclick=\"", "\" href=\"javascript:void(0);\" aria-controls=\"what-is-uportal-i18n-list\" aria-expanded=\"false\" aria-label=\"Menu\"><i class=\"fa fa-ellipsis-v\"></i></a>\n\n\n        </div>\n        <div class=\"card__meta\">\n          <i class=\"fa fa-tags\" aria-label=\"Tag\" lang=\"en\"></i>&nbsp;:\n          <span>", "</span>&nbsp;\n          <time>", "</time>\n        </div>\n        <div class=\"card__article\">\n          <h2>", "</h2>\n          <div>", "</div>\n        </div>\n      </div>\n      <div class=\"card__action\">\n        <a href=\"", "\" class=\"", "\" title=\"", "\" rel=\"noopener noreferrer\">", "&nbsp;<span class=\"", "\" aria-hidden=\"true\"></span></a>&nbsp;\n        <a href=\"", "\" class=\"", "\" title=\"", "\" rel=\"noopener noreferrer\">", "&nbsp;<span class=\"", "\" aria-hidden=\"true\"></span></a>\n      </div>\n    </div>\n  </div>\n\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1901,16 +1937,6 @@ function _templateObject() {
 
   return data;
 }
-/**
-/* const langPage is the language value of the host page
-*/
-
-var langPage = document.documentElement.lang;
-/**
-/* let aplha is used to store the ID value of the webcomponent
-*/
-
-var alpha;
 /**
 /* Define Class of the webcomponent myCard
 */
@@ -1922,8 +1948,11 @@ function (_HTMLElement) {
 
   _createClass(myCard, null, [{
     key: "observedAttributes",
+    // Retrieve id of the webcomponent
+    // and the path of the messages displayed in the webcomponent
+    // and the path of the css imported into the webcomponent
     get: function get() {
-      return ['source'];
+      return ["cssPath", "id", "messagesPath"];
     }
   }]);
 
@@ -1938,117 +1967,180 @@ function (_HTMLElement) {
       args[_key] = arguments[_key];
     }
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(myCard)).call.apply(_getPrototypeOf2, [this].concat(args)));
-    var idComponent, urlMessages, urlCss;
-    var path = "".concat(_this.getAttribute('messagesPath'));
-    idComponent = "".concat(_this.getAttribute('id'));
-    urlCss = "".concat(_this.getAttribute('cssPath'));
-    /**
-    /* Build the url of the messages according to host page language
-    /* Supported language: en-US, fr-FR, es-ES, nl-NL (Can be extended...)
-    /* if host language is unknowed default to en-US messages
-    */
+    var self = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(myCard)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    switch (langPage) {
-      case 'fr-FR':
-        urlMessages = path + 'i18n/' + langPage;
-        break;
-
-      case 'es-ES':
-        urlMessages = path + 'i18n/' + langPage;
-        break;
-
-      case 'en-US':
-        urlMessages = path + 'i18n/' + langPage;
-        break;
-
-      case 'nl-NL':
-        urlMessages = path + 'i18n/' + langPage;
-        break;
-
-      default:
-        urlMessages = path + 'i18n/en-US';
-    }
-
-    _this.SD = _this.attachShadow({
-      mode: 'open'
-    });
-    _this.baseId = idComponent;
-    _this.base = urlMessages;
-    _this.baseCss = urlCss;
-    _this.data = []; //console.log(langePage);
-
+    self.render = self.render.bind(self);
+    self.onclick = self.onclick.bind(self);
+    self.getMessages = self.getMessages.bind(self);
+    var path = self.getAttribute("messagesPath");
+    var pageLang = document.documentElement.lang;
+    self.baseId = self.getAttribute("id");
+    self.base = self.urlMessages(path, pageLang);
+    self.baseCss = self.getAttribute("cssPath");
     return _this;
   }
 
   _createClass(myCard, [{
     key: "attributeChangedCallback",
-    value: function attributeChangedCallback(name, oldValue, newValue) {//console.log(name + ':' + newValue);
+    value: function attributeChangedCallback(name, oldValue, newValue) {
+      // skip if values have not changed
+      if (oldValue === newValue) {
+        return;
+      } // update internal value with attribute value
+
+
+      switch (name) {
+        case "cssPath":
+          {
+            this.baseCss = newValue;
+            break;
+          }
+
+        case "id":
+          {
+            this.baseId = newValue;
+            break;
+          }
+
+        case "messagePath":
+          {
+            var pageLang = document.documentElement.lang;
+            this.base = this.urlMessage(newValue, pageLang);
+            this.getMessages();
+            break;
+          }
+      } // re-render view with new values
+
+
+      this.render();
     }
   }, {
     key: "connectedCallback",
     value: function connectedCallback() {
+      // only generate HTML context once the element is being added to the page
+      this.SD = this.attachShadow({
+        mode: "open"
+      });
       this.root = bind(this.SD);
       this.getMessages();
-      /**
-      /* Send the id to the component when this one id added to the DOM
-      */
-
-      alpha = "".concat(this.baseId);
-      return alpha;
     }
     /**
-    /* function onclick. use to open the toggle menu in the ShadowDOM
-    /* keyboard and touch accessible (WCAG 2.1) exterimental CSS :focus-visible enabled in Chrome
-    /* focus is managed
-    */
+     * Build the url of the messages according to host page language
+     * Supported language: en-US, fr-FR, es-ES, nl-NL (Can be extended...)
+     * if host language is unknowed default to en-US messages
+     */
+
+  }, {
+    key: "urlMessages",
+    value: function urlMessages(path, pageLang) {
+      switch (pageLang) {
+        case "fr-FR":
+        case "es-ES":
+        case "en-US":
+        case "nl-NL":
+          {
+            return path + "i18n/" + pageLang;
+          }
+
+        default:
+          {
+            return path + "i18n/en-US";
+          }
+      }
+    }
+    /**
+     * function onclick. use to open the toggle menu in the ShadowDOM
+     * keyboard and touch accessible (WCAG 2.1) exterimental CSS :focus-visible enabled in Chrome
+     * focus is managed
+     */
 
   }, {
     key: "onclick",
     value: function onclick(event) {
       event.preventDefault();
-      var shadowroot = document.getElementById(alpha).shadowRoot;
-      var shadowList = ".card__share";
-      var shadowListSocial = ".card__social";
-      var shadowFirstItem = ".share-toggle";
-      var articleList = shadowroot.querySelector(shadowListSocial); // console.log( articleList);
+      var shadowroot = this.SD;
+      var articleList = shadowroot.querySelector(".card__social");
+      var articleToggle = shadowroot.querySelector(".card__share");
+      articleList.classList.toggle("card__social--active");
+      articleToggle.classList.toggle("share-expanded");
 
-      var articleListFirstItem = shadowroot.querySelector(shadowFirstItem);
-      var articleToggle = shadowroot.querySelector(shadowList);
-      articleList.classList.toggle('card__social--active');
-      articleToggle.classList.toggle('share-expanded');
-
-      if (articleToggle.getAttribute('aria-expanded') === 'false') {
-        articleToggle.setAttribute('aria-expanded', 'true');
+      if (articleToggle.getAttribute("aria-expanded") === "true") {
+        articleToggle.setAttribute("aria-expanded", "false");
       } else {
-        articleToggle.setAttribute('aria-expanded', 'false');
+        articleToggle.setAttribute("aria-expanded", "true");
         articleToggle.focus();
       }
     }
     /**
-    /* function getMessages. fetch the messages.json
-    */
+     * function getMessages. fetch the messages.json
+     */
 
   }, {
     key: "getMessages",
-    value: function getMessages() {
-      fetch("".concat(this.base, "/messages.json")).then(function (r) {
-        return r.json();
-      }).then(this._renderData.bind(this));
-    }
+    value: function () {
+      var _getMessages = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee() {
+        var response, messages;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return fetch("".concat(this.base, "/messages.json"));
+
+              case 3:
+                response = _context.sent;
+                _context.next = 6;
+                return response.json();
+
+              case 6:
+                messages = _context.sent;
+                this.data = messages;
+                this.render();
+                _context.next = 14;
+                break;
+
+              case 11:
+                _context.prev = 11;
+                _context.t0 = _context["catch"](0);
+                // eslint-disable-next-line no-console
+                console.error(_context.t0);
+
+              case 14:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 11]]);
+      }));
+
+      return function getMessages() {
+        return _getMessages.apply(this, arguments);
+      };
+    }()
   }, {
-    key: "_renderData",
-    value: function _renderData(data) {
-      this.data = data;
+    key: "render",
+    value: function render() {
+      var baseCss = this.baseCss,
+          data = this.data,
+          onclick = this.onclick,
+          root = this.root; // exit early if no data is present
+
+      if (!data) {
+        return;
+      }
       /**
-      /* build the import style tag into the Shadow DOM and append it to the ShadowDOM
-      */
+       * build the import style tag into the Shadow DOM and append it to the ShadowDOM
+       */
+
 
       var stylesImportTag = document.createElement("style");
       stylesImportTag.lang = "css";
-      stylesImportTag.innerHTML = "@import '" + "".concat(this.baseCss) + "/my-card.css';";
+      stylesImportTag.innerHTML = "@import '" + "".concat(baseCss) + "/my-card.css';";
       stylesImportTag.toString();
-      this.root(_templateObject(), data.magic, data.imgsrc, data.linkMenu1.id, data.linkMenu1.cssClass, data.linkMenu1.link, data.linkMenu1.label, data.linkMenu1.label, data.linkMenu1.glyphicon, data.linkMenu2.id, data.linkMenu2.cssClass, data.linkMenu2.link, data.linkMenu2.label, data.linkMenu2.label, data.linkMenu2.glyphicon, data.linkMenu3.id, data.linkMenu3.cssClass, data.linkMenu3.link, data.linkMenu3.label, data.linkMenu3.label, data.linkMenu3.glyphicon, this.onclick, data.List.map(function (l) {
+      root(_templateObject(), data.magic, data.imgsrc, data.linkMenu1.id, data.linkMenu1.cssClass, data.linkMenu1.link, data.linkMenu1.label, data.linkMenu1.label, data.linkMenu1.glyphicon, data.linkMenu2.id, data.linkMenu2.cssClass, data.linkMenu2.link, data.linkMenu2.label, data.linkMenu2.label, data.linkMenu2.glyphicon, data.linkMenu3.id, data.linkMenu3.cssClass, data.linkMenu3.link, data.linkMenu3.label, data.linkMenu3.label, data.linkMenu3.glyphicon, onclick, data.List.map(function (l) {
         return " <a href=\"javascript:void(0);\">".concat(l.tag, "</a> -");
       }), data.time, data.title, data.paragraphs.map(function (p) {
         return "<p>".concat(p.para, "</p>");
@@ -2059,9 +2151,9 @@ function (_HTMLElement) {
   return myCard;
 }(_wrapNativeSuper(HTMLElement));
 /**
-/* Register the new item my-card
-/* (customizable)
-*/
+ * Register the new item my-card
+ * (customizable)
+ */
 
 
-customElements.define('my-card', myCard);
+customElements.define("my-card", myCard);
