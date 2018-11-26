@@ -24,8 +24,12 @@ Low and very light (-3Kb) dependencies make the component fast and easy to maint
 
 ## Features
 
-[x] WCAG 2.1 Level AA - Level AAA
-[x] extra Features in CSS Level 4 : :visible-focus (enable accessibility flags)
+- [x] WCAG 2.1 Level AA - Level AAA
+- [x] extra Features in CSS Level 4 : :visible-focus (enable accessibility flags)
+
+## Audits
+
+![Card webcomponent Audit](static/assets/metrics.png "Audit in Chrome devtool: Performance:100/100 - Accessibility: 100/100 - Best Practices:100/100 - SEO: 100/100")
 
 ## Build
 
