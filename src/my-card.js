@@ -150,9 +150,9 @@ class myCard extends HTMLElement {
         <img src="${data.imgsrc}" alt="" class="border-tlr-radius" />
       </div>
       <div class="card__content card__padding">
-        <div id="what-is-uportal-i18n-list" class="card__share" tabindex="-1">
+        <div id="what-is-uportal-i18n-list" class="card__share" tabindex="-1" role="menu">
           <div class="card__social card__fix--width">
-            <a id="${data.linkMenu1.id}" tabindex="0" class="${
+            <a role="menuitem" id="${data.linkMenu1.id}" tabindex="0" class="${
       data.linkMenu1.cssClass
     }" href="${data.linkMenu1.link}" title="${
       data.linkMenu1.label
@@ -161,7 +161,7 @@ class myCard extends HTMLElement {
     }" target="_blank" rel="noopener noreferrer"><span class="${
       data.linkMenu1.glyphicon
     }"></span></a>
-            <a id="${data.linkMenu2.id}" tabindex="0" class="${
+            <a role="menuitem" id="${data.linkMenu2.id}" tabindex="0" class="${
       data.linkMenu2.cssClass
     }" href="${data.linkMenu2.link}" title="${
       data.linkMenu2.label
@@ -170,7 +170,7 @@ class myCard extends HTMLElement {
     }" target="_blank" rel="noopener noreferrer"><span class="${
       data.linkMenu2.glyphicon
     }"></span></a>
-            <a id="${data.linkMenu3.id}" tabindex="0" class="${
+            <a role="menuitem" id="${data.linkMenu3.id}" tabindex="0" class="${
       data.linkMenu3.cssClass
     }" href="${data.linkMenu3.link}" title="${
       data.linkMenu3.label
@@ -180,7 +180,7 @@ class myCard extends HTMLElement {
       data.linkMenu3.glyphicon
     }"></span></a>
           </div>
-          <a class="share-toggle share-icon"  onclick="${onclick}" href="javascript:void(0);" aria-controls="what-is-uportal-i18n-list" aria-expanded="false" aria-label="Menu"><i class="fa fa-ellipsis-v"></i></a>
+          <a class="share-toggle share-icon"  onclick="${onclick}" href="javascript:void(0);" aria-controls="what-is-uportal-i18n-list" aria-expanded="false" aria-haspopup="true" aria-label="Menu"><i class="fa fa-ellipsis-v"></i></a>
 
 
         </div>
