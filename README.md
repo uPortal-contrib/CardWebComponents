@@ -7,7 +7,7 @@ So far tested in FF, Chrome, Safari and Edge (Windows, Mac, Linux, IOS & Android
 
 ## Dependancies
 
-Low and very light (-3Kb) dependencies makes the component fast and easy to maintain.
+Low and very light (-3Kb) dependencies make the component fast and easy to maintain.
 
 - hyperHTML @lastest
 - webcomponents-lite 1.2.0
@@ -40,7 +40,8 @@ Low and very light (-3Kb) dependencies makes the component fast and easy to main
 ## How it works
 
 open `index.html` and change `<html lang="en-US">` to `<html lang="fr-FR">`, the component will be in french.
-in uPortal, the component will change automatically according to the user's locales switcher.
+
+In uPortal, the component will change automatically according to the user's locales switcher.
 
 ## Running in uPortal
 
