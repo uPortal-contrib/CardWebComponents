@@ -7,8 +7,11 @@ So far tested in FF, Chrome, Safari and Edge (Windows, Mac, Linux, IOS & Android
 
 ## Dependancies
 
+Low and very light (-3Kb) dependencies make the component fast and easy to maintain.
+
 - hyperHTML @lastest
 - webcomponents-lite 1.2.0
+- Bootstrap 4.1.1
 
 ## Supported Languages
 
@@ -17,11 +20,18 @@ So far tested in FF, Chrome, Safari and Edge (Windows, Mac, Linux, IOS & Android
 - es-ES
 - nl-NL
 
+![Card webcomponent](static/assets/2018-11-26_14-29-23.gif "uPortal card in en-US, fr-FR, es-ES, nl-NL")
+
+## Features
+
+[x] WCAG 2.1 Level AA - Level AAA
+[x] extra Features in CSS Level 4 : :visible-focus (enable accessibility flags)
+
 ## Build
 
-use `npm install` to get dependencies.
-use `npm start` to view code in a local web server.
-use `npm test` to run lint checks
+- use `npm install` to get dependencies.
+- use `npm start` to view code in a local web server.
+- use `npm test` to run lint checks
 
 ## Screenshots
 
@@ -30,6 +40,8 @@ use `npm test` to run lint checks
 ## How it works
 
 open `index.html` and change `<html lang="en-US">` to `<html lang="fr-FR">`, the component will be in french.
+
+In uPortal, the component will change automatically according to the user's locales switcher.
 
 ## Running in uPortal
 
