@@ -29,7 +29,7 @@
   "List": [{ "tag": "Open Source" }, { "tag": "Apereo" }, { "tag": "Portail" }],
   "paragraphs": [
     {
-      "para": "<a href='http://www.apereo.org/uportal' target='_blank'>uPortal</a> est une plateforme de portail web Java gratuite et opensource, développée et maintenue par des personnel de l'Enseignement Supérieur sous la coordination de la Fondation <a href='http://www.apereo.org/' target='_blank'>Apereo</a>. uPortal peut aggréger du contenu, présenter des applications en libre-service, personnaliser la présentation et le contenu en fonction des groupes et des attributs utilisateur, piloter des applications pour appareils mobiles et permettre une personnalisation avancée et participative de l'expérience du portail. uPortal prend en charge la spécification de portlet Java JSR-286 et JSR-168 pour inclure vos applications personnalisées dans le portail."
+      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank'>uPortal</a> est une plateforme de portail web Java gratuite et opensource, développée et maintenue par des personnel de l'Enseignement Supérieur sous la coordination de la Fondation <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank'>Apereo</a>. uPortal peut aggréger du contenu, présenter des applications en libre-service, personnaliser la présentation et le contenu en fonction des groupes et des attributs utilisateur, piloter des applications pour appareils mobiles et permettre une personnalisation avancée et participative de l'expérience du portail. uPortal prend en charge la spécification de portlet Java JSR-286 et JSR-168 pour inclure vos applications personnalisées dans le portail."
     },
     { "para": "Welcome to uPortal." }
   ],
