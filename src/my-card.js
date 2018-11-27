@@ -131,12 +131,18 @@ class myCard extends HTMLElement {
     /**
      * build the import style tag into the Shadow DOM and append it to the ShadowDOM
      */
+    var preloadLink = document.createElement("link");
+    let temphrefcss = `${baseCss}` + "/my-card.css";
+    preloadLink.href = temphrefcss.toString();
+    preloadLink.rel = "preload";
+    preloadLink.as = "style";
+    preloadLink.toString();
     const stylesImportTag = document.createElement("style");
     stylesImportTag.lang = "css";
     stylesImportTag.innerHTML = "@import '" + `${baseCss}` + "/my-card.css';";
     stylesImportTag.toString();
     root`
-<style lang="css">
+<style lang="css" media="all">
 @import 'https://use.fontawesome.com/releases/v5.4.2/css/all.css';
 @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css';
 </style>
