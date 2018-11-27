@@ -142,10 +142,10 @@ class myCard extends HTMLElement {
     stylesImportTag.innerHTML = "@import '" + `${baseCss}` + "/my-card.css';";
     stylesImportTag.toString();
     root`
-<link rel="preload" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" as="style" crossorigin="anonymous">
+<link rel="preload" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" as="style" crossorigin="anonymous">
 <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" as="style" crossorigin="anonymous">
 <style lang="css" media="all">
-@import 'https://use.fontawesome.com/releases/v5.4.2/css/all.css';
+@import 'https://use.fontawesome.com/releases/v5.5.0/css/all.css';
 @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css';
 </style>
 
