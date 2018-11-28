@@ -49,7 +49,7 @@ In uPortal, the component will change automatically according to the user's loca
 
 ## Running in uPortal
 
-copy all the files in a `card/` directory, then copy this folder into
+copy all the files from `dist/` folder in a `card/` directory, then copy this folder into
 `uPortal-start/overlays/uPortal/src/main/webapp` (or other location served by Tomcat).
 
 #### Sample HTML
@@ -57,9 +57,9 @@ copy all the files in a `card/` directory, then copy this folder into
 Define a SimpleCMS portlet with HTML content like the following:
 
 ```HTML
-<my-card id="what-is-uportal-i18n" messagesPath="@uPortal/card/" cssPath="@uPortal/card/css"></my-card>
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<my-card id="what-is-uportal-i18n" messagesPath="../../../../uPortal/card/" cssPath="../../../../uPortal/card/css"></my-card>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js' defer></script>
 <script src='https://unpkg.com/regenerator-runtime@0.12.1/runtime.js' defer></script>
-<script  src="@uPortal/card/js/index.js" defer></script>
+<script src="../../../../uPortal/card/my-card.umd.js" defer></script>
 ```
