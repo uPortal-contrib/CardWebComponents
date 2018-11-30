@@ -5,7 +5,8 @@
   "linkMenu1": {
     "id": "museum-menu-item-1",
     "cssClass": "share-icon lightblue",
-    "glyphicon": "fab fa-twitter",
+    "glyphicon": "./svg/raw-svg/brands/twitter.svg",
+    "iconColor": "icon-white",
     "label": "Twitter: uPortal",
     "link": "https://twitter.com/uPortal",
     "name": "test"
@@ -13,7 +14,8 @@
   "linkMenu2": {
     "id": "museum-menu-item-2",
     "cssClass": "share-icon strongblue",
-    "glyphicon": "fas fa-envelope",
+    "glyphicon": "./svg/raw-svg/solid/envelope.svg",
+    "iconColor": "icon-white",
     "label": "Contact",
     "link": "mailto:uportal-user@apereo.org",
     "name": "Contact"
@@ -21,7 +23,8 @@
   "linkMenu3": {
     "id": "museum-menu-item-3",
     "cssClass": "share-icon black",
-    "glyphicon": "fab fa-github",
+    "glyphicon": "./svg/raw-svg/brands/github.svg",
+    "iconColor": "icon-white",
     "label": "Github: uPortal",
     "link": "https://github.com/jasig/uPortal",
     "name": "Github: uPortal"
@@ -36,7 +39,8 @@
   "button1": {
     "id": "museum-button-1",
     "cssClass": "btn btn-default btn-lg",
-    "glyphicon": "fab fa-github",
+    "glyphicon": "./svg/raw-svg/brands/github.svg",
+    "iconColor": "icon-black",
     "label": "Bekijk de broncode in Github",
     "link": "https://github.com/jasig/uportal-start",
     "name": "uPortal-Start"
@@ -44,7 +48,8 @@
   "button2": {
     "id": "museum-button-2",
     "cssClass": "btn btn-danger btn-lg",
-    "glyphicon": "fas fa-book",
+    "glyphicon": "./svg/raw-svg/solid/book.svg",
+    "iconColor": "icon-white",
     "label": "Engelse Documentatie",
     "link": "http://jasig.github.io/uPortal/",
     "name": "Handleiding (Engels)"

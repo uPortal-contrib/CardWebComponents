@@ -3,6 +3,18 @@
 /**
 * Helpers
 */
+img[typeof="foaf:Image"] {
+  width: 23px;
+  height: 23px;
+  top: -3px;
+  position: relative;
+}
+.icon-white {
+  filter: invert(1);
+}
+.icon-black {
+  filter: invert(0);
+}
 .border-tlr-radius {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
