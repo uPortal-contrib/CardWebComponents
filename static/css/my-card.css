@@ -3,6 +3,18 @@
 /**
 * Helpers
 */
+img[src$=".svg"] {
+  width: 21px;
+  height: 21px;
+  top: -4px;
+  position: relative;
+}
+.icon-white {
+  filter: invert(1);
+}
+.icon-black {
+  filter: invert(0);
+}
 .border-tlr-radius {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;

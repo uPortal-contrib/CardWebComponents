@@ -11,6 +11,7 @@ Low and very light (-3Kb) dependencies make the component fast and easy to maint
 
 - hyperHTML @lastest
 - webcomponents-lite 1.2.0
+- @fortawesome/fontawesome-free 5.5.0 (svg only)
 - Bootstrap 4.1.1
 
 ## Supported Languages
@@ -57,7 +58,6 @@ copy all the files from `dist/` folder in a `card/` directory, then copy this fo
 Define a SimpleCMS portlet with HTML content like the following:
 
 ```HTML
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <my-card id="what-is-uportal-i18n" messagesPath="../../../../uPortal/card/" cssPath="../../../../uPortal/card/css"></my-card>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js' defer></script>
 <script src='https://unpkg.com/regenerator-runtime@0.12.1/runtime.js' defer></script>

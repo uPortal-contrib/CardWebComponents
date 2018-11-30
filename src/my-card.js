@@ -24,6 +24,7 @@ class myCard extends HTMLElement {
     const pageLang = document.documentElement.lang;
 
     self.baseId = self.getAttribute("id");
+    self.baseSvg = path;
     self.base = self.urlMessages(path, pageLang);
     self.baseCss = self.getAttribute("cssPath");
   }
@@ -121,7 +122,7 @@ class myCard extends HTMLElement {
   }
 
   render() {
-    const { baseCss, data, onclick, root } = this;
+    const { baseSvg, baseCss, data, onclick, root } = this;
 
     // exit early if no data is present
     if (!data) {
@@ -142,10 +143,8 @@ class myCard extends HTMLElement {
     stylesImportTag.innerHTML = "@import '" + `${baseCss}` + "/my-card.css';";
     stylesImportTag.toString();
     root`
-<link rel="preload" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" as="style" crossorigin="anonymous">
 <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" as="style" crossorigin="anonymous">
 <style lang="css" media="all">
-@import 'https://use.fontawesome.com/releases/v5.5.0/css/all.css';
 @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css';
 </style>
 
@@ -166,34 +165,33 @@ class myCard extends HTMLElement {
       data.linkMenu1.label
     }" aria-label="${
       data.linkMenu1.label
-    }" target="_blank" rel="noopener noreferrer"><span class="${
-      data.linkMenu1.glyphicon
-    }"></span></a>
+    }" target="_blank" rel="noopener noreferrer"><img src="${baseSvg +
+      data.linkMenu1.glyphicon}" class="${data.linkMenu1.iconColor}" alt=""></a>
             <a role="menuitem" id="${data.linkMenu2.id}" tabindex="0" class="${
       data.linkMenu2.cssClass
     }" href="${data.linkMenu2.link}" title="${
       data.linkMenu2.label
     }" aria-label="${
       data.linkMenu2.label
-    }" target="_blank" rel="noopener noreferrer"><span class="${
-      data.linkMenu2.glyphicon
-    }"></span></a>
+    }" target="_blank" rel="noopener noreferrer"><img src="${baseSvg +
+      data.linkMenu2.glyphicon}" class="${data.linkMenu2.iconColor}" alt=""></a>
             <a role="menuitem" id="${data.linkMenu3.id}" tabindex="0" class="${
       data.linkMenu3.cssClass
     }" href="${data.linkMenu3.link}" title="${
       data.linkMenu3.label
     }" aria-label="${
       data.linkMenu3.label
-    }" target="_blank" rel="noopener noreferrer"><span class="${
-      data.linkMenu3.glyphicon
-    }"></span></a>
+    }" target="_blank" rel="noopener noreferrer"><img src="${baseSvg +
+      data.linkMenu3.glyphicon}" class="${data.linkMenu3.iconColor}" alt=""></a>
           </div>
-          <a class="share-toggle share-icon"  onclick="${onclick}" href="javascript:void(0);" aria-controls="what-is-uportal-i18n-list" aria-expanded="false" aria-haspopup="true" aria-label="Menu"><i class="fa fa-ellipsis-v"></i></a>
+          <a class="share-toggle share-icon"  onclick="${onclick}" href="javascript:void(0);" aria-controls="what-is-uportal-i18n-list" aria-expanded="false" aria-haspopup="true" aria-label="Menu"><img src="${baseSvg +
+      "solid/ellipsis-v.svg"}" class="icon-black" alt=""></i></a>
 
 
         </div>
         <div class="card__meta">
-          <i class="fa fa-tags" aria-label="Tag" lang="en"></i>&nbsp;:
+          <img src="${baseSvg +
+            "solid/tags.svg"}" class="icon-black" alt="Tags" lang="en-US">&nbsp;:
           <span>${data.List.map(
             l => ` <a href="javascript:void(0);">${l.tag}</a> -`
           )}</span>&nbsp;
@@ -209,16 +207,16 @@ class myCard extends HTMLElement {
       data.button1.cssClass
     }" title="${data.button1.label}" rel="noopener noreferrer">${
       data.button1.name
-    }&nbsp;<span class="${
-      data.button1.glyphicon
-    }" aria-hidden="true"></span></a>&nbsp;
+    }&nbsp;<img src="${baseSvg + data.button1.glyphicon}"  class="${
+      data.button1.iconColor
+    }"  alt="" aria-hidden="true"></a>&nbsp;
         <a href="${data.button2.link}" class="${
       data.button2.cssClass
     }" title="${data.button2.label}" rel="noopener noreferrer">${
       data.button2.name
-    }&nbsp;<span class="${
-      data.button2.glyphicon
-    }" aria-hidden="true"></span></a>
+    }&nbsp;<img src="${baseSvg + data.button2.glyphicon}"  class="${
+      data.button2.iconColor
+    }"  alt="" aria-hidden="true"></a>
       </div>
     </div>
   </div>
