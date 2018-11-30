@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "rollup -c",
-    "postbuild": "cp -r static/** dist",
+    "postbuild": "cp -r static/** dist | cp -r node_modules/@fortawesome/fontawesome-free/svgs/** dist",
     "prestart": "npm run build",
     "start": "serve dist",
     "test": "eslint src",
@@ -43,7 +43,8 @@
     ]
   },
   "dependencies": {
-    "hyperhtml": "^2.16.0"
+    "hyperhtml": "^2.16.0",
+    "@fortawesome/fontawesome-free": "^5.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
