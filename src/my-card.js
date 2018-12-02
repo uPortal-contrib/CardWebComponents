@@ -143,10 +143,7 @@ class myCard extends HTMLElement {
     stylesImportTag.innerHTML = "@import '" + `${baseCss}` + "/my-card.css';";
     stylesImportTag.toString();
     root`
-<link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" as="style" crossorigin="anonymous">
-<style lang="css" media="all">
-@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css';
-</style>
+
 
 
 
@@ -156,8 +153,18 @@ class myCard extends HTMLElement {
         <!--<img src="csm_hellink_268d15ec81 - Copie.jpg" alt="image" class="border-tlr-radius" />-->
         <img src="${data.imgsrc}" alt="" class="border-tlr-radius" />
       </div>
-      <div class="card__content card__padding">
-        <div id="what-is-uportal-i18n-list" class="card__share" tabindex="-1" role="menu">
+      <div class="card__content card__padding">  
+        <div class="card__article">
+          <h2>${data.title}</h2>
+          <div class="card__meta">
+          <img src="${baseSvg +
+            "solid/tags.svg"}" class="icon-black" alt="Tags" lang="en-US">&nbsp;:
+          <span>${data.List.map(
+            l => ` <a href="javascript:void(0);">${l.tag}</a> -`
+          )}</span>&nbsp;
+          <time>${data.time}</time>
+          </div>
+          <div id="what-is-uportal-i18n-list" class="card__share" tabindex="-1" role="menu">
           <div class="card__social card__fix--width">
             <a role="menuitem" id="${data.linkMenu1.id}" tabindex="0" class="${
       data.linkMenu1.cssClass
@@ -189,17 +196,9 @@ class myCard extends HTMLElement {
 
 
         </div>
-        <div class="card__meta">
-          <img src="${baseSvg +
-            "solid/tags.svg"}" class="icon-black" alt="Tags" lang="en-US">&nbsp;:
-          <span>${data.List.map(
-            l => ` <a href="javascript:void(0);">${l.tag}</a> -`
-          )}</span>&nbsp;
-          <time>${data.time}</time>
-        </div>
-        <div class="card__article">
-          <h2>${data.title}</h2>
-          <div>${data.paragraphs.map(p => `<p>${p.para}</p>`)}</div>
+          <div class="text">${data.paragraphs.map(
+            p => `<p>${p.para}</p>`
+          )}</div>
         </div>
       </div>
       <div class="card__action">
