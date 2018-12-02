@@ -92,7 +92,7 @@ video {
 img[src$=".svg"] {
   width: 21px;
   height: 21px;
-  top: 4px;
+  top: 6px;
   position: relative;
 }
 .icon-white {
@@ -107,14 +107,18 @@ img[src$=".svg"] {
 }
 .card__article a,
 .card__meta a {
-  color: #0000ff !important;
-  text-decoration: underline !important;
+  color: #005aa9;
+  text-decoration: none;
 }
-.card__action a.btn-default {
-  color: #0000ff !important;
+.card__article a:hover,
+.card__article a:focus,
+.card__meta a:hover,
+.card__meta a:focus {
+  color: #00315d;
+  text-decoration: underline;
 }
 a:focus-visible {
-  outline: 3px #0000ff dashed;
+  outline: 3px #00315d dashed;
   padding: 0.3rem;
 }
 .text-center {
@@ -173,7 +177,7 @@ a:focus-visible {
   background-color: #fff;
 }
 .card__content h2 {
-  font-size: 1.5rem;
+  font-size: 125%;
   position: relative;
   top: -1rem;
   display: inline-block;
@@ -227,16 +231,7 @@ a:focus-visible {
 * card article
 */
 .card__article a {
-  text-decoration: none;
-  color: #444;
   transition: all 0.5s ease;
-}
-.card__article a:hover {
-  color: #2980b9;
-}
-
-.card__article a:focus {
-  /* todo outline... */
 }
 /* card action */
 .card__action {
@@ -248,8 +243,8 @@ a:focus-visible {
   padding: 0.75rem;
   border: 1px solid red;
   text-decoration: none;
-  background-color: #e90000;
   color: white;
+  border-radius: 2px;
 }
 .card__action .btn:hover,
 .card__action .btn:focus {
