@@ -3,10 +3,96 @@
 /**
 * Helpers
 */
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
 img[src$=".svg"] {
   width: 21px;
   height: 21px;
-  top: -4px;
+  top: 4px;
   position: relative;
 }
 .icon-white {
@@ -27,9 +113,9 @@ img[src$=".svg"] {
 .card__action a.btn-default {
   color: #0000ff !important;
 }
-p a:focus-visible {
+a:focus-visible {
   outline: 3px #0000ff dashed;
-  padding: 0.2rem;
+  padding: 0.3rem;
 }
 .text-center {
   text-align: center;
@@ -63,11 +149,12 @@ p a:focus-visible {
 }
 
 .card__padding {
-  padding: 1.6rem;
+  padding: 0 1.6rem;
 }
 
 .card__image {
   background-color: #666;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 2.5rem));
   text-align: center;
   position: relative;
   z-index: 0;
@@ -85,7 +172,42 @@ p a:focus-visible {
   position: relative;
   background-color: #fff;
 }
-
+.card__content h2 {
+  font-size: 1.5rem;
+  position: relative;
+  top: -1rem;
+  display: inline-block;
+  margin-right: 4rem;
+  filter: drop-shadow(0.1rem -0.1rem 0 white);
+}
+.card__article .text {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.card__content p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+.card__content p:first-of-type:first-letter {
+  float: left;
+  padding-right: 0.05em;
+  font-family: Georgia, "New Times Roman", serif;
+  font-size: 3.5em;
+  line-height: 0.43em;
+  margin-bottom: -0.1em;
+  color: black !important;
+}
+.card__content p:last-child:after {
+  color: #777;
+  content: "\2766";
+  display: inline;
+  font-family: Georgia, "New Times Roman", serif;
+  font-size: 1.25em;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 0.75;
+}
 /**
 * card meta
 */
@@ -99,7 +221,6 @@ p a:focus-visible {
 .card__meta time {
   font-size: 1.05rem;
   color: #555;
-  margin-left: 0.8rem;
 }
 
 /**
@@ -119,15 +240,37 @@ p a:focus-visible {
 }
 /* card action */
 .card__action {
-  overflow: hidden;
-  padding-right: 1.6rem;
+  padding-top: 0.5rem;
   padding-left: 1.6rem;
   padding-bottom: 1.6rem;
+}
+.card__action .btn {
+  padding: 0.75rem;
+  border: 1px solid red;
+  text-decoration: none;
+  background-color: #e90000;
+  color: white;
+}
+.card__action .btn:hover,
+.card__action .btn:focus {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.card__action .btn:focus-visible {
+  outline: 3px #000000 dashed;
+}
+.card__action a.btn-default {
+  border: 1px solid black;
+  background-color: white;
+  color: black !important;
+}
+.card__action a.btn-danger {
+  border: 1px solid red;
+  background-color: #e90000;
+  color: white;
 }
 
 .card__author {
 }
-
 .card__author img,
 .card__author-content {
   display: inline-block;
@@ -140,9 +283,9 @@ p a:focus-visible {
 }
 
 .card__share {
-  float: right;
-  position: relative;
-  margin-top: -42px;
+  position: absolute;
+  top: -1.9rem;
+  right: 0.6rem;
   z-index: 10;
 }
 
