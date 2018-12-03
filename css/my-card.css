@@ -158,7 +158,8 @@ a:focus-visible {
 
 .card__image {
   background-color: #666;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 2.5rem));
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 36px));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 36px));
   text-align: center;
   position: relative;
   z-index: 0;
