@@ -75,6 +75,7 @@ class myCard extends HTMLElement {
       case "fr-FR":
       case "es-ES":
       case "en-US":
+      case "it":
       case "nl-NL": {
         return path + "i18n/" + pageLang;
       }
