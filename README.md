@@ -12,7 +12,7 @@ Low and very light (-3Kb) dependencies make the component fast and easy to maint
 - hyperHTML @lastest
 - webcomponents-lite 1.2.0
 - @fortawesome/fontawesome-free 5.5.0 (svg only)
-- Bootstrap 4.1.1
+- (Bootstrap 4.1.1)
 
 ## Supported Languages
 
@@ -30,7 +30,7 @@ Low and very light (-3Kb) dependencies make the component fast and easy to maint
 
 ## Audits
 
-![Card webcomponent Audit](static/assets/metrics.png "Audit in Chrome devtool: Performance:100/100 - Accessibility: 100/100 - Best Practices:100/100 - SEO: 100/100")
+![Card webcomponent Audit](static/assets/metrics_2018-12-04.png "Audit in Chrome devtool: Performance:100/100 - Accessibility: 100/100 - Best Practices:100/100 - SEO: 100/100")
 
 ## Build
 
@@ -40,11 +40,12 @@ Low and very light (-3Kb) dependencies make the component fast and easy to maint
 
 ## Screenshots
 
-![Card webcomponent](static/assets/cardwebcomponent.png "card in en-US")
+updated: 2018/12/04
+![Card webcomponent](static/assets/cardwebcomponent_2.png "card in en-US")
 
 ## How it works
 
-open `index.html` and change `<html lang="en-US">` to `<html lang="fr-FR">`, the component will be in french.
+open `dist/index.html` and change `<html lang="en-US">` to `<html lang="fr-FR">`, the component will be in french.
 
 In uPortal, the component will change automatically according to the user's locales switcher.
 
