@@ -6,6 +6,16 @@ import minify from "rollup-plugin-babel-minify";
 export default [
   {
     input: "src/my-card.js",
+    plugins: [
+      resolve(),
+      commonjs(),
+      babel(),
+      minify({
+        mangle: { topLevel: true }
+      })
+    ],
+    context: "null",
+    moduleContext: "null",
     output: [
       {
         format: "esm",
@@ -20,14 +30,6 @@ export default [
         format: "cjs",
         file: "dist/my-card.cjs.js"
       }
-    ],
-    plugins: [
-      resolve(),
-      commonjs(),
-      babel(),
-      minify({
-        mangle: { topLevel: true }
-      })
     ]
   }
 ];
