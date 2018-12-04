@@ -57,7 +57,6 @@
     "prettier": "^1.15.3",
     "rollup": "^0.67.4",
     "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-babel-minify": "^6.2.0",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "serve": "^10.1.1"
