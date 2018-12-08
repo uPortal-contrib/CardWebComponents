@@ -4,7 +4,9 @@
   "description": "Card Web Components for the uPortal ecosystem",
   "main": "dist/index.js",
   "scripts": {
-    "prebuild": "rm -rf dist",
+    "css-build": "node-sass --omit-source-map-url static/scss/my-card.scss static/css/my-card.css --output-style compressed",
+    "css-watch": "npm run css-build -- --watch",
+    "prebuild": "rm -rf dist | npm run css-build",
     "build": "rollup -c",
     "postbuild": "cp -r static/** dist | cp -r node_modules/@fortawesome/fontawesome-free/svgs/** dist",
     "prestart": "npm run build",
@@ -47,6 +49,7 @@
     "@fortawesome/fontawesome-free": "^5.5.0"
   },
   "devDependencies": {
+    "node-sass": "^4.10.0",
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
     "eslint": "^5.9.0",
