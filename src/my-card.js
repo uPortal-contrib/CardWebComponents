@@ -153,6 +153,7 @@ class myCard extends HTMLElement {
       <div class="card__image border-tlr-radius">
         <!--<img src="csm_hellink_268d15ec81 - Copie.jpg" alt="image" class="border-tlr-radius" />-->
         <img src="${data.imgsrc}" alt="" class="border-tlr-radius" />
+        <img src="./assets/triangle.png" alt="" class="mask" />
       </div>
       <div class="card__content card__padding">  
         <div class="card__article">
