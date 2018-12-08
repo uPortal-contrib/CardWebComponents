@@ -9,7 +9,7 @@
     "iconColor": "icon-white",
     "label": "Twitter: uPortal",
     "link": "https://twitter.com/uPortal",
-    "name": "test"
+    "name": "Twitter: uPortal"
   },
   "linkMenu2": {
     "id": "museum-menu-item-2",
@@ -29,7 +29,7 @@
     "link": "https://github.com/jasig/uPortal",
     "name": "Github: uPortal"
   },
-  "List": [{ "tag": "Opensource" }, { "tag": "Apereo" }, { "tag": "Portal" }],
+  "List": [{ "tag": "Open source" }, { "tag": "Apereo" }, { "tag": "Portal" }],
   "paragraphs": [
     {
       "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank'>uPortal</a> is a free and open source Java-implemented web portal platform developed and maintained by participants drawn from across higher education under the coordination of <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank'>Apereo</a>. uPortal can aggregate content, present self-service applications, personalize presentation and content on the basis of groups and user attributes, drive mobile device applications, and allow advanced end-user-participatory customization of the portal experience. uPortal supports the JSR-286 and JSR-168 Java portlet specification for including your custom applications within the portal."
