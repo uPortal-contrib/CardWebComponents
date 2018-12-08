@@ -22,7 +22,7 @@ Low and very light (-3Kb) dependencies make the component fast and easy to maint
 - nl-NL
 - it (_ new _)
 
-![Card webcomponent](static/assets/2018-11-26_14-29-23.gif "uPortal card in en-US, fr-FR, es-ES, nl-NL")
+![Card webcomponent](static/assets/2018-12-08_15-15-58.gif "uPortal card in en-US, fr-FR, es-ES, it, nl-NL")
 
 ## Features
 
