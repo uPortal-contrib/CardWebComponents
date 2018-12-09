@@ -133,16 +133,16 @@ class myCard extends HTMLElement {
     /**
      * build the import style tag into the Shadow DOM and append it to the ShadowDOM
      */
+    var head = document.head || document.getElementsByTagName("head")[0];
     var preloadLink = document.createElement("link");
     let temphrefcss = `${baseCss}` + "/my-card.css";
     preloadLink.href = temphrefcss.toString();
     preloadLink.rel = "preload";
     preloadLink.as = "style";
-    preloadLink.toString();
+    head.appendChild(preloadLink);
     const stylesImportTag = document.createElement("style");
     stylesImportTag.lang = "css";
     stylesImportTag.innerHTML = "@import '" + `${baseCss}` + "/my-card.css';";
-    stylesImportTag.toString();
     root`
 
 
@@ -222,9 +222,7 @@ class myCard extends HTMLElement {
     </div>
   </div>
 
-`
-      .appendChild(preloadLink)
-      .appendChild(stylesImportTag);
+`.appendChild(stylesImportTag);
   }
 }
 
