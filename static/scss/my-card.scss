@@ -152,6 +152,7 @@ div.card-wrapper {
           top: -1.9rem;
           right: 0.6rem;
           z-index: 10;
+          transition: all 0.5s ease;
 
           div.card__social {
             font-size: 1.2rem;
@@ -236,6 +237,8 @@ div.card-wrapper {
               outline: 3px orange dashed;
             }
           }
+          
+          
 
 
 
@@ -278,27 +281,30 @@ div.card-wrapper {
             &:before {
               color: #e90000;
             }
-            &.share-expanded {
-              outline: 0;
-              &:before {
-                /*content: "\f00d";*/
-                text-decoration: none;
-              }
-              text-decoration: none;
-              i {
-                transform: rotate(90deg);
-                position: relative;
-              }
-              .icon-black {
-
-              }
-            }
+            
           }
 
           a:focus-visible {
             outline: 3px orange dashed;
           }
         }
+        
+        div.share-expanded {
+              outline: 0;
+              &:before {
+                /*content: "\f00d";*/
+                text-decoration: none;
+              }
+              text-decoration: none;
+              &>a img {
+                transition: transform 0.35s ease;
+                transform: rotate(-90deg);
+                position: relative;
+              }
+              .icon-black {
+
+              }
+            }
 
         div.text {
           flex: 1 0 auto;
