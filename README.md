@@ -31,7 +31,7 @@ Low and very light (-3Kb) dependencies make the component fast and easy to maint
 
 ## Audits
 
-![Card webcomponent Audit](static/assets/metrics_2018-12-04.png "Audit in Chrome devtool: Performance:100/100 - Accessibility: 100/100 - Best Practices:100/100 - SEO: 100/100")
+![Card webcomponent Audit](static/assets/metrics_2018-12-09.png "Audit in Chrome devtool: Performance:100/100 - Accessibility: 100/100 - Best Practices:100/100 - SEO: 100/100")
 
 ## Build
 
