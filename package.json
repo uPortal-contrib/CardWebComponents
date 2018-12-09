@@ -4,7 +4,7 @@
   "description": "Card Web Components for the uPortal ecosystem",
   "main": "dist/index.js",
   "scripts": {
-    "css-build": "node-sass --omit-source-map-url static/scss/my-card.scss static/css/my-card.css --output-style compressed",
+    "css-build": "node-sass static/scss/my-card.scss static/css/my-card.css --output-style compressed",
     "css-watch": "npm run css-build -- --watch",
     "prebuild": "rm -rf dist | npm run css-build",
     "build": "rollup -c",
