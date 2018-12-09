@@ -228,6 +228,7 @@ div.card-wrapper div.card div.card__content div.card__article div.card__share {
   top: -1.9rem;
   right: 0.6rem;
   z-index: 10;
+  transition: all 0.5s ease;
 }
 div.card-wrapper
   div.card
@@ -534,7 +535,14 @@ div.card-wrapper
   div.card__content
   div.card__article
   div.card__share
-  a.share-toggle.share-expanded {
+  a:focus-visible {
+  outline: 3px orange dashed;
+}
+div.card-wrapper
+  div.card
+  div.card__content
+  div.card__article
+  div.share-expanded {
   outline: 0;
   text-decoration: none;
 }
@@ -542,27 +550,19 @@ div.card-wrapper
   div.card
   div.card__content
   div.card__article
-  div.card__share
-  a.share-toggle.share-expanded:before {
+  div.share-expanded:before {
   text-decoration: none;
 }
 div.card-wrapper
   div.card
   div.card__content
   div.card__article
-  div.card__share
-  a.share-toggle.share-expanded
-  i {
-  transform: rotate(90deg);
+  div.share-expanded
+  > a
+  img {
+  transition: transform 0.35s ease;
+  transform: rotate(-90deg);
   position: relative;
-}
-div.card-wrapper
-  div.card
-  div.card__content
-  div.card__article
-  div.card__share
-  a:focus-visible {
-  outline: 3px orange dashed;
 }
 div.card-wrapper div.card div.card__content div.card__article div.text {
   flex: 1 0 auto;

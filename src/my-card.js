@@ -193,7 +193,7 @@ class myCard extends HTMLElement {
     }" target="_blank" rel="noopener noreferrer"><img src="${baseSvg +
       data.linkMenu3.glyphicon}" class="${data.linkMenu3.iconColor}" alt=""></a>
           </div>
-          <a class="share-toggle share-icon"  onclick="${onclick}" href="javascript:void(0);" aria-controls="what-is-uportal-i18n-list" aria-expanded="false" aria-haspopup="true" aria-label="Menu"><img src="${baseSvg +
+          <a class="share-toggle share-icon"  onclick="${onclick}" href="javascript:void(0);" aria-controls="what-is-uportal-i18n-list" aria-haspopup="true" aria-label="Menu"><img src="${baseSvg +
       "solid/ellipsis-v.svg"}" class="icon-black" alt=""></i></a>
 
 
