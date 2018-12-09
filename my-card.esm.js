@@ -2194,21 +2194,21 @@ function (_HTMLElement) {
        */
 
 
+      var head = document.head || document.getElementsByTagName("head")[0];
       var preloadLink = document.createElement("link");
       var temphrefcss = "".concat(baseCss) + "/my-card.css";
       preloadLink.href = temphrefcss.toString();
       preloadLink.rel = "preload";
       preloadLink.as = "style";
-      preloadLink.toString();
+      head.appendChild(preloadLink);
       var stylesImportTag = document.createElement("style");
       stylesImportTag.lang = "css";
       stylesImportTag.innerHTML = "@import '" + "".concat(baseCss) + "/my-card.css';";
-      stylesImportTag.toString();
       root(_templateObject(), data.magic, data.imgsrc, data.title, baseSvg + "solid/tags.svg", data.List.map(function (l) {
         return " <a href=\"javascript:void(0);\">".concat(l.tag, "</a> -");
       }), data.time, data.linkMenu1.id, data.linkMenu1.cssClass, data.linkMenu1.link, data.linkMenu1.label, data.linkMenu1.label, baseSvg + data.linkMenu1.glyphicon, data.linkMenu1.iconColor, data.linkMenu2.id, data.linkMenu2.cssClass, data.linkMenu2.link, data.linkMenu2.label, data.linkMenu2.label, baseSvg + data.linkMenu2.glyphicon, data.linkMenu2.iconColor, data.linkMenu3.id, data.linkMenu3.cssClass, data.linkMenu3.link, data.linkMenu3.label, data.linkMenu3.label, baseSvg + data.linkMenu3.glyphicon, data.linkMenu3.iconColor, onclick, baseSvg + "solid/ellipsis-v.svg", data.paragraphs.map(function (p) {
         return "<p>".concat(p.para, "</p>");
-      }), data.button1.link, data.button1.cssClass, data.button1.label, data.button1.name, baseSvg + data.button1.glyphicon, data.button1.iconColor, data.button2.link, data.button2.cssClass, data.button2.label, data.button2.name, baseSvg + data.button2.glyphicon, data.button2.iconColor).appendChild(preloadLink).appendChild(stylesImportTag);
+      }), data.button1.link, data.button1.cssClass, data.button1.label, data.button1.name, baseSvg + data.button1.glyphicon, data.button1.iconColor, data.button2.link, data.button2.cssClass, data.button2.label, data.button2.name, baseSvg + data.button2.glyphicon, data.button2.iconColor).appendChild(stylesImportTag);
     }
   }]);
 
