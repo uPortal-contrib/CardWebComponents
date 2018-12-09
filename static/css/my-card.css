@@ -561,6 +561,7 @@ div.card-wrapper
   > a
   img {
   transition: transform 0.35s ease;
+  -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
   position: relative;
 }
@@ -626,7 +627,6 @@ div.card-wrapper
   div.card__content
   div.card__article
   div.text
-  p
   p:last-child:after {
   color: #777;
   content: "\2766";
