@@ -323,14 +323,34 @@ div.card-wrapper {
                 padding: 0.3rem;
               }
             }
+            
+            &:first-of-type:first-line {
+              font-variant-caps: small-caps;
+            }
+            
+            &:first-of-type::first-line {
+              font-variant-caps: small-caps;
+            }
 
             &:first-of-type:first-letter {
               float: left;
-              padding-right: 0.05em;
+              padding-right: 0.07em;
               font-family: Georgia, "New Times Roman", serif;
-              font-size: 3.5em;
-              line-height: 0.43em;
-              margin-bottom: -0.1em;
+              font-size: 4.2em;
+              font-variant-caps:normal;
+              line-height: 0.3em;
+              margin-bottom: 0;
+              color: black !important;
+            }
+            
+            &:first-of-type::first-letter {
+              float: left;
+              padding-right: 0.07em;
+              font-family: Georgia, "New Times Roman", serif;
+              font-size: 4.2em;
+              font-variant-caps:normal;
+              line-height: 0.3em;
+              margin-bottom: 0;
               color: black !important;
             }
 
