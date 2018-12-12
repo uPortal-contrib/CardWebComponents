@@ -1,305 +1,449 @@
 {
-  "$id": "http://example.com/example.json",
-  "type": "object",
   "definitions": {},
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "CardWebComponents Schema",
+  "required": [
+    "imgsrc",
+    "title",
+    "time",
+    "linkMenu1",
+    "linkMenu2",
+    "linkMenu3",
+    "List",
+    "paragraphs",
+    "button1",
+    "button2"
+  ],
   "properties": {
     "imgsrc": {
-      "$id": "/properties/imgsrc",
+      "$id": "#/properties/imgsrc",
       "type": "string",
-      "title": "The Imgsrc Schema ",
+      "title": "The Imgsrc Schema",
       "default": "",
       "examples": [
         "https://cousquer.github.io/apereo2017/assets/artworks/apereo-uportal.jpg"
-      ]
+      ],
+      "pattern": "^(.*)$"
     },
     "title": {
-      "$id": "/properties/title",
+      "$id": "#/properties/title",
       "type": "string",
-      "title": "The Title Schema ",
+      "title": "The Title Schema",
       "default": "",
-      "examples": ["Qu'est-ce que uPortal ?"]
+      "examples": ["What is uPortal?"],
+      "pattern": "^(.*)$"
     },
     "time": {
-      "$id": "/properties/time",
+      "$id": "#/properties/time",
       "type": "string",
-      "title": "The Time Schema ",
+      "title": "The Time Schema",
       "default": "",
-      "examples": ["13 Juin 2018"]
+      "examples": ["June 13, 2018"],
+      "pattern": "^(.*)$"
     },
     "linkMenu1": {
-      "$id": "/properties/linkMenu1",
+      "$id": "#/properties/linkMenu1",
       "type": "object",
+      "title": "The Linkmenu1 Schema",
+      "required": [
+        "id",
+        "cssClass",
+        "glyphicon",
+        "iconColor",
+        "label",
+        "link",
+        "name"
+      ],
       "properties": {
         "id": {
-          "$id": "/properties/linkMenu1/properties/id",
+          "$id": "#/properties/linkMenu1/properties/id",
           "type": "string",
-          "title": "The Id Schema ",
+          "title": "The Id Schema",
           "default": "",
-          "examples": ["museum-menu-item-1"]
+          "examples": ["museum-menu-item-1"],
+          "pattern": "^(.*)$"
         },
         "cssClass": {
-          "$id": "/properties/linkMenu1/properties/cssClass",
+          "$id": "#/properties/linkMenu1/properties/cssClass",
           "type": "string",
-          "title": "The Cssclass Schema ",
+          "title": "The Cssclass Schema",
           "default": "",
-          "examples": ["share-icon lightblue"]
+          "examples": ["share-icon lightblue"],
+          "pattern": "^(.*)$"
         },
         "glyphicon": {
-          "$id": "/properties/linkMenu1/properties/glyphicon",
+          "$id": "#/properties/linkMenu1/properties/glyphicon",
           "type": "string",
-          "title": "The Glyphicon Schema ",
+          "title": "The Glyphicon url Schema",
           "default": "",
-          "examples": ["fa fa-twitter"]
+          "examples": ["brands/twitter.svg"],
+          "pattern": "^(.*)$"
+        },
+        "iconColor": {
+          "$id": "#/properties/linkMenu1/properties/iconColor",
+          "type": "string",
+          "title": "The Icon color css Class Schema",
+          "default": "",
+          "examples": ["icon-white"],
+          "pattern": "^(.*)$"
         },
         "label": {
-          "$id": "/properties/linkMenu1/properties/label",
+          "$id": "#/properties/linkMenu1/properties/label",
           "type": "string",
-          "title": "The Label Schema ",
+          "title": "The Label Schema",
           "default": "",
-          "examples": ["Twitter: mozVR"]
+          "examples": ["Twitter: uPortal"],
+          "pattern": "^(.*)$"
         },
         "link": {
-          "$id": "/properties/linkMenu1/properties/link",
+          "$id": "#/properties/linkMenu1/properties/link",
           "type": "string",
-          "title": "The Link Schema ",
+          "title": "The Link url Schema",
           "default": "",
-          "examples": ["https://twitter.com/uPortal"]
+          "examples": ["https://twitter.com/uPortal"],
+          "pattern": "^(.*)$"
         },
         "name": {
-          "$id": "/properties/linkMenu1/properties/name",
+          "$id": "#/properties/linkMenu1/properties/name",
           "type": "string",
-          "title": "The Name Schema ",
+          "title": "The Name Schema",
           "default": "",
-          "examples": ["test"]
+          "examples": ["Twitter: uPortal"],
+          "pattern": "^(.*)$"
         }
       }
     },
     "linkMenu2": {
-      "$id": "/properties/linkMenu2",
+      "$id": "#/properties/linkMenu2",
       "type": "object",
+      "title": "The Linkmenu2 Schema",
+      "required": [
+        "id",
+        "cssClass",
+        "glyphicon",
+        "iconColor",
+        "label",
+        "link",
+        "name"
+      ],
       "properties": {
         "id": {
-          "$id": "/properties/linkMenu2/properties/id",
+          "$id": "#/properties/linkMenu2/properties/id",
           "type": "string",
-          "title": "The Id Schema ",
+          "title": "The Id Schema",
           "default": "",
-          "examples": ["museum-menu-item-2"]
+          "examples": ["museum-menu-item-2"],
+          "pattern": "^(.*)$"
         },
         "cssClass": {
-          "$id": "/properties/linkMenu2/properties/cssClass",
+          "$id": "#/properties/linkMenu2/properties/cssClass",
           "type": "string",
-          "title": "The Cssclass Schema ",
+          "title": "The Cssclass Schema",
           "default": "",
-          "examples": ["share-icon strongblue"]
+          "examples": ["share-icon strongblue"],
+          "pattern": "^(.*)$"
         },
         "glyphicon": {
-          "$id": "/properties/linkMenu2/properties/glyphicon",
+          "$id": "#/properties/linkMenu2/properties/glyphicon",
           "type": "string",
-          "title": "The Glyphicon Schema ",
+          "title": "The Glyphicon url Schema",
           "default": "",
-          "examples": ["glyphicon glyphicon-envelope"]
+          "examples": ["solid/envelope.svg"],
+          "pattern": "^(.*)$"
+        },
+        "iconColor": {
+          "$id": "#/properties/linkMenu2/properties/iconColor",
+          "type": "string",
+          "title": "The Iconcolor css Class Schema",
+          "default": "",
+          "examples": ["icon-white"],
+          "pattern": "^(.*)$"
         },
         "label": {
-          "$id": "/properties/linkMenu2/properties/label",
+          "$id": "#/properties/linkMenu2/properties/label",
           "type": "string",
-          "title": "The Label Schema ",
+          "title": "The Label Schema",
           "default": "",
-          "examples": ["Contact"]
+          "examples": ["Contact"],
+          "pattern": "^(.*)$"
         },
         "link": {
-          "$id": "/properties/linkMenu2/properties/link",
+          "$id": "#/properties/linkMenu2/properties/link",
           "type": "string",
-          "title": "The Link Schema ",
+          "title": "The Link Schema",
           "default": "",
-          "examples": ["mailto:uportal-user@apereo.org"]
+          "examples": ["mailto:uportal-user@apereo.org"],
+          "pattern": "^(.*)$"
         },
         "name": {
-          "$id": "/properties/linkMenu2/properties/name",
+          "$id": "#/properties/linkMenu2/properties/name",
           "type": "string",
-          "title": "The Name Schema ",
+          "title": "The Name Schema",
           "default": "",
-          "examples": ["test"]
+          "examples": ["Contact"],
+          "pattern": "^(.*)$"
         }
       }
     },
     "linkMenu3": {
-      "$id": "/properties/linkMenu3",
+      "$id": "#/properties/linkMenu3",
       "type": "object",
+      "title": "The Linkmenu3 Schema",
+      "required": [
+        "id",
+        "cssClass",
+        "glyphicon",
+        "iconColor",
+        "label",
+        "link",
+        "name"
+      ],
       "properties": {
         "id": {
-          "$id": "/properties/linkMenu3/properties/id",
+          "$id": "#/properties/linkMenu3/properties/id",
           "type": "string",
-          "title": "The Id Schema ",
+          "title": "The Id Schema",
           "default": "",
-          "examples": ["museum-menu-item-3"]
+          "examples": ["museum-menu-item-3"],
+          "pattern": "^(.*)$"
         },
         "cssClass": {
-          "$id": "/properties/linkMenu3/properties/cssClass",
+          "$id": "#/properties/linkMenu3/properties/cssClass",
           "type": "string",
-          "title": "The Cssclass Schema ",
+          "title": "The Cssclass Schema",
           "default": "",
-          "examples": ["share-icon black"]
+          "examples": ["share-icon black"],
+          "pattern": "^(.*)$"
         },
         "glyphicon": {
-          "$id": "/properties/linkMenu3/properties/glyphicon",
+          "$id": "#/properties/linkMenu3/properties/glyphicon",
           "type": "string",
-          "title": "The Glyphicon Schema ",
+          "title": "The Glyphicon url Schema",
           "default": "",
-          "examples": ["fa fa-github"]
+          "examples": ["brands/github.svg"],
+          "pattern": "^(.*)$"
+        },
+        "iconColor": {
+          "$id": "#/properties/linkMenu3/properties/iconColor",
+          "type": "string",
+          "title": "The Iconcolor Schema",
+          "default": "",
+          "examples": ["icon-white"],
+          "pattern": "^(.*)$"
         },
         "label": {
-          "$id": "/properties/linkMenu3/properties/label",
+          "$id": "#/properties/linkMenu3/properties/label",
           "type": "string",
-          "title": "The Label Schema ",
+          "title": "The Label Schema",
           "default": "",
-          "examples": ["Github: uPortal"]
+          "examples": ["Github: uPortal"],
+          "pattern": "^(.*)$"
         },
         "link": {
-          "$id": "/properties/linkMenu3/properties/link",
+          "$id": "#/properties/linkMenu3/properties/link",
           "type": "string",
-          "title": "The Link Schema ",
+          "title": "The Link url Schema",
           "default": "",
-          "examples": ["https://github.com/jasig/uPortal"]
+          "examples": ["https://github.com/jasig/uPortal"],
+          "pattern": "^(.*)$"
         },
         "name": {
-          "$id": "/properties/linkMenu3/properties/name",
+          "$id": "#/properties/linkMenu3/properties/name",
           "type": "string",
-          "title": "The Name Schema ",
+          "title": "The Name Schema",
           "default": "",
-          "examples": ["test"]
+          "examples": ["Github: uPortal"],
+          "pattern": "^(.*)$"
         }
       }
     },
     "List": {
-      "$id": "/properties/List",
+      "$id": "#/properties/List",
       "type": "array",
+      "title": "The List Tags Schema",
       "items": {
-        "$id": "/properties/List/items",
+        "$id": "#/properties/List/items",
         "type": "object",
+        "title": "The Items Schema",
+        "required": ["tag"],
         "properties": {
           "tag": {
-            "$id": "/properties/List/items/properties/tag",
+            "$id": "#/properties/List/items/properties/tag",
             "type": "string",
-            "title": "The Tag Schema ",
+            "title": "The Tag name Schema",
             "default": "",
-            "examples": ["Open Source"]
+            "examples": ["Open source"],
+            "pattern": "^(.*)$"
           }
         }
       }
     },
     "paragraphs": {
-      "$id": "/properties/paragraphs",
+      "$id": "#/properties/paragraphs",
       "type": "array",
+      "title": "The Paragraphs Schema",
       "items": {
-        "$id": "/properties/paragraphs/items",
+        "$id": "#/properties/paragraphs/items",
         "type": "object",
+        "title": "The Items Schema",
+        "required": ["para"],
         "properties": {
           "para": {
-            "$id": "/properties/paragraphs/items/properties/para",
+            "$id": "#/properties/paragraphs/items/properties/para",
             "type": "string",
-            "title": "The Para Schema ",
+            "title": "The Para Schema",
             "default": "",
             "examples": [
-              "<a href='http://www.apereo.org/uportal' target='_blank'>uPortal</a> est une plateforme de portail web Java gratuite et opensource, développée et maintenue par des personnel de l'Enseignement Supérieur sous la coordination de la Fondation <a href='http://www.apereo.org/' target='_blank'>Apereo</a>. uPortal peut aggréger du contenu, présenter des applications en libre-service, personnaliser la présentation et le contenu en fonction des groupes et des attributs utilisateur, piloter des applications pour appareils mobiles et permettre une personnalisation avancée et participative de l'expérience du portail. uPortal prend en charge la spécification de portlet Java JSR-286 et JSR-168 pour inclure vos applications personnalisées dans le portail."
-            ]
+              "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank'>uPortal</a> is a free and open source Java-implemented web portal platform developed and maintained by participants drawn from across higher education under the coordination of <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank'>Apereo</a>. "
+            ],
+            "pattern": "^(.*)$"
           }
         }
       }
     },
     "button1": {
-      "$id": "/properties/button1",
+      "$id": "#/properties/button1",
       "type": "object",
+      "title": "The Button1 Schema",
+      "required": [
+        "id",
+        "cssClass",
+        "glyphicon",
+        "iconColor",
+        "label",
+        "link",
+        "name"
+      ],
       "properties": {
         "id": {
-          "$id": "/properties/button1/properties/id",
+          "$id": "#/properties/button1/properties/id",
           "type": "string",
-          "title": "The Id Schema ",
+          "title": "The Id Schema",
           "default": "",
-          "examples": ["museum-button-1"]
+          "examples": ["museum-button-1"],
+          "pattern": "^(.*)$"
         },
         "cssClass": {
-          "$id": "/properties/button1/properties/cssClass",
+          "$id": "#/properties/button1/properties/cssClass",
           "type": "string",
-          "title": "The Cssclass Schema ",
+          "title": "The Cssclass Schema",
           "default": "",
-          "examples": ["btn btn-default"]
+          "examples": ["btn btn-default btn-lg"],
+          "pattern": "^(.*)$"
         },
         "glyphicon": {
-          "$id": "/properties/button1/properties/glyphicon",
+          "$id": "#/properties/button1/properties/glyphicon",
           "type": "string",
-          "title": "The Glyphicon Schema ",
+          "title": "The Glyphicon url Schema",
           "default": "",
-          "examples": ["fa fa-github"]
+          "examples": ["brands/github.svg"],
+          "pattern": "^(.*)$"
+        },
+        "iconColor": {
+          "$id": "#/properties/button1/properties/iconColor",
+          "type": "string",
+          "title": "The Iconcolor css Class Schema",
+          "default": "",
+          "examples": ["icon-black"],
+          "pattern": "^(.*)$"
         },
         "label": {
-          "$id": "/properties/button1/properties/label",
+          "$id": "#/properties/button1/properties/label",
           "type": "string",
-          "title": "The Label Schema ",
+          "title": "The Title Attribute Schema",
           "default": "",
-          "examples": ["Aller sur les sources Github"]
+          "examples": ["Check the sources on Github"],
+          "pattern": "^(.*)$"
         },
         "link": {
-          "$id": "/properties/button1/properties/link",
+          "$id": "#/properties/button1/properties/link",
           "type": "string",
-          "title": "The Link Schema ",
+          "title": "The Link Schema",
           "default": "",
-          "examples": ["https://github.com/jasig/uportal-start"]
+          "examples": ["https://github.com/jasig/uportal-start"],
+          "pattern": "^(.*)$"
         },
         "name": {
-          "$id": "/properties/button1/properties/name",
+          "$id": "#/properties/button1/properties/name",
           "type": "string",
-          "title": "The Name Schema ",
+          "title": "The Label Schema",
           "default": "",
-          "examples": ["uPortal-Start"]
+          "examples": ["uPortal-Start"],
+          "pattern": "^(.*)$"
         }
       }
     },
     "button2": {
-      "$id": "/properties/button2",
+      "$id": "#/properties/button2",
       "type": "object",
+      "title": "The Button2 Schema",
+      "required": [
+        "id",
+        "cssClass",
+        "glyphicon",
+        "iconColor",
+        "label",
+        "link",
+        "name"
+      ],
       "properties": {
         "id": {
-          "$id": "/properties/button2/properties/id",
+          "$id": "#/properties/button2/properties/id",
           "type": "string",
-          "title": "The Id Schema ",
+          "title": "The Id Schema",
           "default": "",
-          "examples": ["museum-button-2"]
+          "examples": ["museum-button-2"],
+          "pattern": "^(.*)$"
         },
         "cssClass": {
-          "$id": "/properties/button2/properties/cssClass",
+          "$id": "#/properties/button2/properties/cssClass",
           "type": "string",
-          "title": "The Cssclass Schema ",
+          "title": "The Cssclass Schema",
           "default": "",
-          "examples": ["btn btn-danger"]
+          "examples": ["btn btn-danger btn-lg"],
+          "pattern": "^(.*)$"
         },
         "glyphicon": {
-          "$id": "/properties/button2/properties/glyphicon",
+          "$id": "#/properties/button2/properties/glyphicon",
           "type": "string",
-          "title": "The Glyphicon Schema ",
+          "title": "The Glyphicon url Schema",
           "default": "",
-          "examples": ["fa fa-book"]
+          "examples": ["solid/book.svg"],
+          "pattern": "^(.*)$"
+        },
+        "iconColor": {
+          "$id": "#/properties/button2/properties/iconColor",
+          "type": "string",
+          "title": "The Iconcolor css Class Schema",
+          "default": "",
+          "examples": ["icon-white"],
+          "pattern": "^(.*)$"
         },
         "label": {
-          "$id": "/properties/button2/properties/label",
+          "$id": "#/properties/button2/properties/label",
           "type": "string",
-          "title": "The Label Schema ",
+          "title": "The title Attribute Schema",
           "default": "",
-          "examples": ["Documentation française"]
+          "examples": ["English Documentation"],
+          "pattern": "^(.*)$"
         },
         "link": {
-          "$id": "/properties/button2/properties/link",
+          "$id": "#/properties/button2/properties/link",
           "type": "string",
-          "title": "The Link Schema ",
+          "title": "The Link Schema",
           "default": "",
-          "examples": ["http://jasig.github.io/uPortal/fr/"]
+          "examples": ["http://jasig.github.io/uPortal/"],
+          "pattern": "^(.*)$"
         },
         "name": {
-          "$id": "/properties/button2/properties/name",
+          "$id": "#/properties/button2/properties/name",
           "type": "string",
-          "title": "The Name Schema ",
+          "title": "The Name Schema",
           "default": "",
-          "examples": ["Manuel"]
+          "examples": ["Manual"],
+          "pattern": "^(.*)$"
         }
       }
     }
