@@ -20,11 +20,12 @@ Apache-2.0
 
 ## Supported Languages
 
-- en-US (default)
-- fr-FR
-- es-ES
-- nl-NL
-- it (_ new _)
+- `en-US` (default). :eyes: See it in [english](https://cousquer.github.io/CardWebComponents/) :us:
+- `fr-FR` . :eyes: See it in [french](https://cousquer.github.io/CardWebComponents/index_fr) :fr:
+- `es-ES` . :eyes: See it in [spanish](https://cousquer.github.io/CardWebComponents/index_es) :es:
+- `nl-NL` . :eyes: See it in [dutch](https://cousquer.github.io/CardWebComponents/index_nl)]
+- `it` . :eyes: See it in [italian](https://cousquer.github.io/CardWebComponents/index_it) :it:
+- `ar` . :eyes: See it in [Standard Arabic](https://cousquer.github.io/CardWebComponents/index_ar)
 
 ![Card webcomponent](doc/images/2018-12-08_15-15-58.gif "uPortal card in en-US, fr-FR, es-ES, it, nl-NL")
 
@@ -45,8 +46,9 @@ Apache-2.0
 
 ## Screenshots
 
-updated: 2018/12/04
 ![Card webcomponent](doc/images/cardwebcomponent_2.png "card in en-US")
+
+updated: 2018/12/04
 
 ## How it works
 
