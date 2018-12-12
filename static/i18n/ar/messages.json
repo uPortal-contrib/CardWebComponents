@@ -36,9 +36,9 @@
   ],
   "paragraphs": [
     {
-      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank'>uPortal</a> عبارة عن منصة بوابة ويب مجانية مفتوحة المصدر ومفتوحة المصدر تم تطويرها وصيانتها من قبل المشاركين من التعليم العالي في إطار تنسيق <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank'>Apereo</a>. يمكن لـ uPortal تجميع المحتوى ، وتقديم تطبيقات الخدمة الذاتية ، وتخصيص العرض التقديمي والمحتوى على أساس المجموعات وسمات المستخدم ، ودفع تطبيقات الجهاز المحمول ، والسماح بالتخصيص المتقدم للمستخدم النهائي لتجارب البوابة.تدعم uPortal مواصفات JSR-286 و JSR-168 Java portlet لتضمين تطبيقاتك المخصصة داخل البوابة."
+      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank' lang='en-US'>uPortal</a> هو عبارة عن منصة بوابة ويب مجانية مفتوحة المصدر تعتمد لغة <span  lang='en-US'>Java</span> تم تطويرها وصيانتها من قبل مشاركين من التعليم العالي في إطار تنسيق <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank' lang='en-US'>Apereo</a>. يمكن لـ <span  lang='en-US'>uPortal</span> أن يجمّع المحتوى ، ويقدّم تطبيقات الخدمة الذاتية ، ويشخصن العرض والمحتوى على أساس سمات المستخدم أو المجموعات ، ويسيّر تطبيقات الجهاز المحمول ، ويسمح  للمستخدم النهائي بالمشاركة المتقدمة في شخصنة تجارب البوابة. تدعم uPortal مواصفات <span  lang='en-US'>JSR-286</span>  و <span  lang='en-US'>JSR-168 Java portlet</span> لتضمين تطبيقاتك المخصّصة داخل البوابة."
     },
-    { "para": "مرحبًا بك في uPortal." }
+    { "para": "مرحبا بكم في <span  lang='en-US'>uPortal</span>." }
   ],
   "button1": {
     "id": "museum-button-1",
