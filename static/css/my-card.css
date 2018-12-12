@@ -115,7 +115,7 @@ div.ar div.card__content div.card__article h2 {
 div.ar div.card__content div.card__article div.card__meta {
   clear: left !important;
   top: -0.4rem !important;
-  padding: 0 4.3rem 0 1.6rem !important;
+  padding: 0 2.3rem 0 1.6rem !important;
   position: relative;
   direction: rtl !important;
 }
@@ -176,6 +176,9 @@ div.ar div.card__content div.card__article div.text p:last-child:after {
   font-style: italic;
   font-weight: 300;
   line-height: 0.75;
+}
+div.ar div.card__action a.btn {
+  margin-right: 0.5rem;
 }
 div.ar div.card__action a.btn-default {
   border: 1px solid black;
@@ -772,6 +775,8 @@ div.card-wrapper div.card div.card__action a.btn {
   transition: all 0.5s ease;
   color: white;
   border-radius: 2px;
+  display: inline-block;
+  margin-top: 0.5rem;
 }
 div.card-wrapper div.card div.card__action a.btn:hover,
 div.card-wrapper div.card div.card__action a.btn:focus {
