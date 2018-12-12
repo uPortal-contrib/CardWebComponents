@@ -72,6 +72,7 @@ class myCard extends HTMLElement {
    */
   urlMessages(path, pageLang) {
     switch (pageLang) {
+      case "ar":
       case "fr-FR":
       case "es-ES":
       case "en-US":
@@ -143,12 +144,15 @@ class myCard extends HTMLElement {
     const stylesImportTag = document.createElement("style");
     stylesImportTag.lang = "css";
     stylesImportTag.innerHTML = "@import '" + `${baseCss}` + "/my-card.css';";
+    var classlang =
+      "card-wrapper" + " " + document.getElementsByTagName("html")[0].lang;
+
     root`
 
 
 
 
-  <div data-magic="${data.magic}" class="card-wrapper">
+  <div data-magic="${data.magic}" class="${classlang}">
     <div class="card radius shadowDepth1">
       <div class="card__image border-tlr-radius">
         <!--<img src="csm_hellink_268d15ec81 - Copie.jpg" alt="image" class="border-tlr-radius" />-->
@@ -161,9 +165,9 @@ class myCard extends HTMLElement {
           <div class="card__meta">
           <img src="${baseSvg +
             "solid/tags.svg"}" class="icon-black" alt="Tags" lang="en-US">&nbsp;:
-          <span>${data.List.map(
+          <div>${data.List.map(
             l => ` <a href="javascript:void(0);">${l.tag}</a> -`
-          )}</span>&nbsp;
+          )}</div>&nbsp;
           <time>${data.time}</time>
           </div>
           <div id="what-is-uportal-i18n-list" class="card__share" tabindex="-1" role="menu">

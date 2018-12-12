@@ -104,6 +104,89 @@ a:focus-visible {
 .shadowDepth1 {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
+.rtl {
+  direction: rtl;
+}
+div.ar div.card__content div.card__article h2 {
+  font-size: 135% !important;
+  direction: rtl !important;
+  float: left !important;
+}
+div.ar div.card__content div.card__article div.card__meta {
+  clear: left !important;
+  top: -0.4rem !important;
+  padding: 0 4.3rem 0 1.6rem !important;
+  position: relative;
+  direction: rtl !important;
+}
+div.ar div.card__content div.card__article div.card__meta time {
+  direction: rtl !important;
+}
+div.ar div.card__content div.card__article div.text {
+  direction: rtl !important;
+}
+div.ar div.card__content div.card__article div.text p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+div.ar div.card__content div.card__article div.text p:first-of-type:first-line {
+  font-variant-caps: small-caps;
+}
+div.ar
+  div.card__content
+  div.card__article
+  div.text
+  p:first-of-type::first-line {
+  font-variant-caps: small-caps;
+}
+div.ar
+  div.card__content
+  div.card__article
+  div.text
+  p:first-of-type:first-letter {
+  float: none !important;
+  padding-right: 0 !important;
+  font-family: Georgia, "New Times Roman", serif;
+  font-size: initial !important;
+  font-variant-caps: normal !important;
+  line-height: initial !important;
+  margin-bottom: 0 !important;
+  color: initial !important;
+}
+div.ar
+  div.card__content
+  div.card__article
+  div.text
+  p:first-of-type::first-letter {
+  float: none !important;
+  padding-right: 0 !important;
+  font-family: Georgia, "New Times Roman", serif;
+  font-size: initial !important;
+  font-variant-caps: normal !important;
+  line-height: initial !important;
+  margin-bottom: 0 !important;
+  color: initial !important;
+}
+div.ar div.card__content div.card__article div.text p:last-child:after {
+  color: #777;
+  content: "\2766";
+  display: inline;
+  font-family: Georgia, "New Times Roman", serif;
+  font-size: 1.25em;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 0.75;
+}
+div.ar div.card__action a.btn-default {
+  border: 1px solid black;
+  background-color: white;
+  color: black !important;
+}
+div.ar div.card__action a.btn-danger {
+  border: 1px solid red;
+  background-color: #e90000;
+  color: white;
+}
 div.card-wrapper img[src$=".svg"] {
   width: 21px;
   height: 21px;
@@ -180,7 +263,15 @@ div.card-wrapper
   div.card__content
   div.card__article
   div.card__meta
-  span
+  div {
+  display: inline-block;
+}
+div.card-wrapper
+  div.card
+  div.card__content
+  div.card__article
+  div.card__meta
+  div
   a {
   color: #005aa9;
   text-decoration: none;
@@ -191,14 +282,14 @@ div.card-wrapper
   div.card__content
   div.card__article
   div.card__meta
-  span
+  div
   a:hover,
 div.card-wrapper
   div.card
   div.card__content
   div.card__article
   div.card__meta
-  span
+  div
   a:focus {
   color: #00315d;
   text-decoration: underline;
@@ -208,7 +299,7 @@ div.card-wrapper
   div.card__content
   div.card__article
   div.card__meta
-  span
+  div
   a:focus-visible {
   outline: 3px #00315d dashed;
   padding: 0.3rem;
@@ -621,7 +712,7 @@ div.card-wrapper
   div.card__content
   div.card__article
   div.text
-  p::first-of-type::first-line {
+  p:first-of-type::first-line {
   font-variant-caps: small-caps;
 }
 div.card-wrapper
