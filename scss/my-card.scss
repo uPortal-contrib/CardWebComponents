@@ -439,6 +439,22 @@ div.card-wrapper {
             outline: 3px orange dashed;
           }
         }
+        div {
+          
+          &:before {
+          
+          }
+          
+          &>a.share-toggle img {
+            transition: transform 0.35s ease;
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+            position: relative;
+          }
+          .icon-black {
+
+          }
+        }
 
         div.share-expanded {
           outline: 0;
