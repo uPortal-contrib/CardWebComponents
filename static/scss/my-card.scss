@@ -1,6 +1,6 @@
 /**
-* Helpers
-*/
+ * Helpers
+ */
 
 div,
 span,
@@ -148,22 +148,7 @@ a:focus-visible {
             font-variant-caps: small-caps;
           }
 
-          &:first-of-type::first-line {
-            font-variant-caps: small-caps;
-          }
-
           &:first-of-type:first-letter {
-            float: none !important;
-            padding-right: 0 !important;
-            font-family: Georgia, "New Times Roman", serif;
-            font-size: initial !important;
-            font-variant-caps: normal !important;
-            line-height: initial !important;
-            margin-bottom: 0 !important;
-            color: initial !important;
-          }
-
-          &:first-of-type::first-letter {
             float: none !important;
             padding-right: 0 !important;
             font-family: Georgia, "New Times Roman", serif;
@@ -189,23 +174,21 @@ a:focus-visible {
     }
   }
 
-  .card__action {
-    a.btn {
+  .card__action a {
+    &.btn {
       margin-right: 0.5rem;
     }
 
-    a {
-      &.btn-default {
-        border: 1px solid black;
-        background-color: white;
-        color: black !important;
-      }
+    &.btn-default {
+      border: 1px solid black;
+      background-color: white;
+      color: black !important;
+    }
 
-      &.btn-danger {
-        border: 1px solid red;
-        background-color: #e90000;
-        color: white;
-      }
+    &.btn-danger {
+      border: 1px solid red;
+      background-color: #e90000;
+      color: white;
     }
   }
 }
@@ -359,6 +342,7 @@ a:focus-visible {
                 transform: scale(1.2);
               }
             }
+
             .strongblue {
               background-color: #3b5998;
             }
@@ -467,10 +451,8 @@ a:focus-visible {
           a:focus-visible {
             outline: 3px orange dashed;
           }
-        }
 
-        div {
-          & > a.share-toggle img {
+          img {
             transition: transform 0.35s ease;
             -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
@@ -509,16 +491,14 @@ a:focus-visible {
               color: #005aa9 !important;
               text-decoration: none;
               transition: all 0.5s ease;
-            }
 
-            a {
               &:hover,
               &:focus {
                 color: #00315d;
                 text-decoration: underline;
               }
 
-              a:focus-visible {
+              &:focus-visible {
                 outline: 3px #00315d dashed;
                 padding: 0.3rem;
               }
@@ -528,22 +508,7 @@ a:focus-visible {
               font-variant-caps: small-caps;
             }
 
-            &:first-of-type::first-line {
-              font-variant-caps: small-caps;
-            }
-
             &:first-of-type:first-letter {
-              float: left;
-              padding-right: 0.07em;
-              font-family: Georgia, "New Times Roman", serif;
-              font-size: 4.2em;
-              font-variant-caps: normal;
-              line-height: 0.3em;
-              margin-bottom: 0;
-              color: black !important;
-            }
-
-            &:first-of-type::first-letter {
               float: left;
               padding-right: 0.07em;
               font-family: Georgia, "New Times Roman", serif;
@@ -574,28 +539,28 @@ a:focus-visible {
       padding-left: 1.6rem;
       padding-bottom: 1.6rem;
 
-      a.btn {
-        padding: 0.75rem;
-        border: 1px solid red;
-        text-decoration: none;
-        transition: all 0.5s ease;
-        color: white;
-        border-radius: 2px;
-        display: inline-block;
-        margin-top: 0.5rem;
-
-        &:hover,
-        &:focus {
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
-            0 1px 2px rgba(0, 0, 0, 0.24);
-        }
-
-        &:focus-visible {
-          outline: 3px #000000 dashed;
-        }
-      }
-
       a {
+        &.btn {
+          padding: 0.75rem;
+          border: 1px solid red;
+          text-decoration: none;
+          transition: all 0.5s ease;
+          color: white;
+          border-radius: 2px;
+          display: inline-block;
+          margin-top: 0.5rem;
+
+          &:hover,
+          &:focus {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+              0 1px 2px rgba(0, 0, 0, 0.24);
+          }
+
+          &:focus-visible {
+            outline: 3px #000000 dashed;
+          }
+        }
+
         &.btn-default {
           border: 1px solid black;
           background-color: white;
