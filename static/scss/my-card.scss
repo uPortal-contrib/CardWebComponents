@@ -489,8 +489,8 @@ a:focus-visible {
 
           & > a img {
             transition: transform 0.35s ease;
-            -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg) !important;
+            transform: rotate(-90deg) !important;
             position: relative;
           }
         }
