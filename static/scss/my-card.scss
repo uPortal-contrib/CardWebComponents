@@ -2,7 +2,85 @@
 * Helpers
 */
 
-div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -39,87 +117,32 @@ a:focus-visible {
   direction: rtl;
 }
 
-
-
-div.ar {
-
-  div.card {
-
-    div.card__image {
-
-    }
-  }
-
-  div.card__content {
-
-
-    div.card__article {
-
-
+.ar {
+  .card__content {
+    .card__article {
       h2 {
-        font-size: 135%  !important;
+        font-size: 135% !important;
         direction: rtl !important;
-        float: left  !important;
+        float: left !important;
       }
 
-      div.card__meta {
-        clear: left  !important;
-        top: -0.4rem  !important;
+      .card__meta {
+        clear: left !important;
+        top: -0.4rem !important;
         padding: 0 2.3rem 0 1.6rem !important;
         position: relative;
-        direction: rtl  !important;
-
-        img.icon-black {
-
-        }
-
-        div {
-
-          a {
-
-          }
-        }
+        direction: rtl !important;
 
         time {
-          direction: rtl  !important;
-
+          direction: rtl !important;
         }
       }
 
-      div.card__share {
-
-        div.card__social {
-
-
-          .share-icon {
-
-          }
-
-        }
-
-        div.card__social--active {
-
-        }
-
-        a.share-toggle {
-
-        }
-
-        a:focus-visible {
-
-        }
-      }
-
-      div.share-expanded {
-
-      }
-
-      div.text {
-        direction: rtl  !important;
+      .text {
+        direction: rtl !important;
         p {
           margin-bottom: 1rem;
           text-align: justify;
-
 
           &:first-of-type:first-line {
             font-variant-caps: small-caps;
@@ -130,22 +153,22 @@ div.ar {
           }
 
           &:first-of-type:first-letter {
-            float: none  !important;
-            padding-right: 0  !important;
+            float: none !important;
+            padding-right: 0 !important;
             font-family: Georgia, "New Times Roman", serif;
-            font-size: initial  !important;
-            font-variant-caps:normal  !important;
-            line-height: initial  !important;
+            font-size: initial !important;
+            font-variant-caps: normal !important;
+            line-height: initial !important;
             margin-bottom: 0 !important;
             color: initial !important;
           }
 
           &:first-of-type::first-letter {
-            float: none  !important;
-            padding-right: 0  !important;
+            float: none !important;
+            padding-right: 0 !important;
             font-family: Georgia, "New Times Roman", serif;
             font-size: initial !important;
-            font-variant-caps:normal !important;
+            font-variant-caps: normal !important;
             line-height: initial !important;
             margin-bottom: 0 !important;
             color: initial !important;
@@ -166,23 +189,18 @@ div.ar {
     }
   }
 
-  div.card__padding {
-
-  }
-
-  div.card__action {
-
-
+  .card__action {
     a.btn {
-      margin-right: .5rem;
-
+      margin-right: 0.5rem;
     }
+
     a {
       &.btn-default {
         border: 1px solid black;
         background-color: white;
         color: black !important;
       }
+
       &.btn-danger {
         border: 1px solid red;
         background-color: #e90000;
@@ -192,12 +210,7 @@ div.ar {
   }
 }
 
-
-
-
-
-div.card-wrapper {
-
+.card-wrapper {
   img[src$=".svg"] {
     width: 21px;
     height: 21px;
@@ -213,11 +226,11 @@ div.card-wrapper {
     filter: invert(0);
   }
 
-  div.card {
+  .card {
     background-color: #fff;
     margin-bottom: 1.6rem;
 
-    div.card__image {
+    .card__image {
       background-color: #666;
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 36px));
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 36px));
@@ -233,7 +246,6 @@ div.card-wrapper {
         box-shadow: 0 0 185px rgba(0, 0, 0, 0.9);
         border-top-left-radius: 2px;
         border-top-right-radius: 2px;
-
       }
 
       img.mask {
@@ -250,11 +262,11 @@ div.card-wrapper {
       }
     }
 
-    div.card__content {
+    .card__content {
       background-color: #fff;
       z-index: 1;
 
-      div.card__article {
+      .card__article {
         position: relative;
         background-color: #fff;
 
@@ -268,16 +280,12 @@ div.card-wrapper {
           filter: drop-shadow(0.1rem -0.1rem 0 white);
         }
 
-        div.card__meta {
+        .card__meta {
           clear: left;
           top: -1rem;
           padding: 0 1.6rem;
           position: relative;
           z-index: 1;
-
-          img.icon-black {
-
-          }
 
           div {
             display: inline-block;
@@ -286,10 +294,13 @@ div.card-wrapper {
               color: #005aa9;
               text-decoration: none;
               transition: all 0.5s ease;
-              &:hover, &:focus {
+
+              &:hover,
+              &:focus {
                 color: #00315d;
                 text-decoration: underline;
               }
+
               &:focus-visible {
                 outline: 3px #00315d dashed;
                 padding: 0.3rem;
@@ -300,11 +311,10 @@ div.card-wrapper {
           time {
             font-size: 1.05rem;
             color: #555;
-
           }
         }
 
-        div.card__share {
+        .card__share {
           outline: 0;
           position: absolute;
           top: -1.9rem;
@@ -312,7 +322,7 @@ div.card-wrapper {
           z-index: 10;
           transition: all 0.5s ease;
 
-          div.card__social {
+          .card__social {
             font-size: 1.2rem;
             left: -200px;
             margin-right: 70px;
@@ -335,18 +345,18 @@ div.card-wrapper {
               background-color: #fff;
               transition: all 0.3s ease;
               outline: 0;
-              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-              &:hover, &:focus {
-                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.24);
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12),
+                0 2px 4px rgba(0, 0, 0, 0.24);
+
+              &:hover,
+              &:focus {
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12),
+                  0 3px 6px rgba(0, 0, 0, 0.24);
                 -webkit-transform: scale(1.2);
                 -moz-transform: scale(1.2);
                 -ms-transform: scale(1.2);
                 -o-transform: scale(1.2);
                 transform: scale(1.2);
-              }
-
-              img.icon-white {
-
               }
             }
             .strongblue {
@@ -369,7 +379,10 @@ div.card-wrapper {
               background-color: #fff;
             }
 
-            .strongblue, .lightblue, .strongred, .black {
+            .strongblue,
+            .lightblue,
+            .strongred,
+            .black {
               color: #fff;
             }
 
@@ -378,19 +391,29 @@ div.card-wrapper {
             }
 
             a {
-              &.strongblue:hover, &.lightblue:hover, &.strongred:hover, &.black:hover {
+              &.strongblue:hover,
+              &.lightblue:hover,
+              &.strongred:hover,
+              &.black:hover {
                 color: #eee !important;
               }
+
               &.white:hover {
                 color: #111 !important;
               }
-              &.strongblue:active, &.lightblue:active, &.strongred:active, &.black:active {
+
+              &.strongblue:active,
+              &.lightblue:active,
+              &.strongred:active,
+              &.black:active {
                 color: #fff !important;
               }
+
               &.white:active {
                 color: #000 !important;
               }
             }
+
             a:focus-visible {
               outline: 3px orange dashed;
             }
@@ -414,9 +437,16 @@ div.card-wrapper {
             background-color: #fff;
             transition: all 0.3s ease;
             outline: 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-            &:hover, &:focus {
-              box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.24);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12),
+              0 2px 4px rgba(0, 0, 0, 0.24);
+            font-size: 1.2rem;
+            z-index: 2;
+            text-decoration: none !important;
+
+            &:hover,
+            &:focus {
+              box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12),
+                0 3px 6px rgba(0, 0, 0, 0.24);
               -webkit-transform: scale(1.2);
               -moz-transform: scale(1.2);
               -ms-transform: scale(1.2);
@@ -424,12 +454,11 @@ div.card-wrapper {
               transform: scale(1.2);
             }
 
-            font-size: 1.2rem;
-            z-index: 2;
-            text-decoration: none !important;
-            &:hover, &:active {
+            &:hover,
+            &:active {
               text-decoration: none !important;
             }
+
             &:before {
               color: #e90000;
             }
@@ -439,46 +468,39 @@ div.card-wrapper {
             outline: 3px orange dashed;
           }
         }
+
         div {
-          
-          &:before {
-          
-          }
-          
-          &>a.share-toggle img {
+          & > a.share-toggle img {
             transition: transform 0.35s ease;
             -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
             position: relative;
           }
-          .icon-black {
-
-          }
         }
 
-        div.share-expanded {
+        .share-expanded {
           outline: 0;
+          text-decoration: none;
+
           &:before {
             /*content: "\f00d";*/
             text-decoration: none;
           }
-          text-decoration: none;
-          &>a img {
+
+          & > a img {
             transition: transform 0.35s ease;
             -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
             position: relative;
           }
-          .icon-black {
-
-          }
         }
 
-        div.text {
+        .text {
           flex: 1 0 auto;
           display: flex;
           flex-direction: column;
           padding: 0 1.6rem;
+
           p {
             margin-bottom: 1rem;
             text-align: justify;
@@ -490,7 +512,8 @@ div.card-wrapper {
             }
 
             a {
-              &:hover, &:focus {
+              &:hover,
+              &:focus {
                 color: #00315d;
                 text-decoration: underline;
               }
@@ -514,7 +537,7 @@ div.card-wrapper {
               padding-right: 0.07em;
               font-family: Georgia, "New Times Roman", serif;
               font-size: 4.2em;
-              font-variant-caps:normal;
+              font-variant-caps: normal;
               line-height: 0.3em;
               margin-bottom: 0;
               color: black !important;
@@ -525,7 +548,7 @@ div.card-wrapper {
               padding-right: 0.07em;
               font-family: Georgia, "New Times Roman", serif;
               font-size: 4.2em;
-              font-variant-caps:normal;
+              font-variant-caps: normal;
               line-height: 0.3em;
               margin-bottom: 0;
               color: black !important;
@@ -546,11 +569,7 @@ div.card-wrapper {
       }
     }
 
-    div.card__padding {
-
-    }
-
-    div.card__action {
+    .card__action {
       padding-top: 0.5rem;
       padding-left: 1.6rem;
       padding-bottom: 1.6rem;
@@ -563,24 +582,26 @@ div.card-wrapper {
         color: white;
         border-radius: 2px;
         display: inline-block;
-        margin-top: .5rem;
-        &:hover, &:focus {
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        margin-top: 0.5rem;
+
+        &:hover,
+        &:focus {
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+            0 1px 2px rgba(0, 0, 0, 0.24);
         }
+
         &:focus-visible {
           outline: 3px #000000 dashed;
         }
-
-        img.icon-black {
-
-        }
       }
+
       a {
         &.btn-default {
           border: 1px solid black;
           background-color: white;
           color: black !important;
         }
+
         &.btn-danger {
           border: 1px solid red;
           background-color: #e90000;
@@ -590,11 +611,3 @@ div.card-wrapper {
     }
   }
 }
-
-
-
-
-
-
-
-
