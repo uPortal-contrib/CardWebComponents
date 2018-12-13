@@ -14,7 +14,7 @@
     "test": "eslint src",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "format": "prettier --write '**/*.{css,js,json,md}'"
+    "format": "prettier --write '**/*.{css,js,json,md,scss}'"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
   },
   "lint-staged": {
     "linters": {
-      "**/*.{css,js,json,md}": [
+      "**/*.{css,js,json,md,scss}": [
         "prettier --write",
         "git add"
       ]
