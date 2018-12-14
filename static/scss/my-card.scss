@@ -541,10 +541,10 @@ a:focus-visible {
 
       a {
         &.btn {
-          padding: 0.75rem;
+          padding: 0.75rem 0.75rem 1rem;
           border: 1px solid red;
           text-decoration: none;
-          transition: all 0.5s ease;
+          transition: box-shadow 0.5s;
           color: white;
           border-radius: 2px;
           display: inline-block;
