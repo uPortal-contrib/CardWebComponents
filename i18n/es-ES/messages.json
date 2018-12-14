@@ -2,6 +2,10 @@
   "imgsrc": "https://cousquer.github.io/apereo2017/assets/artworks/apereo-uportal.jpg",
   "title": "¿Qué es uPortal?",
   "time": "13 de junio de 2018",
+  "toggle": {
+    "stateClosed": "Abrir el menu a la izquierda",
+    "stateOpened": "Cierra el menu"
+  },
   "linkMenu1": {
     "id": "museum-menu-item-1",
     "cssClass": "share-icon lightblue",
