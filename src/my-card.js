@@ -97,14 +97,17 @@ class myCard extends HTMLElement {
 
     const articleList = shadowroot.querySelector(".card__social");
     const articleToggle = shadowroot.querySelector(".card__share");
+    const toggle = shadowroot.querySelector(".share-toggle");
     articleList.classList.toggle("card__social--active");
     articleToggle.classList.toggle("share-expanded");
 
     if (articleToggle.getAttribute("aria-expanded") === "true") {
       articleToggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", this.data.toggle.stateClosed);
     } else {
       articleToggle.setAttribute("aria-expanded", "true");
       articleToggle.focus();
+      toggle.setAttribute("aria-label", this.data.toggle.stateOpened);
     }
   }
 
@@ -179,7 +182,9 @@ class myCard extends HTMLElement {
     }" aria-label="${
       data.linkMenu1.label
     }" target="_blank" rel="noopener noreferrer"><img src="${baseSvg +
-      data.linkMenu1.glyphicon}" class="${data.linkMenu1.iconColor}" alt=""></a>
+      data.linkMenu1.glyphicon}" class="${
+      data.linkMenu1.iconColor
+    }" aria-hidden="true" alt=""></a>
             <a role="menuitem" id="${data.linkMenu2.id}" tabindex="0" class="${
       data.linkMenu2.cssClass
     }" href="${data.linkMenu2.link}" title="${
@@ -187,7 +192,9 @@ class myCard extends HTMLElement {
     }" aria-label="${
       data.linkMenu2.label
     }" target="_blank" rel="noopener noreferrer"><img src="${baseSvg +
-      data.linkMenu2.glyphicon}" class="${data.linkMenu2.iconColor}" alt=""></a>
+      data.linkMenu2.glyphicon}" class="${
+      data.linkMenu2.iconColor
+    }" aria-hidden="true" alt=""></a>
             <a role="menuitem" id="${data.linkMenu3.id}" tabindex="0" class="${
       data.linkMenu3.cssClass
     }" href="${data.linkMenu3.link}" title="${
@@ -195,10 +202,14 @@ class myCard extends HTMLElement {
     }" aria-label="${
       data.linkMenu3.label
     }" target="_blank" rel="noopener noreferrer"><img src="${baseSvg +
-      data.linkMenu3.glyphicon}" class="${data.linkMenu3.iconColor}" alt=""></a>
+      data.linkMenu3.glyphicon}" class="${
+      data.linkMenu3.iconColor
+    }" aria-hidden="true" alt=""></a>
           </div>
-          <a class="share-toggle share-icon"  onclick="${onclick}" href="javascript:void(0);" aria-controls="what-is-uportal-i18n-list" aria-haspopup="true" aria-label="Menu"><img src="${baseSvg +
-      "solid/ellipsis-v.svg"}" class="icon-black" alt=""></i></a>
+          <a class="share-toggle share-icon"  onclick="${onclick}" href="javascript:void(0);" aria-controls="what-is-uportal-i18n-list" aria-haspopup="true" aria-label="${
+      data.toggle.stateClosed
+    }"><img src="${baseSvg +
+      "solid/ellipsis-v.svg"}" class="icon-black" aria-hidden="true" alt=""></i></a>
 
 
         </div>
