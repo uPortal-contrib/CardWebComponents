@@ -11,7 +11,7 @@
     "postbuild": "cp -r static/** dist | cp -r node_modules/@fortawesome/fontawesome-free/svgs/** dist",
     "prestart": "npm run build",
     "start": "serve dist",
-    "test": "eslint src",
+    "test": "eslint src && stylelint static/scss",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "format": "prettier --write '**/*.{css,js,json,md,scss}'"
@@ -45,11 +45,10 @@
     ]
   },
   "dependencies": {
-    "hyperhtml": "^2.20.1",
-    "@fortawesome/fontawesome-free": "^5.5.0"
+    "@fortawesome/fontawesome-free": "^5.5.0",
+    "hyperhtml": "^2.20.1"
   },
   "devDependencies": {
-    "node-sass": "^4.10.0",
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
     "eslint": "^5.9.0",
@@ -57,11 +56,14 @@
     "gh-pages": "^2.0.1",
     "husky": "^1.2.0",
     "lint-staged": "^8.1.0",
+    "node-sass": "^4.10.0",
     "prettier": "^1.15.3",
     "rollup": "^0.67.4",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^3.4.0",
-    "serve": "^10.1.1"
+    "serve": "^10.1.1",
+    "stylelint": "^9.9.0",
+    "stylelint-config-standard": "^18.2.0"
   }
 }
