@@ -12,7 +12,6 @@ Low and very light (-3Kb) dependencies make the component fast and easy to maint
 - hyperHTML @lastest
 - webcomponents-lite 1.2.0
 - @fortawesome/fontawesome-free 5.5.0 (svg only)
-- (Bootstrap 4.1.1)
 
 ## License
 
