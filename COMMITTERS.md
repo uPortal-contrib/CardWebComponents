@@ -1,8 +1,9 @@
 # Project Lead and Committers
 
-## Project Lead
+## Project Leads
 
-Christian Cousquer (@cousquer)
+- Christian Cousquer (@cousquer)
+- Christian Murphy (@ChristianMurphy)
 
 ## Committers
 
