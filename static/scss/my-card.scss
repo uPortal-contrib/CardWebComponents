@@ -314,7 +314,8 @@ a:focus-visible {
             top: 0;
             transform: translateZ(0);
             transform: translateX(0px);
-            transition: transform 0.35s ease 0s;
+            transition: transform 0.35s, opacity 0.35s;
+            opacity: 0;
             visibility: hidden;
             width: 240px;
 
@@ -396,19 +397,18 @@ a:focus-visible {
               &.white:active {
                 color: #000 !important;
               }
-            }
 
-            a:focus-visible {
-              outline: 3px orange dashed;
+              &:focus-visible {
+                outline: 3px orange dashed;
+              }
             }
           }
 
-          div.card__social--active {
+          .card__social--active {
             visibility: visible;
-            /*z-index: 3;*/
+            opacity: 1;
             transform: translateZ(0);
             transform: translateX(-48px);
-            transition: transform 0.35s ease;
           }
 
           a.share-toggle {
@@ -465,7 +465,6 @@ a:focus-visible {
           text-decoration: none;
 
           &:before {
-            /*content: "\f00d";*/
             text-decoration: none;
           }
 
