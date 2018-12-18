@@ -2096,6 +2096,7 @@ function (_HTMLElement) {
         case "fr-FR":
         case "es-ES":
         case "en-US":
+        case "de":
         case "it":
         case "nl-NL":
           {

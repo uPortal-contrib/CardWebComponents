@@ -8,6 +8,7 @@
     "imgsrc",
     "title",
     "time",
+    "toggle",
     "linkMenu1",
     "linkMenu2",
     "linkMenu3",
@@ -42,6 +43,30 @@
       "default": "",
       "examples": ["June 13, 2018"],
       "pattern": "^(.*)$"
+    },
+    "toggle": {
+      "$id": "#/properties/toggle",
+      "type": "object",
+      "title": "The Toggle menu Schema",
+      "required": ["stateClosed", "stateOpened"],
+      "properties": {
+        "stateClosed": {
+          "$id": "#/properties/toggle/properties/stateClosed",
+          "type": "string",
+          "title": "The menu Stateclosed label",
+          "default": "",
+          "examples": ["Expand the menu on the left"],
+          "pattern": "^(.*)$"
+        },
+        "stateOpened": {
+          "$id": "#/properties/toggle/properties/stateOpened",
+          "type": "string",
+          "title": "The menu Stateopened label",
+          "default": "",
+          "examples": ["Collapse the menu"],
+          "pattern": "^(.*)$"
+        }
+      }
     },
     "linkMenu1": {
       "$id": "#/properties/linkMenu1",
