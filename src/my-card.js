@@ -174,7 +174,7 @@ class myCard extends HTMLElement {
           )}</div>&nbsp;
           <time>${data.time}</time>
           </div>
-          <div id="what-is-uportal-i18n-list" class="card__share" tabindex="-1" role="menu">
+          <div class="card__share" tabindex="-1" role="menu">
           <div class="card__social card__fix--width">
             <a role="menuitem" id="${data.linkMenu1.id}" tabindex="0" class="${
       data.linkMenu1.cssClass
