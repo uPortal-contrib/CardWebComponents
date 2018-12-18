@@ -19,12 +19,13 @@ Apache-2.0
 
 ## Supported Languages
 
-- `en-US` (default). :eyes: See it in [english](https://cousquer.github.io/CardWebComponents/) :us:
-- `fr-FR` . :eyes: See it in [french](https://cousquer.github.io/CardWebComponents/index_fr) :fr:
-- `es-ES` . :eyes: See it in [spanish](https://cousquer.github.io/CardWebComponents/index_es) :es:
-- `nl-NL` . :eyes: See it in [dutch](https://cousquer.github.io/CardWebComponents/index_nl)]
-- `it` . :eyes: See it in [italian](https://cousquer.github.io/CardWebComponents/index_it) :it:
+- `en-US` (default). :eyes: See it in [English](https://cousquer.github.io/CardWebComponents/) :us:
+- `fr-FR` . :eyes: See it in [French](https://cousquer.github.io/CardWebComponents/index_fr) :fr:
+- `es-ES` . :eyes: See it in [Spanish](https://cousquer.github.io/CardWebComponents/index_es) :es:
+- `nl-NL` . :eyes: See it in [Dutch](https://cousquer.github.io/CardWebComponents/index_nl)
+- `it` . :eyes: See it in [Italian](https://cousquer.github.io/CardWebComponents/index_it) :it:
 - `ar` . :eyes: See it in [Standard Arabic](https://cousquer.github.io/CardWebComponents/index_ar)
+- `de` . :eyes: See it in [German](https://cousquer.github.io/CardWebComponents/index_de) :de:
 
 ![Card webcomponent](doc/images/2018-12-08_15-15-58.gif "uPortal card in en-US, fr-FR, es-ES, it, nl-NL")
 
