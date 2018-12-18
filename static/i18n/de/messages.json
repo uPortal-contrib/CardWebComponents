@@ -1,0 +1,65 @@
+{
+  "imgsrc": "https://cousquer.github.io/apereo2017/assets/artworks/apereo-uportal.jpg",
+  "title": "Was ist uPortal?",
+  "time": "13. Juni 2018",
+  "toggle": {
+    "stateClosed": "Öffnen das Menü auf der linken Seite.",
+    "stateOpened": "Schließen das Menü"
+  },
+  "linkMenu1": {
+    "id": "museum-menu-item-1",
+    "cssClass": "share-icon lightblue",
+    "glyphicon": "brands/twitter.svg",
+    "iconColor": "icon-white",
+    "label": "Twitter: uPortal",
+    "link": "https://twitter.com/uPortal",
+    "name": "Twitter: uPortal"
+  },
+  "linkMenu2": {
+    "id": "museum-menu-item-2",
+    "cssClass": "share-icon strongblue",
+    "glyphicon": "solid/envelope.svg",
+    "iconColor": "icon-white",
+    "label": "Kontaktinformationen",
+    "link": "mailto:uportal-user@apereo.org",
+    "name": "Kontaktinformationen"
+  },
+  "linkMenu3": {
+    "id": "museum-menu-item-3",
+    "cssClass": "share-icon black",
+    "glyphicon": "brands/github.svg",
+    "iconColor": "icon-white",
+    "label": "Github: uPortal",
+    "link": "https://github.com/jasig/uPortal",
+    "name": "Github: uPortal"
+  },
+  "List": [
+    { "tag": "Open source" },
+    { "tag": "Apereo" },
+    { "tag": "Web-Portal" }
+  ],
+  "paragraphs": [
+    {
+      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank'>uPortal</a> ist eine kostenlose und quelloffene Java-Webportalplattform, die von Mitarbeitern der Hochschulen unter der Koordination der <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank'>Apereo Foundation</a> entwickelt und gepflegt wird.  uPortal kann Inhalte aggregieren, Self-Service-Anwendungen präsentieren, Präsentationen und Inhalte basierend auf Benutzergruppen und Attributen anpassen, mobile Geräteanwendungen steuern und eine erweiterte und partizipative Anpassung der Portal-Erfahrung ermöglichen. uPortal unterstützt die Java JSR-286 und JSR-168 Portletspezifikation, um Ihre benutzerdefinierten Anwendungen in das Portal einzubinden."
+    },
+    { "para": "Willkommen bei uPortal." }
+  ],
+  "button1": {
+    "id": "museum-button-1",
+    "cssClass": "btn btn-default btn-lg",
+    "glyphicon": "brands/github.svg",
+    "iconColor": "icon-black",
+    "label": "Zu den Code-Quellen auf Github gehen",
+    "link": "https://github.com/jasig/uportal-start",
+    "name": "uPortal-Start"
+  },
+  "button2": {
+    "id": "museum-button-2",
+    "cssClass": "btn btn-danger btn-lg",
+    "glyphicon": "solid/book.svg",
+    "iconColor": "icon-white",
+    "label": "Englische Dokumentation",
+    "link": "http://jasig.github.io/uPortal/",
+    "name": "Handbuch"
+  }
+}
