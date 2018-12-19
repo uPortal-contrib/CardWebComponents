@@ -2099,6 +2099,7 @@ function (_HTMLElement) {
         case "de":
         case "it":
         case "nl-NL":
+        case "zn-CN":
           {
             return path + "i18n/" + pageLang;
           }
