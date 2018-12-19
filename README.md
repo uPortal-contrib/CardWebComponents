@@ -26,6 +26,7 @@ Apache-2.0
 - `it` . :eyes: See it in [Italian](https://cousquer.github.io/CardWebComponents/index_it) :it:
 - `ar` . :eyes: See it in [Standard Arabic](https://cousquer.github.io/CardWebComponents/index_ar)
 - `de` . :eyes: See it in [German](https://cousquer.github.io/CardWebComponents/index_de.html) :de:
+- `zn-CN` . :eyes: See it in [Simplified Chinese](https://cousquer.github.io/CardWebComponents/index_zn-CN.html) :cn:
 
 ![Card webcomponent](doc/images/2018-12-08_15-15-58.gif "uPortal card in en-US, fr-FR, es-ES, it, nl-NL")
 
