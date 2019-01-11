@@ -710,27 +710,17 @@ options // optional object with one of the following properties
 var self$3 = null ||
 /* istanbul ignore next */
 {};
+self$3.CustomEvent = typeof CustomEvent === 'function' ? CustomEvent : function (__p__) {
+  CustomEvent[__p__] = new CustomEvent('').constructor[__p__];
+  return CustomEvent;
 
-try {
-  self$3.CustomEvent = new CustomEvent('.').constructor;
-} catch (CustomEvent) {
-  self$3.CustomEvent = function CustomEvent(type, init) {
+  function CustomEvent(type, init) {
     if (!init) init = {};
-    var bubbles = !!init.bubbles;
-    var cancelable = !!init.cancelable;
-    var e = document.createEvent('Event');
-    e.initEvent(type, bubbles, cancelable);
-    e.detail = init.detail;
-
-    try {
-      e.bubbles = bubbles;
-      e.cancelable = cancelable;
-    } catch (e) {}
-
+    var e = document.createEvent('CustomEvent');
+    e.initCustomEvent(type, !!init.bubbles, !!init.cancelable, init.detail);
     return e;
-  };
-}
-
+  }
+}('prototype');
 var CustomEvent$1 = self$3.CustomEvent;
 
 // able to create Custom Elements like components
@@ -839,7 +829,7 @@ function setup(content) {
             detail: detail
           });
           event.component = this;
-          return (_wire$.dispatchEvent ? _wire$ : _wire$.childNodes[0]).dispatchEvent(event);
+          return (_wire$.dispatchEvent ? _wire$ : _wire$.firstChild).dispatchEvent(event);
         }
 
         return false;
@@ -973,7 +963,7 @@ var createContent = function (document) {
   }
 
   function create(element) {
-    return element === FRAGMENT ? document.createDocumentFragment() : document.createElement(element);
+    return element === FRAGMENT ? document.createDocumentFragment() : document.createElementNS('http://www.w3.org/1999/xhtml', element);
   } // it could use createElementNS when hasNode is there
   // but this fallback is equally fast and easier to maintain
   // it is also battle tested already in all IE
@@ -1113,14 +1103,22 @@ var importNode = function (document, appendChild, cloneNode, createTextNode, imp
   };
 }(document, 'appendChild', 'cloneNode', 'createTextNode', 'importNode');
 
+var trim = ''.trim || function () {
+  return String(this).replace(/^\s+|\s+/g, '');
+};
+
 // Custom
-var NOT_IE = 'content' in document.createElement('template');
-var UID = (NOT_IE ? '-' : '_dt: ') + Math.random().toFixed(6) + (NOT_IE ? '%' : ';'); //                                              ^ Edge issue ^
+var UID = '-' + Math.random().toFixed(6) + '%'; //                           Edge issue!
+
+if (!function (template, content, tabindex) {
+  return content in template && (template.innerHTML = '<p ' + tabindex + '="' + UID + '"></p>', template[content].childNodes[0].getAttribute(tabindex) == UID);
+}(document.createElement('template'), 'content', 'tabindex')) {
+  UID = '_dt: ' + UID.slice(1, -1) + ';';
+}
 
 var UIDC = '<!--' + UID + '-->'; // DOM
 
 var COMMENT_NODE = 8;
-var DOCUMENT_FRAGMENT_NODE = 11;
 var ELEMENT_NODE = 1;
 var TEXT_NODE = 3;
 var SHOULD_USE_TEXT_CONTENT = /^(?:style|textarea)$/i;
@@ -1150,44 +1148,13 @@ function fullClosing($0, $1, $2) {
   return VOID_ELEMENTS.test($1) ? $0 : '<' + $1 + $2 + '></' + $1 + '>';
 }
 
-var trim = ''.trim || function () {
-  return String(this).replace(/^\s+|\s+/g, '');
-};
-
-function create(type, node, name) {
+function create(type, node, path, name) {
   return {
-    type: type,
     name: name,
     node: node,
-    path: createPath(node)
+    path: path,
+    type: type
   };
-}
-
-function createPath(node) {
-  var parentNode;
-  var path = [];
-
-  switch (node.nodeType) {
-    case ELEMENT_NODE:
-    case DOCUMENT_FRAGMENT_NODE:
-      parentNode = node;
-      break;
-
-    case COMMENT_NODE:
-      parentNode = node.parentNode;
-      prepend(path, parentNode, node);
-      break;
-
-    default:
-      parentNode = node.ownerElement;
-      break;
-  }
-
-  while (parentNode = (node = parentNode).parentNode) {
-    prepend(path, parentNode, node);
-  }
-
-  return path;
 }
 
 function find(node, path) {
@@ -1201,27 +1168,28 @@ function find(node, path) {
   return node;
 }
 
-function parse(node, paths, parts) {
+function parse(node, holes, parts, path) {
   var childNodes = node.childNodes;
   var length = childNodes.length;
   var i = 0;
 
   while (i < length) {
-    var child = childNodes[i++];
+    var child = childNodes[i];
 
     switch (child.nodeType) {
       case ELEMENT_NODE:
-        parseAttributes(child, paths, parts);
-        parse(child, paths, parts);
+        var childPath = path.concat(i);
+        parseAttributes(child, holes, parts, childPath);
+        parse(child, holes, parts, childPath);
         break;
 
       case COMMENT_NODE:
         if (child.textContent === UID) {
           parts.shift();
-          paths.push( // basicHTML or other non standard engines
+          holes.push( // basicHTML or other non standard engines
           // might end up having comments in nodes
           // where they shouldn't, hence this check.
-          SHOULD_USE_TEXT_CONTENT.test(node.nodeName) ? create('text', node) : create('any', child));
+          SHOULD_USE_TEXT_CONTENT.test(node.nodeName) ? create('text', node, path) : create('any', child, path.concat(i)));
         }
 
         break;
@@ -1235,15 +1203,17 @@ function parse(node, paths, parts) {
         /* istanbul ignore if */
         if (SHOULD_USE_TEXT_CONTENT.test(node.nodeName) && trim.call(child.textContent) === UIDC) {
           parts.shift();
-          paths.push(create('text', node));
+          holes.push(create('text', node, path));
         }
 
         break;
     }
+
+    i++;
   }
 }
 
-function parseAttributes(node, paths, parts) {
+function parseAttributes(node, holes, parts, path) {
   var cache = new Map$1();
   var attributes = node.attributes;
   var remove = [];
@@ -1268,7 +1238,7 @@ function parseAttributes(node, paths, parts) {
         /* istanbul ignore next */
         attributes[realName.toLowerCase()];
         cache.set(name, value);
-        paths.push(create('attr', value, realName));
+        holes.push(create('attr', value, path, realName));
       }
 
       remove.push(attribute);
@@ -1312,10 +1282,6 @@ function parseAttributes(node, paths, parts) {
   }
 }
 
-function prepend(path, parent, node) {
-  path.unshift(path.indexOf.call(parent.childNodes, node));
-}
-
 // globals
 var parsed = new WeakMap$1();
 var referenced = new WeakMap$1();
@@ -1325,8 +1291,9 @@ function createInfo(options, template) {
   var transform = options.transform;
   if (transform) markup = transform(markup);
   var content = createContent(markup, options.type);
+  cleanContent(content);
   var holes = [];
-  parse(content, holes, template.slice(0));
+  parse(content, holes, template.slice(0), []);
   var info = {
     content: content,
     updates: function updates(content) {
@@ -1394,6 +1361,19 @@ function domtagger(options) {
     details.updates.apply(null, arguments);
     return details.content;
   };
+}
+
+function cleanContent(fragment) {
+  var childNodes = fragment.childNodes;
+  var i = childNodes.length;
+
+  while (i--) {
+    var child = childNodes[i];
+
+    if (child.nodeType !== 1 && trim.call(child.textContent).length === 0) {
+      fragment.removeChild(child);
+    }
+  }
 }
 
 /*! (c) Andrea Giammarchi - ISC */
@@ -1479,11 +1459,7 @@ var hyperStyle = function () {
   }
 }();
 
-var G = document.defaultView; // Node.CONSTANTS
-// 'cause some engine has no global Node defined
-// (i.e. Node, NativeScript, basicHTML ... )
-
-var ELEMENT_NODE$1 = 1;
+// Node.CONSTANTS
 var DOCUMENT_FRAGMENT_NODE$1 = 11; // SVG related constants
 
 var OWNER_SVG_ELEMENT = 'ownerSVGElement'; // Custom Elements / MutationObserver constants
@@ -1491,107 +1467,52 @@ var OWNER_SVG_ELEMENT = 'ownerSVGElement'; // Custom Elements / MutationObserver
 var CONNECTED = 'connected';
 var DISCONNECTED = 'dis' + CONNECTED;
 
-var templateLiteral = function () {
+/*! (c) Andrea Giammarchi - ISC */
+var Wire = function (slice, proto) {
+  proto = Wire.prototype;
 
-  var RAW = 'raw';
-  var isNoOp = false;
+  proto.remove = function (keepFirst) {
+    var childNodes = this.childNodes;
+    var first = this.firstChild;
+    var last = this.lastChild;
+    this._ = null;
 
-  var _templateLiteral = function templateLiteral(tl) {
-    if ( // for badly transpiled literals
-    !(RAW in tl) || // for some version of TypeScript
-    tl.propertyIsEnumerable(RAW) || // and some other version of TypeScript
-    !Object.isFrozen(tl.raw) || // or for Firefox < 55
-    /Firefox\/(\d+)/.test((document.defaultView.navigator || {}).userAgent) && parseFloat(RegExp.$1) < 55) {
-      var forever = {};
-
-      _templateLiteral = function templateLiteral(tl) {
-        var key = RAW + tl.join(RAW);
-        return forever[key] || (forever[key] = tl);
-      };
-
-      return _templateLiteral(tl);
+    if (keepFirst && childNodes.length === 2) {
+      last.parentNode.removeChild(last);
     } else {
-      isNoOp = true;
-      return tl;
+      var range = this.ownerDocument.createRange();
+      range.setStartBefore(keepFirst ? childNodes[1] : first);
+      range.setEndAfter(last);
+      range.deleteContents();
     }
+
+    return first;
   };
 
-  return function (tl) {
-    return isNoOp ? tl : _templateLiteral(tl);
+  proto.valueOf = function (forceAppend) {
+    var fragment = this._;
+    var noFragment = fragment == null;
+    if (noFragment) fragment = this._ = this.ownerDocument.createDocumentFragment();
+
+    if (noFragment || forceAppend) {
+      for (var n = this.childNodes, i = 0, l = n.length; i < l; i++) {
+        fragment.appendChild(n[i]);
+      }
+    }
+
+    return fragment;
   };
-}();
 
-var doc = function doc(node) {
-  return node.ownerDocument || node;
-};
-var fragment = function fragment(node) {
-  return doc(node).createDocumentFragment();
-};
-var text = function text(node, _text) {
-  return doc(node).createTextNode(_text);
-}; // appends an array of nodes
-// to a generic node/fragment
-// When available, uses append passing all arguments at once
-// hoping that's somehow faster, even if append has more checks on type
-// istanbul ignore next
+  return Wire;
 
-var append$1 = 'append' in fragment(document) ? function (node, childNodes) {
-  node.append.apply(node, childNodes);
-} : function (node, childNodes) {
-  var length = childNodes.length;
-
-  for (var i = 0; i < length; i++) {
-    node.appendChild(childNodes[i]);
+  function Wire(childNodes) {
+    var nodes = this.childNodes = slice.call(childNodes, 0);
+    this.firstChild = nodes[0];
+    this.lastChild = nodes[nodes.length - 1];
+    this.ownerDocument = nodes[0].ownerDocument;
+    this._ = null;
   }
-}; // normalizes the template once for all arguments cases
-
-var reArguments = function reArguments(template) {
-  var args = [templateLiteral(template)];
-
-  for (var i = 1, length = arguments.length; i < length; i++) {
-    args[i] = arguments[i];
-  }
-
-  return args;
-}; // just recycling a one-off array to use slice
-// in every needed place
-
-var slice = [].slice;
-
-function Wire(childNodes) {
-  this.childNodes = childNodes;
-  this.length = childNodes.length;
-  this.first = childNodes[0];
-  this.last = childNodes[this.length - 1];
-  this._ = null;
-} // when a wire is inserted, all its nodes will follow
-
-Wire.prototype.valueOf = function valueOf(different) {
-  var noFragment = this._ == null;
-  if (noFragment) this._ = fragment(this.first);
-  /* istanbul ignore else */
-
-  if (noFragment || different) append$1(this._, this.childNodes);
-  return this._;
-}; // when a wire is removed, all its nodes must be removed as well
-
-
-Wire.prototype.remove = function remove() {
-  this._ = null;
-  var first = this.first;
-  var last = this.last;
-
-  if (this.length === 2) {
-    last.parentNode.removeChild(last);
-  } else {
-    var range = doc(first).createRange();
-    range.setStartBefore(this.childNodes[1]);
-    range.setEndAfter(last);
-    range.deleteContents();
-  }
-
-  return first;
-};
+}([].slice);
 
 var observe = disconnected({
   Event: CustomEvent$1,
@@ -1611,7 +1532,7 @@ var asNode = function asNode(item, i) {
   // all these cases are handled by domdiff already
 
   /* istanbul ignore next */
-  1 / i < 0 ? i ? item.remove() : item.last : i ? item.valueOf(true) : item.first : asNode(item.render(), i);
+  1 / i < 0 ? i ? item.remove(true) : item.lastChild : i ? item.valueOf(true) : item.firstChild : asNode(item.render(), i);
 }; // returns true if domdiff can handle the value
 
 
@@ -1643,7 +1564,13 @@ var isPromise_ish = function isPromise_ish(value) {
 }; // list of attributes that should not be directly assigned
 
 
-var readOnly = /^(?:form|list)$/i;
+var readOnly = /^(?:form|list)$/i; // reused every slice time
+
+var slice = [].slice; // simplifies text node creation
+
+var text = function text(node, _text) {
+  return node.ownerDocument.createTextNode(_text);
+};
 
 function Tagger(type) {
   this.type = type;
@@ -1700,8 +1627,12 @@ Tagger.prototype = {
           };
         } else if (name in Intent.attributes) {
           return function (any) {
-            oldValue = Intent.attributes[name](node, any);
-            node.setAttribute(name, oldValue == null ? '' : oldValue);
+            var newValue = Intent.attributes[name](node, any);
+
+            if (oldValue !== newValue) {
+              oldValue = newValue;
+              if (newValue == null) node.removeAttribute(name);else node.setAttribute(name, newValue);
+            }
           };
         } // in every other case, use the attribute node as it is
         // update only the value, set it as node only when/if needed
@@ -1845,7 +1776,7 @@ Tagger.prototype = {
   // it's pointless to transform or analyze anything
   // different from text there but it's worth checking
   // for possible defined intents.
-  text: function text$$1(node) {
+  text: function text(node) {
     var oldValue;
 
     var textContent = function textContent(value) {
@@ -1882,6 +1813,53 @@ Tagger.prototype = {
   }
 };
 
+/*! (c) Andrea Giammarchi - ISC */
+var templateLiteral = function () {
+
+  var RAW = 'raw';
+  var isNoOp = (typeof document === "undefined" ? "undefined" : _typeof(document)) !== 'object';
+
+  var _templateLiteral = function templateLiteral(tl) {
+    if ( // for badly transpiled literals
+    !(RAW in tl) || // for some version of TypeScript
+    tl.propertyIsEnumerable(RAW) || // and some other version of TypeScript
+    !Object.isFrozen(tl[RAW]) || // or for Firefox < 55
+    /Firefox\/(\d+)/.test((document.defaultView.navigator || {}).userAgent) && parseFloat(RegExp.$1) < 55) {
+      var forever = {};
+
+      _templateLiteral = function templateLiteral(tl) {
+        for (var key = '.', i = 0; i < tl.length; i++) {
+          key += tl[i].length + '.' + tl[i];
+        }
+
+        return forever[key] || (forever[key] = tl);
+      };
+    } else {
+      isNoOp = true;
+    }
+
+    return TL(tl);
+  };
+
+  return TL;
+
+  function TL(tl) {
+    return isNoOp ? tl : _templateLiteral(tl);
+  }
+}();
+
+function tta (template) {
+  var length = arguments.length;
+  var args = [templateLiteral(template)];
+  var i = 1;
+
+  while (i < length) {
+    args.push(arguments[i++]);
+  }
+
+  return args;
+}
+
 var wires = new WeakMap$1(); // A wire is a callback used as tag function
 // It's represented by either a DOM node, or an Array.
 // In both cases, the wire content role is to simply update
@@ -1893,7 +1871,7 @@ var wires = new WeakMap$1(); // A wire is a callback used as tag function
 var content = function content(type) {
   var wire, tagger, template;
   return function () {
-    var args = reArguments.apply(null, arguments);
+    var args = tta.apply(null, arguments);
 
     if (template !== args[0]) {
       template = args[0];
@@ -1913,7 +1891,7 @@ var content = function content(type) {
 // stay associated with the original interpolation.
 // To prevent hyperHTML from forgetting about a fragment's sub-nodes,
 // fragments are instead returned as an Array of nodes or, if there's only one entry,
-// as a single referenced node which, unlike framents, will indeed persist
+// as a single referenced node which, unlike fragments, will indeed persist
 // wire content throughout multiple renderings.
 // The initial fragment, at this point, would be used as unique reference to this
 // array of nodes or to this single referenced node.
@@ -1922,17 +1900,7 @@ var content = function content(type) {
 var wireContent = function wireContent(node) {
   var childNodes = node.childNodes;
   var length = childNodes.length;
-  var wireNodes = [];
-
-  for (var i = 0; i < length; i++) {
-    var child = childNodes[i];
-
-    if (child.nodeType === ELEMENT_NODE$1 || trim.call(child.textContent).length !== 0) {
-      wireNodes.push(child);
-    }
-  }
-
-  return wireNodes.length === 1 ? wireNodes[0] : new Wire(wireNodes);
+  return length === 1 ? childNodes[0] : length ? new Wire(childNodes) : node;
 };
 
 // are already known to hyperHTML
@@ -1944,7 +1912,7 @@ var bewitched = new WeakMap$1(); // better known as hyper.bind(node), the render
 
 function render() {
   var wicked = bewitched.get(this);
-  var args = reArguments.apply(null, arguments);
+  var args = tta.apply(null, arguments);
 
   if (wicked && wicked.template === args[0]) {
     wicked.tagger.apply(null, args);
@@ -1959,16 +1927,15 @@ function render() {
 // to the current context, and render it after cleaning the context up
 
 
-function upgrade() {
-  var args = reArguments.apply(null, arguments);
+function upgrade(template) {
   var type = OWNER_SVG_ELEMENT in this ? 'svg' : 'html';
   var tagger = new Tagger(type);
   bewitched.set(this, {
     tagger: tagger,
-    template: args[0]
+    template: template
   });
   this.textContent = '';
-  this.appendChild(tagger.apply(null, args));
+  this.appendChild(tagger.apply(null, arguments));
 }
 
 /*! (c) Andrea Giammarchi (ISC) */
@@ -2179,9 +2146,11 @@ function (_HTMLElement) {
         }, _callee, this, [[0, 11]]);
       }));
 
-      return function getMessages() {
+      function getMessages() {
         return _getMessages.apply(this, arguments);
-      };
+      }
+
+      return getMessages;
     }()
   }, {
     key: "render",
