@@ -13,7 +13,8 @@
     "iconColor": "icon-white",
     "label": "Twitter: uPortal",
     "link": "https://twitter.com/uPortal",
-    "name": "Twitter: uPortal"
+    "name": "Twitter: uPortal",
+    "reflang": "en"
   },
   "linkMenu2": {
     "id": "museum-menu-item-2",
@@ -22,7 +23,8 @@
     "iconColor": "icon-white",
     "label": "Contact",
     "link": "mailto:uportal-user@apereo.org",
-    "name": "Contact"
+    "name": "Contact",
+    "reflang": "en"
   },
   "linkMenu3": {
     "id": "museum-menu-item-3",
@@ -31,7 +33,8 @@
     "iconColor": "icon-white",
     "label": "Github: uPortal",
     "link": "https://github.com/jasig/uPortal",
-    "name": "Github: uPortal"
+    "name": "Github: uPortal",
+    "reflang": "en"
   },
   "List": [{ "tag": "Open source" }, { "tag": "Apereo" }, { "tag": "Portal" }],
   "paragraphs": [
@@ -47,7 +50,8 @@
     "iconColor": "icon-black",
     "label": "Check the sources on Github",
     "link": "https://github.com/jasig/uportal-start",
-    "name": "uPortal-Start"
+    "name": "uPortal-Start",
+    "reflang": "en"
   },
   "button2": {
     "id": "museum-button-2",
@@ -56,6 +60,7 @@
     "iconColor": "icon-white",
     "label": "English Documentation",
     "link": "http://jasig.github.io/uPortal/",
-    "name": "Manual"
+    "name": "Manual",
+    "reflang": "en"
   }
 }
