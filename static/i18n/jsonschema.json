@@ -79,7 +79,8 @@
         "iconColor",
         "label",
         "link",
-        "name"
+        "name",
+        "reflang"
       ],
       "properties": {
         "id": {
@@ -137,6 +138,14 @@
           "default": "",
           "examples": ["Twitter: uPortal"],
           "pattern": "^(.*)$"
+        },
+        "reflang": {
+          "$id": "#/properties/linkMenu1/properties/reflang",
+          "type": "string",
+          "title": "gives the language of the linked resource. The value must be a valid BCP 47 language tag.",
+          "default": "",
+          "examples": ["en"],
+          "pattern": "^(.*)$"
         }
       }
     },
@@ -151,7 +160,8 @@
         "iconColor",
         "label",
         "link",
-        "name"
+        "name",
+        "reflang"
       ],
       "properties": {
         "id": {
@@ -209,6 +219,14 @@
           "default": "",
           "examples": ["Contact"],
           "pattern": "^(.*)$"
+        },
+        "reflang": {
+          "$id": "#/properties/linkMenu2/properties/reflang",
+          "type": "string",
+          "title": "gives the language of the linked resource. The value must be a valid BCP 47 language tag.",
+          "default": "",
+          "examples": ["en"],
+          "pattern": "^(.*)$"
         }
       }
     },
@@ -223,7 +241,8 @@
         "iconColor",
         "label",
         "link",
-        "name"
+        "name",
+        "reflang"
       ],
       "properties": {
         "id": {
@@ -280,6 +299,14 @@
           "title": "The Name Schema",
           "default": "",
           "examples": ["Github: uPortal"],
+          "pattern": "^(.*)$"
+        },
+        "reflang": {
+          "$id": "#/properties/linkMenu3/properties/reflang",
+          "type": "string",
+          "title": "gives the language of the linked resource. The value must be a valid BCP 47 language tag.",
+          "default": "",
+          "examples": ["en"],
           "pattern": "^(.*)$"
         }
       }
@@ -339,7 +366,8 @@
         "iconColor",
         "label",
         "link",
-        "name"
+        "name",
+        "reflang"
       ],
       "properties": {
         "id": {
@@ -397,6 +425,14 @@
           "default": "",
           "examples": ["uPortal-Start"],
           "pattern": "^(.*)$"
+        },
+        "reflang": {
+          "$id": "#/properties/button1/properties/reflang",
+          "type": "string",
+          "title": "gives the language of the linked resource. The value must be a valid BCP 47 language tag.",
+          "default": "",
+          "examples": ["en"],
+          "pattern": "^(.*)$"
         }
       }
     },
@@ -411,7 +447,8 @@
         "iconColor",
         "label",
         "link",
-        "name"
+        "name",
+        "reflang"
       ],
       "properties": {
         "id": {
@@ -468,6 +505,14 @@
           "title": "The Name Schema",
           "default": "",
           "examples": ["Manual"],
+          "pattern": "^(.*)$"
+        },
+        "reflang": {
+          "$id": "#/properties/button2/properties/reflang",
+          "type": "string",
+          "title": "gives the language of the linked resource. The value must be a valid BCP 47 language tag.",
+          "default": "",
+          "examples": ["en"],
           "pattern": "^(.*)$"
         }
       }

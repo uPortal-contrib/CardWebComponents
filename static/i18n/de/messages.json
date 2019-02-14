@@ -13,7 +13,8 @@
     "iconColor": "icon-white",
     "label": "Twitter: uPortal",
     "link": "https://twitter.com/uPortal",
-    "name": "Twitter: uPortal"
+    "name": "Twitter: uPortal",
+    "reflang": "en"
   },
   "linkMenu2": {
     "id": "museum-menu-item-2",
@@ -22,7 +23,8 @@
     "iconColor": "icon-white",
     "label": "Kontaktinformationen",
     "link": "mailto:uportal-user@apereo.org",
-    "name": "Kontaktinformationen"
+    "name": "Kontaktinformationen",
+    "reflang": "de"
   },
   "linkMenu3": {
     "id": "museum-menu-item-3",
@@ -31,7 +33,8 @@
     "iconColor": "icon-white",
     "label": "Github: uPortal",
     "link": "https://github.com/jasig/uPortal",
-    "name": "Github: uPortal"
+    "name": "Github: uPortal",
+    "reflang": "en"
   },
   "List": [
     { "tag": "Open source" },
@@ -40,7 +43,7 @@
   ],
   "paragraphs": [
     {
-      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank'>uPortal</a> ist eine kostenlose und quelloffene Java-Webportalplattform, die von Mitarbeitern der Hochschulen unter der Koordination der <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank'>Apereo Foundation</a> entwickelt und gepflegt wird.  uPortal kann Inhalte aggregieren, Self-Service-Anwendungen präsentieren, Präsentationen und Inhalte basierend auf Benutzergruppen und Attributen anpassen, mobile Geräteanwendungen steuern und eine erweiterte und partizipative Anpassung der Portal-Erfahrung ermöglichen. uPortal unterstützt die Java JSR-286 und JSR-168 Portletspezifikation, um Ihre benutzerdefinierten Anwendungen in das Portal einzubinden."
+      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank' hreflang='en'>uPortal</a> ist eine kostenlose und quelloffene Java-Webportalplattform, die von Mitarbeitern der Hochschulen unter der Koordination der <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank' hreflang='en'>Apereo Foundation</a> entwickelt und gepflegt wird.  uPortal kann Inhalte aggregieren, Self-Service-Anwendungen präsentieren, Präsentationen und Inhalte basierend auf Benutzergruppen und Attributen anpassen, mobile Geräteanwendungen steuern und eine erweiterte und partizipative Anpassung der Portal-Erfahrung ermöglichen. uPortal unterstützt die Java JSR-286 und JSR-168 Portletspezifikation, um Ihre benutzerdefinierten Anwendungen in das Portal einzubinden."
     },
     { "para": "Willkommen bei uPortal." }
   ],
@@ -51,7 +54,8 @@
     "iconColor": "icon-black",
     "label": "Zu den Code-Quellen auf Github gehen",
     "link": "https://github.com/jasig/uportal-start",
-    "name": "uPortal-Start"
+    "name": "uPortal-Start",
+    "reflang": "en"
   },
   "button2": {
     "id": "museum-button-2",
@@ -60,6 +64,7 @@
     "iconColor": "icon-white",
     "label": "Englische Dokumentation",
     "link": "http://jasig.github.io/uPortal/",
-    "name": "Handbuch"
+    "name": "Handbuch",
+    "reflang": "en"
   }
 }
