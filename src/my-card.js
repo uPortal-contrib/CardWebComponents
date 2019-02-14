@@ -181,8 +181,8 @@ class myCard extends HTMLElement {
       data.linkMenu1.cssClass
     }" href="${data.linkMenu1.link}" title="${
       data.linkMenu1.label
-    }" aria-label="${
-      data.linkMenu1.label
+    }" aria-label="${data.linkMenu1.label}" hreflang="${
+      data.linkMenu1.reflang
     }" target="_blank" rel="noopener noreferrer"><img src="${baseSvg +
       data.linkMenu1.glyphicon}" class="${
       data.linkMenu1.iconColor
@@ -191,8 +191,8 @@ class myCard extends HTMLElement {
       data.linkMenu2.cssClass
     }" href="${data.linkMenu2.link}" title="${
       data.linkMenu2.label
-    }" aria-label="${
-      data.linkMenu2.label
+    }" aria-label="${data.linkMenu2.label}" hreflang="${
+      data.linkMenu2.reflang
     }" target="_blank" rel="noopener noreferrer"><img src="${baseSvg +
       data.linkMenu2.glyphicon}" class="${
       data.linkMenu2.iconColor
@@ -201,8 +201,8 @@ class myCard extends HTMLElement {
       data.linkMenu3.cssClass
     }" href="${data.linkMenu3.link}" title="${
       data.linkMenu3.label
-    }" aria-label="${
-      data.linkMenu3.label
+    }" aria-label="${data.linkMenu3.label}" hreflang="${
+      data.linkMenu3.reflang
     }" target="_blank" rel="noopener noreferrer"><img src="${baseSvg +
       data.linkMenu3.glyphicon}" class="${
       data.linkMenu3.iconColor
@@ -223,14 +223,17 @@ class myCard extends HTMLElement {
       <div class="card__action">
         <a href="${data.button1.link}" class="${
       data.button1.cssClass
-    }" title="${data.button1.label}" rel="noopener noreferrer">${
-      data.button1.name
-    }&nbsp;<img src="${baseSvg + data.button1.glyphicon}"  class="${
+    }" title="${data.button1.label}" hreflang="${
+      data.button1.reflang
+    }" rel="noopener noreferrer">${data.button1.name}&nbsp;<img src="${baseSvg +
+      data.button1.glyphicon}"  class="${
       data.button1.iconColor
     }"  alt="" aria-hidden="true"></a>&nbsp;
         <a href="${data.button2.link}" class="${
       data.button2.cssClass
-    }" title="${data.button2.label}" rel="noopener noreferrer">${
+    }" title="${data.button2.label}" hreflang="${
+      data.button2.reflang
+    }"  rel="noopener noreferrer">${
       data.button2.name
     }&nbsp;<img src="${baseSvg + data.button2.glyphicon}"  class="${
       data.button2.iconColor

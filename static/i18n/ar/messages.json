@@ -13,7 +13,8 @@
     "iconColor": "icon-white",
     "label": "Twitter: uPortal",
     "link": "https://twitter.com/uPortal",
-    "name": "Twitter: uPortal"
+    "name": "Twitter: uPortal",
+    "reflang": "en"
   },
   "linkMenu2": {
     "id": "museum-menu-item-2",
@@ -22,7 +23,8 @@
     "iconColor": "icon-white",
     "label": "اتصل",
     "link": "mailto:uportal-user@apereo.org",
-    "name": "اتصل"
+    "name": "اتصل",
+    "reflang": "ar"
   },
   "linkMenu3": {
     "id": "museum-menu-item-3",
@@ -31,7 +33,8 @@
     "iconColor": "icon-white",
     "label": "Github: uPortal",
     "link": "https://github.com/jasig/uPortal",
-    "name": "Github: uPortal"
+    "name": "Github: uPortal",
+    "reflang": "en"
   },
   "List": [
     { "tag": "برنامج مفتوح المصدر" },
@@ -40,7 +43,7 @@
   ],
   "paragraphs": [
     {
-      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank' lang='en-US'>uPortal</a> هو عبارة عن منصة بوابة ويب مجانية مفتوحة المصدر تعتمد لغة <span  lang='en-US'>Java</span> تم تطويرها وصيانتها من قبل مشاركين من التعليم العالي في إطار تنسيق <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank' lang='en-US'>Apereo</a>. يمكن لـ <span  lang='en-US'>uPortal</span> أن يجمّع المحتوى ، ويقدّم تطبيقات الخدمة الذاتية ، ويشخصن العرض والمحتوى على أساس سمات المستخدم أو المجموعات ، ويسيّر تطبيقات الجهاز المحمول ، ويسمح  للمستخدم النهائي بالمشاركة المتقدمة في شخصنة تجارب البوابة. تدعم uPortal مواصفات <span  lang='en-US'>JSR-286</span>  و <span  lang='en-US'>JSR-168 Java portlet</span> لتضمين تطبيقاتك المخصّصة داخل البوابة."
+      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank' lang='en-US' hreflang='en'>uPortal</a> هو عبارة عن منصة بوابة ويب مجانية مفتوحة المصدر تعتمد لغة <span  lang='en-US'>Java</span> تم تطويرها وصيانتها من قبل مشاركين من التعليم العالي في إطار تنسيق <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank' lang='en-US' hreflang='en'>Apereo</a>. يمكن لـ <span  lang='en-US'>uPortal</span> أن يجمّع المحتوى ، ويقدّم تطبيقات الخدمة الذاتية ، ويشخصن العرض والمحتوى على أساس سمات المستخدم أو المجموعات ، ويسيّر تطبيقات الجهاز المحمول ، ويسمح  للمستخدم النهائي بالمشاركة المتقدمة في شخصنة تجارب البوابة. تدعم uPortal مواصفات <span  lang='en-US'>JSR-286</span>  و <span  lang='en-US'>JSR-168 Java portlet</span> لتضمين تطبيقاتك المخصّصة داخل البوابة."
     },
     { "para": "مرحبا بكم في <span  lang='en-US'>uPortal</span>." }
   ],
@@ -51,7 +54,8 @@
     "iconColor": "icon-black",
     "label": "اطلب من المصادر على Github",
     "link": "https://github.com/jasig/uportal-start",
-    "name": "uPortal-Start"
+    "name": "uPortal-Start",
+    "reflang": "en"
   },
   "button2": {
     "id": "museum-button-2",
@@ -60,6 +64,7 @@
     "iconColor": "icon-white",
     "label": "الوثائق الإنجليزية",
     "link": "http://jasig.github.io/uPortal/",
-    "name": "الوثائق الإنجليزية"
+    "name": "الوثائق الإنجليزية",
+    "reflang": "en"
   }
 }
