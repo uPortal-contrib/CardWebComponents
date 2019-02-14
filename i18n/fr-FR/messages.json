@@ -4,7 +4,7 @@
   "time": "13 Juin 2018",
   "toggle": {
     "stateClosed": "Ouvrir le menu sur sa gauche",
-    "stateOpened": "Fermer le menu"
+    "stateOpened": "Refermer le menu"
   },
   "linkMenu1": {
     "id": "museum-menu-item-1",
@@ -33,10 +33,14 @@
     "link": "https://github.com/jasig/uPortal",
     "name": "Github : uPortal"
   },
-  "List": [{ "tag": "Open Source" }, { "tag": "Apereo" }, { "tag": "Portail" }],
+  "List": [
+    { "tag": "Open Source" },
+    { "tag": "Apereo" },
+    { "tag": "Portail Web" }
+  ],
   "paragraphs": [
     {
-      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank'>uPortal</a> est une plateforme de portail web Java gratuite et opensource, développée et maintenue par des personnels de l'Enseignement Supérieur sous la coordination de la Fondation <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank'>Apereo</a>. uPortal peut agréger du contenu, présenter des applications en libre-service, personnaliser la présentation et le contenu en fonction des groupes et des attributs utilisateur, piloter des applications pour appareils mobiles et permettre une personnalisation avancée et participative de l'expérience du portail. uPortal prend en charge la spécification de portlet Java JSR-286 et JSR-168 pour inclure vos applications personnalisées dans le portail."
+      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank'>uPortal</a> est une plateforme de portail web Java gratuite et open source, développée et maintenue par des personnels de l’Enseignement Supérieur sous la coordination de la Fondation <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank'>Apereo</a>. uPortal peut agréger du contenu, présenter des applications en libre-service, personnaliser la présentation et le contenu en fonction des groupes et des attributs d’un utilisateur, piloter des applications pour des appareils mobiles et permettre une personnalisation avancée et participative de l’expérience du portail. uPortal prend en charge la spécification de portlet Java JSR-286 et JSR-168 pour inclure vos applications personnalisées dans le portail."
     },
     { "para": "Bienvenue sur uPortal." }
   ],
@@ -45,8 +49,8 @@
     "cssClass": "btn btn-default btn-lg",
     "glyphicon": "brands/github.svg",
     "iconColor": "icon-black",
-    "label": "Aller sur les sources Github",
-    "link": "https://github.com/jasig/uportal-start",
+    "label": "Aller sur Github sur l’outil en ligne de commande pour déployer uPortal",
+    "link": "https://github.com/Jasig/uPortal-start/blob/master/LISEZMOI.md",
     "name": "uPortal-Start"
   },
   "button2": {
