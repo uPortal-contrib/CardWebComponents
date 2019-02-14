@@ -208,7 +208,7 @@ class myCard extends HTMLElement {
       data.linkMenu3.iconColor
     }" aria-hidden="true" alt=""></a>
           </div>
-          <a class="share-toggle share-icon"  onclick="${onclick}" href="javascript:void(0);" aria-controls="what-is-uportal-i18n-list" aria-haspopup="true" aria-label="${
+          <a class="share-toggle share-icon"  onclick="${onclick}" href="javascript:void(0);" aria-haspopup="true" aria-label="${
       data.toggle.stateClosed
     }"><img src="${baseSvg +
       "solid/ellipsis-v.svg"}" class="icon-black" aria-hidden="true" alt=""></i></a>
