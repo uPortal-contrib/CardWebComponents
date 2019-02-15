@@ -37,13 +37,13 @@
     "reflang": "en"
   },
   "List": [
-    { "tag": "Opensource" },
-    { "tag": "Apereo" },
-    { "tag": "Portale web" }
+    { "tag": "Opensource", "tagLabel": "" },
+    { "tag": "Apereo", "tagLabel": "" },
+    { "tag": "Portale web", "tagLabel": "" }
   ],
   "paragraphs": [
     {
-      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank' hreflang='en'>uPortal</a> è una piattaforma di portale web implementata in Java gratuita e open source sviluppata e gestita da partecipanti provenienti da tutta l'istruzione superiore sotto il coordinamento di <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank' hreflang='en'>Apereo</a>. uPortal può aggregare contenuti, presentare applicazioni self-service, personalizzare la presentazione e il contenuto sulla base di gruppi e attributi utente, guidare applicazioni per dispositivi mobili e consentire la personalizzazione avanzata dell'esperienza del portale da parte dell'utente finale. uPortal supporta le specifiche del portlet Java JSR-286 e JSR-168 per includere le applicazioni personalizzate all'interno del portale."
+      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' aria-label='uportale' target='_blank' hreflang='en'>uPortal</a> è una piattaforma di portale web implementata in Java gratuita e open source sviluppata e gestita da partecipanti provenienti da tutta l'istruzione superiore sotto il coordinamento di <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank' hreflang='en'>Apereo</a>. uPortal può aggregare contenuti, presentare applicazioni self-service, personalizzare la presentazione e il contenuto sulla base di gruppi e attributi utente, guidare applicazioni per dispositivi mobili e consentire la personalizzazione avanzata dell'esperienza del portale da parte dell'utente finale. uPortal supporta le specifiche del portlet Java JSR-286 e JSR-168 per includere le applicazioni personalizzate all'interno del portale."
     },
     { "para": "Benvenuto su uPortal." }
   ],

@@ -37,9 +37,9 @@
     "reflang": "en"
   },
   "List": [
-    { "tag": "Open source" },
-    { "tag": "Apereo" },
-    { "tag": "Web-Portal" }
+    { "tag": "Open source", "tagLabel": "" },
+    { "tag": "Apereo", "tagLabel": "" },
+    { "tag": "Web-Portal", "tagLabel": "" }
   ],
   "paragraphs": [
     {

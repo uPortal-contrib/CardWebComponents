@@ -37,9 +37,9 @@
     "reflang": "en"
   },
   "List": [
-    { "tag": "برنامج مفتوح المصدر" },
-    { "tag": "Apereo" },
-    { "tag": "بوابة الويب" }
+    { "tag": "برنامج مفتوح المصدر", "tagLabel": "" },
+    { "tag": "Apereo", "tagLabel": "" },
+    { "tag": "بوابة الويب", "tagLabel": "" }
   ],
   "paragraphs": [
     {

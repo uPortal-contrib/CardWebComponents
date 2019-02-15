@@ -79,8 +79,7 @@
         "iconColor",
         "label",
         "link",
-        "name",
-        "reflang"
+        "name"
       ],
       "properties": {
         "id": {
@@ -241,8 +240,7 @@
         "iconColor",
         "label",
         "link",
-        "name",
-        "reflang"
+        "name"
       ],
       "properties": {
         "id": {
@@ -326,7 +324,15 @@
             "type": "string",
             "title": "The Tag name Schema",
             "default": "",
-            "examples": ["Open source"],
+            "examples": ["Apereo"],
+            "pattern": "^(.*)$"
+          },
+          "tagLabel": {
+            "$id": "#/properties/List/items/properties/tagLabel",
+            "type": "string",
+            "title": "The aria-label used to fix in various languages the Tag's pronounciation by Assistive Technologies. example below indicate the way Apereo is pronouced in french.",
+            "default": "",
+            "examples": ["apéréo"],
             "pattern": "^(.*)$"
           }
         }
@@ -366,8 +372,7 @@
         "iconColor",
         "label",
         "link",
-        "name",
-        "reflang"
+        "name"
       ],
       "properties": {
         "id": {
@@ -447,8 +452,7 @@
         "iconColor",
         "label",
         "link",
-        "name",
-        "reflang"
+        "name"
       ],
       "properties": {
         "id": {
@@ -510,7 +514,7 @@
         "reflang": {
           "$id": "#/properties/button2/properties/reflang",
           "type": "string",
-          "title": "gives the language of the linked resource. The value must be a valid BCP 47 language tag.",
+          "title": "gives the language of the linked resource. The value must be a valid BCP 47 language tag",
           "default": "",
           "examples": ["en"],
           "pattern": "^(.*)$"

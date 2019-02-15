@@ -37,13 +37,13 @@
     "reflang": "en"
   },
   "List": [
-    { "tag": "Open Source" },
-    { "tag": "Apereo" },
-    { "tag": "Portail Web" }
+    { "tag": "Open Source", "tagLabel": "" },
+    { "tag": "Apereo", "tagLabel": "apéréo" },
+    { "tag": "Portail Web", "tagLabel": "" }
   ],
   "paragraphs": [
     {
-      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank' hreflang='en'>uPortal</a> est une plateforme de portail web Java gratuite et open source, développée et maintenue par des personnels de l’Enseignement Supérieur sous la coordination de la Fondation <a href='http://www.apereo.org/' rel='noreferrer noopener' aria-label='apéréo' target='_blank' hreflang='en'>Apereo</a>. uPortal peut agréger du contenu, présenter des applications en libre-service, personnaliser la présentation et le contenu en fonction des groupes et des attributs d’un utilisateur, piloter des applications pour des appareils mobiles et permettre une personnalisation avancée et participative de l’expérience du portail. uPortal prend en charge la spécification de <span lang='en'>portlet</span> Java JSR-286 et JSR-168 pour inclure vos applications personnalisées dans le portail."
+      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank' hreflang='en'>uPortal</a> est une plateforme de portail web Java gratuite et open source, développée et maintenue par des personnels de l’Enseignement Supérieur sous la coordination de la Fondation <a href='http://www.apereo.org/' rel='noreferrer noopener' aria-label='apéréo' target='_blank' hreflang='en'>Apereo</a>. uPortal peut agréger du contenu, présenter des applications en libre-service, personnaliser la présentation et le contenu en fonction des groupes et des attributs d’un utilisateur, piloter des applications pour des appareils mobiles et permettre une personnalisation avancée et participative de l’expérience du portail. uPortal prend en charge la spécification de <span aria-label='portlette'>portlet</span> Java JSR-286 et JSR-168 pour inclure vos applications personnalisées dans le portail."
     },
     { "para": "Bienvenue sur uPortal." }
   ],

@@ -37,9 +37,9 @@
     "reflang": "en"
   },
   "List": [
-    { "tag": "Fuente abierta" },
-    { "tag": "Apereo" },
-    { "tag": "Web Portal" }
+    { "tag": "Fuente abierta", "tagLabel": "" },
+    { "tag": "Apereo", "tagLabel": "" },
+    { "tag": "Portal Web", "tagLabel": "" }
   ],
   "paragraphs": [
     {

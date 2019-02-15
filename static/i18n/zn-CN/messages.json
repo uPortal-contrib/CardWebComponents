@@ -36,7 +36,11 @@
     "name": "Github: uPortal",
     "reflang": "en"
   },
-  "List": [{ "tag": "开源" }, { "tag": "Apereo" }, { "tag": "门户网站" }],
+  "List": [
+    { "tag": "开源", "tagLabel": "" },
+    { "tag": "Apereo", "tagLabel": "" },
+    { "tag": "门户网站", "tagLabel": "" }
+  ],
   "paragraphs": [
     {
       "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank' hreflang='en'>uPortal</a> 是一个免费的、开源的Java门户网站平台，由高校教育工作人员在<a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank' hreflang='en'>Apereo</a>基金会的协调下开发和维护。uPortal可以聚合内容，呈现自助服务应用程序，根据用户组和用户属性个性化应用程序的呈现形式和内容，为移动设备驱动应用程序，以及实现高级的参与式的门户体验的自定义。uPortal 支持 portlet Java JSR-286 和 JSR-168 规范，以在门户中嵌入您的自定义应用程序。"
