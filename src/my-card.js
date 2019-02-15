@@ -129,7 +129,7 @@ class myCard extends HTMLElement {
   }
 
   render() {
-    const { baseSvg, baseCss, data, onclick, root } = this;
+    const { pageLang, baseSvg, baseCss, data, onclick, root } = this;
 
     // exit early if no data is present
     if (!data) {
@@ -172,9 +172,7 @@ class myCard extends HTMLElement {
             "solid/tags.svg"}" class="icon-black" aria-label="Tagg " alt="Tags&nbsp;" />:
           <div>${data.List.map(
             l =>
-              ` <a href="javascript:void(0);" lang="${classlang}">${
-                l.tag
-              }</a> -`
+              ` <a href="javascript:void(0);" lang="${pageLang}">${l.tag}</a> -`
           )}</div>&nbsp;
           <time>${data.time}</time>
           </div>
