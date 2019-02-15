@@ -8,6 +8,7 @@
     "imgsrc",
     "title",
     "time",
+    "tags",
     "toggle",
     "linkMenu1",
     "linkMenu2",
@@ -42,6 +43,14 @@
       "title": "The Time Schema",
       "default": "",
       "examples": ["June 13, 2018"],
+      "pattern": "^(.*)$"
+    },
+    "tags": {
+      "$id": "#/properties/tags",
+      "type": "string",
+      "title": "the description of the tag icon with a colon",
+      "default": "",
+      "examples": ["Keywords:"],
       "pattern": "^(.*)$"
     },
     "toggle": {
