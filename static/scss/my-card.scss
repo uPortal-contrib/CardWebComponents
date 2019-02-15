@@ -129,6 +129,7 @@ a:focus-visible {
       }
 
       .card__meta {
+        display: inline-block;
         clear: left !important;
         top: -0.4rem !important;
         padding: 0 2.3rem 0 1.6rem !important;
