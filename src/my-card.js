@@ -171,7 +171,10 @@ class myCard extends HTMLElement {
           <img src="${baseSvg +
             "solid/tags.svg"}" class="icon-black" aria-label="Tagg " alt="Tags&nbsp;" />:
           <div>${data.List.map(
-            l => ` <a href="javascript:void(0);">${l.tag}</a> -`
+            l =>
+              ` <a href="javascript:void(0);" lang="${classlang}">${
+                l.tag
+              }</a> -`
           )}</div>&nbsp;
           <time>${data.time}</time>
           </div>
