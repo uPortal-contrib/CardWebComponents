@@ -167,9 +167,9 @@ class myCard extends HTMLElement {
       <div class="card__content card__padding">  
         <div class="card__article">
           <h2>${data.title}</h2>
-          <div class="card__meta" aria-label="Tags" lang="en-US">
+          <div class="card__meta">
           <img src="${baseSvg +
-            "solid/tags.svg"}" class="icon-black" role="presentation" alt="">&nbsp;:
+            "solid/tags.svg"}" class="icon-black" aria-label="Tagg " alt="Tags&nbsp;" />:
           <div>${data.List.map(
             l => ` <a href="javascript:void(0);">${l.tag}</a> -`
           )}</div>&nbsp;
@@ -183,38 +183,43 @@ class myCard extends HTMLElement {
       data.linkMenu1.label
     }" aria-label="${data.linkMenu1.label}" hreflang="${
       data.linkMenu1.reflang
-    }" target="_blank" rel="noopener noreferrer"><img src="${baseSvg +
-      data.linkMenu1.glyphicon}" class="${
+    }" target="_blank" rel="noopener noreferrer">
+              <img src="${baseSvg + data.linkMenu1.glyphicon}" class="${
       data.linkMenu1.iconColor
-    }" aria-hidden="true" alt=""></a>
-            <a role="menuitem" id="${data.linkMenu2.id}" tabindex="0" class="${
+    }" aria-hidden="true" alt="" />
+           </a>
+           <a role="menuitem" id="${data.linkMenu2.id}" tabindex="0" class="${
       data.linkMenu2.cssClass
     }" href="${data.linkMenu2.link}" title="${
       data.linkMenu2.label
     }" aria-label="${data.linkMenu2.label}" hreflang="${
       data.linkMenu2.reflang
-    }" target="_blank" rel="noopener noreferrer"><img src="${baseSvg +
-      data.linkMenu2.glyphicon}" class="${
+    }" target="_blank" rel="noopener noreferrer">
+             <img src="${baseSvg + data.linkMenu2.glyphicon}" class="${
       data.linkMenu2.iconColor
-    }" aria-hidden="true" alt=""></a>
-            <a role="menuitem" id="${data.linkMenu3.id}" tabindex="0" class="${
+    }" aria-hidden="true" alt="" />
+           </a>
+           <a role="menuitem" id="${data.linkMenu3.id}" tabindex="0" class="${
       data.linkMenu3.cssClass
     }" href="${data.linkMenu3.link}" title="${
       data.linkMenu3.label
     }" aria-label="${data.linkMenu3.label}" hreflang="${
       data.linkMenu3.reflang
-    }" target="_blank" rel="noopener noreferrer"><img src="${baseSvg +
-      data.linkMenu3.glyphicon}" class="${
+    }" target="_blank" rel="noopener noreferrer">
+             <img src="${baseSvg + data.linkMenu3.glyphicon}" class="${
       data.linkMenu3.iconColor
-    }" aria-hidden="true" alt=""></a>
-          </div>
+    }" aria-hidden="true" alt="" />
+          </a>
+        </div>
           <a class="share-toggle share-icon"  onclick="${onclick}" href="javascript:void(0);" aria-haspopup="true" aria-label="${
       data.toggle.stateClosed
-    }"><img src="${baseSvg +
-      "solid/ellipsis-v.svg"}" class="icon-black" aria-hidden="true" alt=""></i></a>
+    }">
+            <img src="${baseSvg +
+              "solid/ellipsis-v.svg"}" class="icon-black" aria-hidden="true" alt="" />
+          </a>
 
 
-        </div>
+      </div>
           <div class="text">${data.paragraphs.map(
             p => `<p>${p.para}</p>`
           )}</div>
