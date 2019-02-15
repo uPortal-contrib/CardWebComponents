@@ -168,16 +168,15 @@ class myCard extends HTMLElement {
       <div class="card__content card__padding">  
         <div class="card__article">
           <h2>${data.title}</h2>
-          <div class="card__meta">
-          <img src="${baseSvg + "solid/tags.svg"}" class="icon-black" alt="${
-      data.tags
-    }" />
+          <section class="card__meta">
+           <h3><img src="${baseSvg +
+             "solid/tags.svg"}" class="icon-black" alt="${data.tags}" /></h3>
           <div>${data.List.map(
             l =>
               ` <a href="javascript:void(0);" lang="${baseLang}">${l.tag}</a> -`
           )}</div>&nbsp;
           <time>${data.time}</time>
-          </div>
+          </section>
           <div class="card__share" tabindex="-1" role="menu">
           <div class="card__social card__fix--width">
             <a role="menuitem" id="${data.linkMenu1.id}" tabindex="0" class="${
