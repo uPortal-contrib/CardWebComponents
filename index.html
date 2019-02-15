@@ -2,7 +2,7 @@
 <html lang="en-US">
    <head>
       <meta charset="UTF-8">
-      <title>CardWebComponent for uPortal</title>
+      <title>The "CardWebComponent" Web Component test page for uPortal</title>
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -17,10 +17,14 @@
    </head>
 
    <body>
-      <my-card id="what-is-uportal-i18n" messagesPath="./" cssPath="css"></my-card>
+      <article role="main">
+        <!-- Beginning of the web component -->
+        <my-card id="what-is-uportal-i18n" messagesPath="./" cssPath="css"></my-card>
 
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js' defer></script>
-      <script src='https://unpkg.com/regenerator-runtime@0.12.1/runtime.js' defer></script>
-      <script src="my-card.umd.js" defer></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js' defer></script>
+        <script src='https://unpkg.com/regenerator-runtime@0.12.1/runtime.js' defer></script>
+        <script src="my-card.umd.js" defer></script>
+        <!-- End of the web component -->
+      </article>
    </body>
 </html>
