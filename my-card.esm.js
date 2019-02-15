@@ -2155,7 +2155,8 @@ function (_HTMLElement) {
   }, {
     key: "render",
     value: function render() {
-      var baseSvg = this.baseSvg,
+      var pageLang = this.pageLang,
+          baseSvg = this.baseSvg,
           baseCss = this.baseCss,
           data = this.data,
           onclick = this.onclick,
@@ -2181,7 +2182,7 @@ function (_HTMLElement) {
       stylesImportTag.innerHTML = "@import '" + "".concat(baseCss) + "/my-card.css';";
       var classlang = "card-wrapper" + " " + document.getElementsByTagName("html")[0].lang;
       root(_templateObject(), data.magic, classlang, data.imgsrc, data.title, baseSvg + "solid/tags.svg", data.List.map(function (l) {
-        return " <a href=\"javascript:void(0);\" lang=\"".concat(classlang, "\">").concat(l.tag, "</a> -");
+        return " <a href=\"javascript:void(0);\" lang=\"".concat(pageLang, "\">").concat(l.tag, "</a> -");
       }), data.time, data.linkMenu1.id, data.linkMenu1.cssClass, data.linkMenu1.link, data.linkMenu1.label, data.linkMenu1.label, data.linkMenu1.reflang, baseSvg + data.linkMenu1.glyphicon, data.linkMenu1.iconColor, data.linkMenu2.id, data.linkMenu2.cssClass, data.linkMenu2.link, data.linkMenu2.label, data.linkMenu2.label, data.linkMenu2.reflang, baseSvg + data.linkMenu2.glyphicon, data.linkMenu2.iconColor, data.linkMenu3.id, data.linkMenu3.cssClass, data.linkMenu3.link, data.linkMenu3.label, data.linkMenu3.label, data.linkMenu3.reflang, baseSvg + data.linkMenu3.glyphicon, data.linkMenu3.iconColor, onclick, data.toggle.stateClosed, baseSvg + "solid/ellipsis-v.svg", data.paragraphs.map(function (p) {
         return "<p>".concat(p.para, "</p>");
       }), data.button1.link, data.button1.cssClass, data.button1.label, data.button1.reflang, data.button1.name, baseSvg + data.button1.glyphicon, data.button1.iconColor, data.button2.link, data.button2.cssClass, data.button2.label, data.button2.reflang, data.button2.name, baseSvg + data.button2.glyphicon, data.button2.iconColor).appendChild(stylesImportTag);
