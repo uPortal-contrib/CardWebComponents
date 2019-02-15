@@ -2,6 +2,7 @@
   "imgsrc": "https://cousquer.github.io/apereo2017/assets/artworks/apereo-uportal.jpg",
   "title": "Qu’est-ce qu’uPortal ?",
   "time": "13 Juin 2018",
+  "tags": "Liste des mots clés :",
   "toggle": {
     "stateClosed": "Ouvrir le menu sur sa gauche",
     "stateOpened": "Refermer le menu"

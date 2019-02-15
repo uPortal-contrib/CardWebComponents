@@ -2,6 +2,7 @@
   "imgsrc": "https://cousquer.github.io/apereo2017/assets/artworks/apereo-uportal.jpg",
   "title": "uPortal 是什么 ?",
   "time": "2018年 6月13日",
+  "tags": "关键字列表:",
   "toggle": {
     "stateClosed": "打开左边菜单",
     "stateOpened": "关闭菜单"
