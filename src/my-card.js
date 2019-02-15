@@ -169,8 +169,9 @@ class myCard extends HTMLElement {
         <div class="card__article">
           <h2>${data.title}</h2>
           <div class="card__meta">
-          <img src="${baseSvg +
-            "solid/tags.svg"}" class="icon-black" aria-label="Tagg " alt="Tags&nbsp;" />:
+          <img src="${baseSvg + "solid/tags.svg"}" class="icon-black" alt="${
+      data.tags
+    }" />
           <div>${data.List.map(
             l =>
               ` <a href="javascript:void(0);" lang="${baseLang}">${l.tag}</a> -`
