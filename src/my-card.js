@@ -74,6 +74,7 @@ class myCard extends HTMLElement {
   urlMessages(path, pageLang) {
     switch (pageLang) {
       case "ar":
+      case "fr-CA":
       case "fr-FR":
       case "es-ES":
       case "en-US":

@@ -2,7 +2,7 @@
   "imgsrc": "https://cousquer.github.io/apereo2017/assets/artworks/apereo-uportal.jpg",
   "title": "Qu’est-ce qu’uPortal\u00A0?",
   "time": "13\u00A0Juin\u00A02018",
-  "tags": "Liste des mots-clefs\u00A0:",
+  "tags": "Liste des mots-clés\u00A0:",
   "toggle": {
     "stateClosed": "Ouvrir le menu sur sa gauche",
     "stateOpened": "Refermer le menu"
@@ -44,7 +44,7 @@
   ],
   "paragraphs": [
     {
-      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank' hreflang='en'>uPortal</a> est une plateforme de portail web Java gratuite et open source, développée et maintenue par des personnels de l’Enseignement Supérieur sous la coordination de la Fondation <a href='http://www.apereo.org/' rel='noreferrer noopener' aria-label='apéréo' target='_blank' hreflang='en'>Apereo</a>. uPortal peut agréger du contenu, présenter des applications en libre-service, personnaliser la présentation et le contenu en fonction des groupes et des attributs d’un utilisateur, piloter des applications pour des appareils mobiles et permettre une personnalisation avancée et participative de l’expérience du portail. uPortal prend en charge la spécification de <a href='https://fr.wikipedia.org/wiki/Portlet' aria-label='portlète' lang='fr-FR'>portlet</a> Java JSR-286 et JSR-168, les <a href='http://jasig.github.io/uPortal/fr/developper/soffits/' aria-label='sofite' lang='fr-FR' hreflang='fr'>Soffits</a> et le standard <a href='https://fr.wikipedia.org/wiki/Composants_web' lang='fr-FR' hreflang='fr'>Web Composants</a> pour inclure vos applications personnalisées dans le portail."
+      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank' hreflang='en'>uPortal</a> est une plateforme de portail Web Java gratuite et open source, développée et maintenue par des personnels de l’Enseignement Supérieur sous la coordination de la Fondation <a href='http://www.apereo.org/' rel='noreferrer noopener' aria-label='apéréo' target='_blank' hreflang='en'>Apereo</a>. uPortal peut agréger du contenu, présenter des applications en libre-service, personnaliser la présentation et le contenu en fonction des groupes et des attributs d’un utilisateur, piloter des applications pour des téléphones, des tabettes mobiles et permettre une personnalisation avancée et participative de l’user expérience du portail. uPortal prend en charge la spécification de <a href='https://fr.wikipedia.org/wiki/Portlet' aria-label='portlé' lang='fr-CA'>portlet</a> Java JSR-286 et JSR-168, les <a href='http://jasig.github.io/uPortal/fr/developper/soffits/' aria-label='sofétss' lang='fr-CA' hreflang='fr'>Soffits</a> et les <a href='https://fr.wikipedia.org/wiki/Composants_web' lang='fr-CA' hreflang='fr'>Composants Web</a> pour inclure vos applications personnalisées dans le portail."
     },
     { "para": "Bienvenue sur uPortal." }
   ],

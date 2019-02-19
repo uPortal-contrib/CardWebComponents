@@ -19,8 +19,9 @@ Apache-2.0
 
 ## Supported Languages
 
-- `en-US` (default). :eyes: See it in [English](https://uportal-contrib.github.io/CardWebComponents/) :us:
-- `fr-FR` . :eyes: See it in [French](https://uportal-contrib.github.io/CardWebComponents/index_fr) :fr:
+- `en-US` (default). :eyes: See it in [English (United States)](https://uportal-contrib.github.io/CardWebComponents/) :us:
+- `fr-FR` . :eyes: See it in [French](https://uportal-contrib.github.io/CardWebComponents/index_fr-FR) :fr:
+- `fr-CA` . :eyes: See it in [French (Canada)](https://uportal-contrib.github.io/CardWebComponents/index_fr-CA)
 - `es-ES` . :eyes: See it in [Spanish](https://uportal-contrib.github.io/CardWebComponents/index_es) :es:
 - `nl-NL` . :eyes: See it in [Dutch](https://uportal-contrib.github.io/CardWebComponents/index_nl)
 - `it` . :eyes: See it in [Italian](https://uportal-contrib.github.io/CardWebComponents/index_it) :it:
@@ -32,8 +33,15 @@ Apache-2.0
 
 ## Features
 
-- [x] WCAG 2.1 Level AA - Level AAA
+- [x] WCAG 2.1 Level AA - Level AAA Work in progress to got beyond simple conformance, but effective Inclusivity,
 - [x] extra Features in CSS Level 4 : :visible-focus (enable accessibility flags)
+- [x] An user can differentiate french from France and French Canadian with Speech Assistive Technologies (falsy-friends, Cutural Differences)
+  - [ ] add Support for `en-GB`
+  - [ ] add Support for `fr-BE`
+  - [ ] add Support for `fr-CH`
+  - [ ] add Support for `nl-BE`
+  - [ ] add Support for Gaelic (Scotland) `gd`
+  - [ ] add Support for Welsh `cy`
 
 ## Audits
 
