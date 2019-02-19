@@ -1,7 +1,7 @@
 {
   "imgsrc": "https://cousquer.github.io/apereo2017/assets/artworks/apereo-uportal.jpg",
   "title": "ما هو uPortal؟",
-  "time": "13 يونيو 2018",
+  "time": "13\u00A0يونيو 2018",
   "tags": "قائمة الكلمات الرئيسية",
   "toggle": {
     "stateClosed": "فتح القائمة على اليسار",
@@ -44,7 +44,7 @@
   ],
   "paragraphs": [
     {
-      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank' lang='en-US' hreflang='en'>uPortal</a> هو عبارة عن منصة بوابة ويب مجانية مفتوحة المصدر تعتمد لغة <span  lang='en-US'>Java</span> تم تطويرها وصيانتها من قبل مشاركين من التعليم العالي في إطار تنسيق <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank' lang='en-US' hreflang='en'>Apereo</a>. يمكن لـ <span  lang='en-US'>uPortal</span> أن يجمّع المحتوى ، ويقدّم تطبيقات الخدمة الذاتية ، ويشخصن العرض والمحتوى على أساس سمات المستخدم أو المجموعات ، ويسيّر تطبيقات الجهاز المحمول ، ويسمح  للمستخدم النهائي بالمشاركة المتقدمة في شخصنة تجارب البوابة. تدعم uPortal مواصفات <span  lang='en-US'>JSR-286</span>  و <span  lang='en-US'>JSR-168 Java portlet</span> لتضمين تطبيقاتك المخصّصة داخل البوابة."
+      "para": "<a href='http://www.apereo.org/uportal' rel='noreferrer noopener' target='_blank' lang='en-US' hreflang='en'>uPortal</a> هو عبارة عن منصة بوابة ويب مجانية مفتوحة المصدر تعتمد لغة <span  lang='en-US'>Java</span> تم تطويرها وصيانتها من قبل مشاركين من التعليم العالي في إطار تنسيق <a href='http://www.apereo.org/' rel='noreferrer noopener' target='_blank' lang='en-US' hreflang='en'>Apereo</a>. يمكن لـ <span  lang='en-US'>uPortal</span> أن يجمّع المحتوى ، ويقدّم تطبيقات الخدمة الذاتية ، ويشخصن العرض والمحتوى على أساس سمات المستخدم أو المجموعات ، ويسيّر تطبيقات الجهاز المحمول ، ويسمح  للمستخدم النهائي بالمشاركة المتقدمة في شخصنة تجارب البوابة. تدعم uPortal مواصفات <span  lang='en-US'>JSR-286</span>\u00A0و\u00A0<span  lang='en-US'>JSR-168\u00A0Java\u00A0portlet</span> لتضمين تطبيقاتك المخصّصة داخل البوابة."
     },
     { "para": "مرحبا بكم في <span  lang='en-US'>uPortal</span>." }
   ],

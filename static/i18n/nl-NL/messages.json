@@ -1,8 +1,8 @@
 {
   "imgsrc": "https://cousquer.github.io/apereo2017/assets/artworks/apereo-uportal.jpg",
   "title": "Wat is uPortal?",
-  "time": "13 Juni 2018",
-  "tags": "Lijst van trefwoorden :",
+  "time": "13\u00A0Juni\u00A02018",
+  "tags": "Lijst van trefwoorden\u00A0:",
   "toggle": {
     "stateClosed": "Open het menu aan de linkerkant",
     "stateOpened": "Sluit het menu"
@@ -38,7 +38,7 @@
     "reflang": "en"
   },
   "List": [
-    { "tag": "Opensource", "tagLabel": "" },
+    { "tag": "Open\u00A0source", "tagLabel": "" },
     { "tag": "Apereo", "tagLabel": "" },
     { "tag": "Portal", "tagLabel": "" }
   ],
