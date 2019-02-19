@@ -272,7 +272,18 @@ a:focus-visible {
           top: -1rem;
           padding: 0 1.6rem;
           position: relative;
+          min-width: 80%;
           z-index: 1;
+
+          h3 {
+            width: 100%;
+
+            img[src$=".svg"] {
+              width: 15px;
+              height: 15px;
+              top: 3px;
+            }
+          }
 
           div {
             display: inline-block;
