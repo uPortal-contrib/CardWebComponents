@@ -1465,7 +1465,7 @@
   }();
 
   // Node.CONSTANTS
-  var DOCUMENT_FRAGMENT_NODE$1 = 11; // SVG related constants
+  var DOCUMENT_FRAGMENT_NODE = 11; // SVG related constants
 
   var OWNER_SVG_ELEMENT = 'ownerSVGElement'; // Custom Elements / MutationObserver constants
 
@@ -1754,7 +1754,7 @@
                 }
               }
             } else if (canDiff(value)) {
-              childNodes = domdiff(node.parentNode, childNodes, value.nodeType === DOCUMENT_FRAGMENT_NODE$1 ? slice.call(value.childNodes) : [value], diffOptions);
+              childNodes = domdiff(node.parentNode, childNodes, value.nodeType === DOCUMENT_FRAGMENT_NODE ? slice.call(value.childNodes) : [value], diffOptions);
             } else if (isPromise_ish(value)) {
               value.then(anyContent);
             } else if ('placeholder' in value) {
@@ -2064,6 +2064,7 @@
       value: function urlMessages(path, pageLang) {
         switch (pageLang) {
           case "ar":
+          case "fr-CA":
           case "fr-FR":
           case "es-ES":
           case "en-US":
