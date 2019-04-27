@@ -31,6 +31,13 @@ Apache-2.0
 
 ![Card webcomponent](doc/images/2018-12-08_15-15-58.gif "uPortal card in en-US, fr-FR, es-ES, it, nl-NL")
 
+## See multiple components in Flexbox and Grid layouts
+
+- `Flexbox layout` :eyes: See it in [flexbox layout](https://uportal-contrib.github.io/CardWebComponents/index_albatros)
+- `Grid layout` . :eyes: See it in [a grid layout](https://uportal-contrib.github.io/CardWebComponents/index_grid-labs)
+
+Many Thanks to Heydonworks and Jen Simmons fantastic works
+
 ## Features
 
 - [x] WCAG 2.1 Level AA - Level AAA Work in progress to got beyond simple conformance, but effective Inclusivity,
