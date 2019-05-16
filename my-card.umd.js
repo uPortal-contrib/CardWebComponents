@@ -218,7 +218,7 @@
       var hOP = Object.hasOwnProperty;
       var proto = WeakMap.prototype;
 
-      proto.delete = function (key) {
+      proto["delete"] = function (key) {
         return this.has(key) && delete key[this._];
       };
 
@@ -278,7 +278,7 @@
         return this.hasOwnProperty.call(object, this._);
       };
 
-      proto.delete = function (object) {
+      proto["delete"] = function (object) {
         return this.has(object) && delete object[this._];
       };
 
@@ -308,7 +308,7 @@
       var k = [];
       var v = [];
       return {
-        delete: function _delete(key) {
+        "delete": function _delete(key) {
           var had = contains(key);
 
           if (had) {
@@ -572,7 +572,7 @@
         case INSERTION:
           // TODO: bulk appends for sequential nodes
           live.set(futureNodes[futureStart], 1);
-          append(get, parentNode, futureNodes, futureStart++, futureStart, currentIndex < currentLength ? get(currentNodes[currentIndex], 1) : before);
+          append(get, parentNode, futureNodes, futureStart++, futureStart, currentIndex < currentLength ? get(currentNodes[currentIndex], 0) : before);
           break;
 
         case DELETION:
@@ -788,7 +788,7 @@
       // to automatically relate data/context to children components
       // If not created yet, the new Component(context) is weakly stored
       // and after that same instance would always be returned.
-      for: {
+      "for": {
         configurable: true,
         value: function value(context, id) {
           return get(this, children.get(context) || set(context), context, id == null ? 'default' : id);
@@ -883,6 +883,16 @@
       } : value
     })[secret];
   };
+
+  Object.defineProperties(Component.prototype, {
+    // used to distinguish better than instanceof
+    ELEMENT_NODE: {
+      value: 1
+    },
+    nodeType: {
+      value: -1
+    }
+  });
 
   var attributes = {};
   var intents = {};
@@ -1055,7 +1065,7 @@
 
       function dispatchTarget(node, event, type, counter) {
         if (observer.has(node) && !dispatched[type].has(node)) {
-          dispatched[counter].delete(node);
+          dispatched[counter]["delete"](node);
           dispatched[type].add(node);
           node.dispatchEvent(event);
           /*
@@ -1088,13 +1098,14 @@
 
   /*! (c) Andrea Giammarchi - ISC */
   var importNode = function (document, appendChild, cloneNode, createTextNode, importNode) {
-    var native = importNode in document; // IE 11 has problems with cloning templates:
+    var _native = importNode in document; // IE 11 has problems with cloning templates:
     // it "forgets" empty childNodes. This feature-detects that.
+
 
     var fragment = document.createDocumentFragment();
     fragment[appendChild](document[createTextNode]('g'));
     fragment[appendChild](document[createTextNode](''));
-    var content = native ? document[importNode](fragment, true) : fragment[cloneNode](true);
+    var content = _native ? document[importNode](fragment, true) : fragment[cloneNode](true);
     return content.childNodes.length < 2 ? function importNode(node, deep) {
       var clone = node[cloneNode]();
 
@@ -1103,7 +1114,7 @@
       }
 
       return clone;
-    } : native ? document[importNode] : function (node, deep) {
+    } : _native ? document[importNode] : function (node, deep) {
       return node[cloneNode](!!deep);
     };
   }(document, 'appendChild', 'cloneNode', 'createTextNode', 'importNode');
@@ -1112,14 +1123,17 @@
     return String(this).replace(/^\s+|\s+/g, '');
   };
 
+  /*! (c) Andrea Giammarchi - ISC */
   // Custom
   var UID = '-' + Math.random().toFixed(6) + '%'; //                           Edge issue!
 
-  if (!function (template, content, tabindex) {
-    return content in template && (template.innerHTML = '<p ' + tabindex + '="' + UID + '"></p>', template[content].childNodes[0].getAttribute(tabindex) == UID);
-  }(document.createElement('template'), 'content', 'tabindex')) {
-    UID = '_dt: ' + UID.slice(1, -1) + ';';
-  }
+  try {
+    if (!function (template, content, tabindex) {
+      return content in template && (template.innerHTML = '<p ' + tabindex + '="' + UID + '"></p>', template[content].childNodes[0].getAttribute(tabindex) == UID);
+    }(document.createElement('template'), 'content', 'tabindex')) {
+      UID = '_dt: ' + UID.slice(1, -1) + ';';
+    }
+  } catch (meh) {}
 
   var UIDC = '<!--' + UID + '-->'; // DOM
 
@@ -1129,16 +1143,17 @@
   var SHOULD_USE_TEXT_CONTENT = /^(?:style|textarea)$/i;
   var VOID_ELEMENTS = /^(?:area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)$/i;
 
+  /*! (c) Andrea Giammarchi - ISC */
   function sanitize (template) {
     return template.join(UIDC).replace(selfClosing, fullClosing).replace(attrSeeker, attrReplacer);
   }
   var spaces = ' \\f\\n\\r\\t';
-  var almostEverything = '[^ ' + spaces + '\\/>"\'=]+';
-  var attrName = '[ ' + spaces + ']+' + almostEverything;
+  var almostEverything = '[^' + spaces + '\\/>"\'=]+';
+  var attrName = '[' + spaces + ']+' + almostEverything;
   var tagName = '<([A-Za-z]+[A-Za-z0-9:_-]*)((?:';
-  var attrPartials = '(?:\\s*=\\s*(?:\'[^\']*?\'|"[^"]*?"|<[^>]*?>|' + almostEverything + '))?)';
-  var attrSeeker = new RegExp(tagName + attrName + attrPartials + '+)([ ' + spaces + ']*/?>)', 'g');
-  var selfClosing = new RegExp(tagName + attrName + attrPartials + '*)([ ' + spaces + ']*/>)', 'g');
+  var attrPartials = '(?:\\s*=\\s*(?:\'[^\']*?\'|"[^"]*?"|<[^>]*?>|' + almostEverything.replace('\\/', '') + '))?)';
+  var attrSeeker = new RegExp(tagName + attrName + attrPartials + '+)([' + spaces + ']*/?>)', 'g');
+  var selfClosing = new RegExp(tagName + attrName + attrPartials + '*)([' + spaces + ']*/>)', 'g');
   var findAttributes = new RegExp('(' + attrName + '\\s*=\\s*)([\'"]?)' + UIDC + '\\2', 'gi');
 
   function attrReplacer($0, $1, $2, $3) {
@@ -1464,17 +1479,11 @@
     }
   }();
 
-  // Node.CONSTANTS
-  var DOCUMENT_FRAGMENT_NODE = 11; // SVG related constants
-
-  var OWNER_SVG_ELEMENT = 'ownerSVGElement'; // Custom Elements / MutationObserver constants
-
-  var CONNECTED = 'connected';
-  var DISCONNECTED = 'dis' + CONNECTED;
-
   /*! (c) Andrea Giammarchi - ISC */
   var Wire = function (slice, proto) {
     proto = Wire.prototype;
+    proto.ELEMENT_NODE = 1;
+    proto.nodeType = 111;
 
     proto.remove = function (keepFirst) {
       var childNodes = this.childNodes;
@@ -1519,6 +1528,16 @@
     }
   }([].slice);
 
+  // Node.CONSTANTS
+  var DOCUMENT_FRAGMENT_NODE = 11; // SVG related constants
+
+  var OWNER_SVG_ELEMENT = 'ownerSVGElement'; // Custom Elements / MutationObserver constants
+
+  var CONNECTED = 'connected';
+  var DISCONNECTED = 'dis' + CONNECTED;
+
+  var componentType = Component.prototype.nodeType;
+  var wireType = Wire.prototype.nodeType;
   var observe = disconnected({
     Event: CustomEvent$1,
     WeakSet: WeakSet$1
@@ -1532,17 +1551,26 @@
 
 
   var asNode = function asNode(item, i) {
-    return 'ELEMENT_NODE' in item ? item : item.constructor === Wire ? // in the Wire case, the content can be
-    // removed, post-pended, inserted, or pre-pended and
-    // all these cases are handled by domdiff already
+    switch (item.nodeType) {
+      case wireType:
+        // in the Wire case, the content can be
+        // removed, post-pended, inserted, or pre-pended and
+        // all these cases are handled by domdiff already
 
-    /* istanbul ignore next */
-    1 / i < 0 ? i ? item.remove(true) : item.lastChild : i ? item.valueOf(true) : item.firstChild : asNode(item.render(), i);
+        /* istanbul ignore next */
+        return 1 / i < 0 ? i ? item.remove(true) : item.lastChild : i ? item.valueOf(true) : item.firstChild;
+
+      case componentType:
+        return asNode(item.render(), i);
+
+      default:
+        return item;
+    }
   }; // returns true if domdiff can handle the value
 
 
   var canDiff = function canDiff(value) {
-    return 'ELEMENT_NODE' in value || value instanceof Wire || value instanceof Component;
+    return 'ELEMENT_NODE' in value;
   }; // when a Promise is used as interpolation value
   // its result must be parsed once resolved.
   // This callback is in charge of understanding what to do
@@ -1621,13 +1649,11 @@
               if (oldValue !== newValue) {
                 oldValue = newValue;
 
-                if (node[name] !== newValue) {
-                  node[name] = newValue;
-
-                  if (newValue == null) {
-                    node.removeAttribute(name);
-                  }
-                }
+                if (node[name] !== newValue && newValue == null) {
+                  // cleanup on null to avoid silly IE/Edge bug
+                  node[name] = '';
+                  node.removeAttribute(name);
+                } else node[name] = newValue;
               }
             };
           } else if (name in Intent.attributes) {
