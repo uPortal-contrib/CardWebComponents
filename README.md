@@ -19,13 +19,13 @@ Apache-2.0
 
 ## Supported Languages
 
-- `en-US` (default). :eyes: See it in [English (United States)](https://uportal-contrib.github.io/CardWebComponents/) :us:
-- `fr-FR` . :eyes: See it in [French](https://uportal-contrib.github.io/CardWebComponents/index_fr-FR) :fr:
-- `fr-CA` . :eyes: See it in [French (Canada)](https://uportal-contrib.github.io/CardWebComponents/index_fr-CA)
-- `es-ES` . :eyes: See it in [Spanish](https://uportal-contrib.github.io/CardWebComponents/index_es) :es:
-- `nl-NL` . :eyes: See it in [Dutch](https://uportal-contrib.github.io/CardWebComponents/index_nl)
-- `it` . :eyes: See it in [Italian](https://uportal-contrib.github.io/CardWebComponents/index_it) :it:
-- `ar` . :eyes: See it in [Standard Arabic](https://uportal-contrib.github.io/CardWebComponents/index_ar)
+- `en-US` (default). :eyes: See it in [English (United States)](https://uportal-contrib.github.io/CardWebComponents/index.html) :us:
+- `fr-FR` . :eyes: See it in [French](https://uportal-contrib.github.io/CardWebComponents/index_fr-FR.html) :fr:
+- `fr-CA` . :eyes: See it in [French (Canada)](https://uportal-contrib.github.io/CardWebComponents/index_fr-CA.html)
+- `es-ES` . :eyes: See it in [Spanish](https://uportal-contrib.github.io/CardWebComponents/index_es.html) :es:
+- `nl-NL` . :eyes: See it in [Dutch](https://uportal-contrib.github.io/CardWebComponents/index_nl.html)
+- `it` . :eyes: See it in [Italian](https://uportal-contrib.github.io/CardWebComponents/index_it.html) :it:
+- `ar` . :eyes: See it in [Standard Arabic](https://uportal-contrib.github.io/CardWebComponents/index_ar.html)
 - `de` . :eyes: See it in [German](https://uportal-contrib.github.io/CardWebComponents/index_de.html) :de:
 - `zn-CN` . :eyes: See it in [Simplified Chinese](https://uportal-contrib.github.io/CardWebComponents/index_zn-CN.html) :cn:
 
@@ -33,8 +33,8 @@ Apache-2.0
 
 ## See multiple components in Flexbox and Grid layouts
 
-- `Flexbox layout` :eyes: See it in [flexbox layout](https://uportal-contrib.github.io/CardWebComponents/index_albatros)
-- `Grid layout` . :eyes: See it in [a grid layout](https://uportal-contrib.github.io/CardWebComponents/index_grid-labs)
+- `Flexbox layout` :eyes: See it in [flexbox layout](https://uportal-contrib.github.io/CardWebComponents/index_albatros.html)
+- `Grid layout` . :eyes: See it in [a grid layout](https://uportal-contrib.github.io/CardWebComponents/index_grid-labs.html)
 
 Many Thanks to Heydonworks and Jen Simmons fantastic works
 
