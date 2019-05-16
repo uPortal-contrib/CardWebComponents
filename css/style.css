@@ -24,7 +24,7 @@ body {
   background-color: #777;
   flex-grow: 1;
   flex-basis: calc(var(--modifier) * 999);
-  min-width: 40vh;
+  min-width: 39.5vh;
   margin: var(--margin);
 }
 my-card {
