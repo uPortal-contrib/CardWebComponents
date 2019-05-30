@@ -53,6 +53,7 @@
     "@babel/preset-env": "^7.4.4",
     "eslint": "^5.9.0",
     "eslint-plugin-import": "^2.14.0",
+    "fstream": ">=1.0.12",
     "gh-pages": "^2.0.1",
     "husky": "^2.0.0",
     "lint-staged": "^8.1.0",
