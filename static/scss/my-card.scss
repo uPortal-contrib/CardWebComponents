@@ -253,6 +253,9 @@ a:focus-visible {
 
     .card__content {
       background-color: #fff;
+      line-height: 1.5;
+      letter-spacing: 0.12em;
+      word-spacing: 0.16em;
       z-index: 1;
 
       .card__article {
