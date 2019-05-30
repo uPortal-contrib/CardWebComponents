@@ -998,10 +998,11 @@ function disconnected(poly) {
   var Event = poly.Event;
   var WeakSet = poly.WeakSet;
   var notObserving = true;
-  var observer = new WeakSet();
+  var observer = null;
   return function observe(node) {
     if (notObserving) {
       notObserving = !notObserving;
+      observer = new WeakSet();
       startObserving(node.ownerDocument);
     }
 
@@ -1010,7 +1011,9 @@ function disconnected(poly) {
   };
 
   function startObserving(document) {
-    var dispatched = null;
+    var dispatched = {};
+    dispatched[CONNECTED] = new WeakSet();
+    dispatched[DISCONNECTED] = new WeakSet();
 
     try {
       new MutationObserver(changes).observe(document, {
@@ -1044,15 +1047,11 @@ function disconnected(poly) {
     }
 
     function changes(records) {
-      dispatched = new Tracker();
-
       for (var record, length = records.length, i = 0; i < length; i++) {
         record = records[i];
         dispatchAll(record.removedNodes, DISCONNECTED, CONNECTED);
         dispatchAll(record.addedNodes, CONNECTED, DISCONNECTED);
       }
-
-      dispatched = null;
     }
 
     function dispatchAll(nodes, type, counter) {
@@ -1084,11 +1083,6 @@ function disconnected(poly) {
       // https://github.com/WebReflection/disconnected/issues/1
       children = node.children || [], length = children.length, i = 0; i < length; dispatchTarget(children[i++], event, type, counter)) {
       }
-    }
-
-    function Tracker() {
-      this[CONNECTED] = new WeakSet();
-      this[DISCONNECTED] = new WeakSet();
     }
   }
 }
