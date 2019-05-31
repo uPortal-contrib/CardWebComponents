@@ -37,6 +37,9 @@ Apache-2.0
 - `Grid layout` . :eyes: See it in [a grid layout](https://uportal-contrib.github.io/CardWebComponents/index_grid-labs.html)
 
 Many Thanks to Heydonworks and Jen Simmons fantastic works
+in these page, axe-core latest Audit score are excellent and are conforme to WCAG 2.1 AAA
+
+![Axe Audit flags no Accessibility Violations](doc/images/axe-core_2019-05-31.png "Congratulations! No Accessibility Violations")
 
 ## Features
 
@@ -62,9 +65,9 @@ Many Thanks to Heydonworks and Jen Simmons fantastic works
 
 ## Screenshots
 
-![Card webcomponent](doc/images/cardwebcomponent_2.png "card in en-US")
+![Card webcomponent in English](doc/images/CardWebComponents_2019-05-31.png "card in en-US")
 
-updated: 2018/12/04
+updated: 2019/05/31
 
 ## How it works
 
