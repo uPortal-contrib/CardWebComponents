@@ -8,6 +8,7 @@ Bug fixes and new features should be reported on the Project Github issue tracke
 ##### Checklist
 
 <!-- Remove items that do not apply. For completed items, change [ ] to [x]. -->
+
 - [ ] The [individual contributor license agreement][] is signed
 - [ ] commit message follows [commit guidelines][]
 - [ ] Resolve issue/feat. n° <!-- add #theNumberInGithubIssue -->
@@ -20,6 +21,7 @@ Bug fixes and new features should be reported on the Project Github issue tracke
 ##### Description of change
 
 <!-- Reference Links -->
-[individual contributor license agreement]: https://www.apereo.org/licensing/agreements/icla 
+
+[individual contributor license agreement]: https://www.apereo.org/licensing/agreements/icla
 [commit guidelines]: https://github.com/Jasig/uPortal/blob/master/.github/CONTRIBUTING.md
 [wcag 2.1 aa]: https://www.w3.org/TR/WCAG21/
