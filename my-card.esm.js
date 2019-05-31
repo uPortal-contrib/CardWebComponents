@@ -991,8 +991,6 @@ var createContent = function (document) {
 /*! (c) Andrea Giammarchi */
 function disconnected(poly) {
 
-  var CONNECTED = 'connected';
-  var DISCONNECTED = 'dis' + CONNECTED;
   var Event = poly.Event;
   var WeakSet = poly.WeakSet;
   var notObserving = true;
@@ -1009,9 +1007,8 @@ function disconnected(poly) {
   };
 
   function startObserving(document) {
-    var dispatched = {};
-    dispatched[CONNECTED] = new WeakSet();
-    dispatched[DISCONNECTED] = new WeakSet();
+    var connected = new WeakSet();
+    var disconnected = new WeakSet();
 
     try {
       new MutationObserver(changes).observe(document, {
@@ -1047,20 +1044,20 @@ function disconnected(poly) {
     function changes(records) {
       for (var record, length = records.length, i = 0; i < length; i++) {
         record = records[i];
-        dispatchAll(record.removedNodes, DISCONNECTED, CONNECTED);
-        dispatchAll(record.addedNodes, CONNECTED, DISCONNECTED);
+        dispatchAll(record.removedNodes, 'disconnected', disconnected, connected);
+        dispatchAll(record.addedNodes, 'connected', connected, disconnected);
       }
     }
 
-    function dispatchAll(nodes, type, counter) {
-      for (var node, event = new Event(type), length = nodes.length, i = 0; i < length; (node = nodes[i++]).nodeType === 1 && dispatchTarget(node, event, type, counter)) {
+    function dispatchAll(nodes, type, wsin, wsout) {
+      for (var node, event = new Event(type), length = nodes.length, i = 0; i < length; (node = nodes[i++]).nodeType === 1 && dispatchTarget(node, event, type, wsin, wsout)) {
       }
     }
 
-    function dispatchTarget(node, event, type, counter) {
-      if (observer.has(node) && !dispatched[type].has(node)) {
-        dispatched[counter]["delete"](node);
-        dispatched[type].add(node);
+    function dispatchTarget(node, event, type, wsin, wsout) {
+      if (observer.has(node) && !wsin.has(node)) {
+        wsout["delete"](node);
+        wsin.add(node);
         node.dispatchEvent(event);
         /*
         // The event is not bubbling (perf reason: should it?),
@@ -1079,7 +1076,7 @@ function disconnected(poly) {
 
       for (var // apparently is node.children || IE11 ... ^_^;;
       // https://github.com/WebReflection/disconnected/issues/1
-      children = node.children || [], length = children.length, i = 0; i < length; dispatchTarget(children[i++], event, type, counter)) {
+      children = node.children || [], length = children.length, i = 0; i < length; dispatchTarget(children[i++], event, type, wsin, wsout)) {
       }
     }
   }
