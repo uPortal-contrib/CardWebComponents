@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.2",
-    "hyperhtml": "2.29.2"
+    "hyperhtml": "2.29.4"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
