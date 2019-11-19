@@ -1,5 +1,7 @@
 # Card Web Components
 
+[![GitHub CI](https://github.com/uPortal-contrib/CardWebComponents/workflows/CI/badge.svg)](https://github.com/uPortal-contrib/CardWebComponents/actions?workflow=CI)
+
 Card component for the uPortal ecosystem.
 
 This component aims to display an Internationalized and accessible Card in Apereo uPortal.
