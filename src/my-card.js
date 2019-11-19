@@ -176,9 +176,7 @@ class myCard extends HTMLElement {
     }</h3>
           <div>${data.List.map(
             l =>
-              ` <a href="#" lang="${baseLang}" aria-label="${l.tagLabel}">${
-                l.tag
-              }</a>,`
+              ` <a href="#" lang="${baseLang}" aria-label="${l.tagLabel}">${l.tag}</a>,`
           )}</div>&nbsp;
             <time>${data.time}</time>
           </section>
