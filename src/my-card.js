@@ -170,12 +170,13 @@ class myCard extends HTMLElement {
         <div class="card__article">
           <h2>${data.title}</h2>
           <section class="card__meta">
-           <h3><img src="${baseSvg +
-             "solid/tags.svg"}" class="icon-black" role="presentation" aria-hidden="true" alt="" />&nbsp;${
+           <h3><img src="${
+             baseSvg + "solid/tags.svg"
+           }" class="icon-black" role="presentation" aria-hidden="true" alt="" />&nbsp;${
       data.tags
     }</h3>
           <div>${data.List.map(
-            l =>
+            (l) =>
               ` <a href="#" lang="${baseLang}" aria-label="${l.tagLabel}">${l.tag}</a>,`
           )}</div>&nbsp;
             <time>${data.time}</time>
@@ -219,14 +220,15 @@ class myCard extends HTMLElement {
           <a class="share-toggle share-icon"  onclick="${onclick}" href="javascript:void(0);" aria-haspopup="true" aria-label="${
       data.toggle.stateClosed
     }">
-            <img src="${baseSvg +
-              "solid/ellipsis-v.svg"}" class="icon-black" aria-hidden="true" alt="" />
+            <img src="${
+              baseSvg + "solid/ellipsis-v.svg"
+            }" class="icon-black" aria-hidden="true" alt="" />
           </a>
 
 
       </div>
           <div class="text">${data.paragraphs.map(
-            p => `<p>${p.para}</p>`
+            (p) => `<p>${p.para}</p>`
           )}</div>
         </div>
       </div>
@@ -235,19 +237,16 @@ class myCard extends HTMLElement {
       data.button1.cssClass
     }" title="${data.button1.label}" hreflang="${
       data.button1.reflang
-    }" rel="noopener noreferrer">${data.button1.name}&nbsp;<img src="${baseSvg +
-      data.button1.glyphicon}"  class="${
-      data.button1.iconColor
-    }"  alt="" aria-hidden="true"></a>&nbsp;
+    }" rel="noopener noreferrer">${data.button1.name}&nbsp;<img src="${
+      baseSvg + data.button1.glyphicon
+    }"  class="${data.button1.iconColor}"  alt="" aria-hidden="true"></a>&nbsp;
         <a href="${data.button2.link}" class="${
       data.button2.cssClass
     }" title="${data.button2.label}" hreflang="${
       data.button2.reflang
-    }"  rel="noopener noreferrer">${
-      data.button2.name
-    }&nbsp;<img src="${baseSvg + data.button2.glyphicon}"  class="${
-      data.button2.iconColor
-    }"  alt="" aria-hidden="true"></a>
+    }"  rel="noopener noreferrer">${data.button2.name}&nbsp;<img src="${
+      baseSvg + data.button2.glyphicon
+    }"  class="${data.button2.iconColor}"  alt="" aria-hidden="true"></a>
       </div>
     </div>
   </div>
