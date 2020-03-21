@@ -11,17 +11,17 @@ export default [
     output: [
       {
         format: "esm",
-        file: "dist/my-card.esm.js"
+        file: "dist/my-card.esm.js",
       },
       {
         format: "umd",
         name: "cardComponent",
-        file: "dist/my-card.umd.js"
+        file: "dist/my-card.umd.js",
       },
       {
         format: "cjs",
-        file: "dist/my-card.cjs.js"
-      }
-    ]
-  }
+        file: "dist/my-card.cjs.js",
+      },
+    ],
+  },
 ];
