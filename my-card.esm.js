@@ -12,42 +12,6 @@ function _typeof(obj) {
   return _typeof(obj);
 }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
-}
-
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -198,9 +162,7 @@ function _taggedTemplateLiteral(strings, raw) {
 }
 
 /*! (c) Andrea Giammarchi - ISC */
-var self = null ||
-/* istanbul ignore next */
-{};
+var self = {};
 
 try {
   self.WeakMap = WeakMap;
@@ -251,9 +213,7 @@ try {
 var WeakMap$1 = self.WeakMap;
 
 /*! (c) Andrea Giammarchi - ISC */
-var self$1 = null ||
-/* istanbul ignore next */
-{};
+var self$1 = {};
 
 try {
   self$1.WeakSet = WeakSet;
@@ -290,59 +250,24 @@ try {
 
 var WeakSet$1 = self$1.WeakSet;
 
-/*! (c) Andrea Giammarchi - ISC */
-var self$2 = null ||
-/* istanbul ignore next */
-{};
-
-try {
-  self$2.Map = Map;
-} catch (Map) {
-  self$2.Map = function Map() {
-    var i = 0;
-    var k = [];
-    var v = [];
-    return {
-      "delete": function _delete(key) {
-        var had = contains(key);
-
-        if (had) {
-          k.splice(i, 1);
-          v.splice(i, 1);
-        }
-
-        return had;
-      },
-      get: function get(key) {
-        return contains(key) ? v[i] : void 0;
-      },
-      has: function has(key) {
-        return contains(key);
-      },
-      set: function set(key, value) {
-        v[contains(key) ? i : k.push(key) - 1] = value;
-        return this;
-      }
-    };
-
-    function contains(v) {
-      i = k.indexOf(v);
-      return -1 < i;
-    }
-  };
-}
-
-var Map$1 = self$2.Map;
+var _ref = [],
+    indexOf = _ref.indexOf;
 
 var append = function append(get, parent, children, start, end, before) {
-  if (end - start < 2) parent.insertBefore(get(children[start], 1), before);else {
-    var fragment = parent.ownerDocument.createDocumentFragment();
+  var isSelect = 'selectedIndex' in parent;
+  var noSelection = isSelect;
 
-    while (start < end) {
-      fragment.appendChild(get(children[start++], 1));
+  while (start < end) {
+    var child = get(children[start], 1);
+    parent.insertBefore(child, before);
+
+    if (isSelect && noSelection && child.selected) {
+      noSelection = !noSelection;
+      var selectedIndex = parent.selectedIndex;
+      parent.selectedIndex = selectedIndex < 0 ? start : indexOf.call(parent.querySelectorAll('option'), child);
     }
 
-    parent.insertBefore(fragment, before);
+    start++;
   }
 };
 var eqeq = function eqeq(a, b) {
@@ -351,7 +276,7 @@ var eqeq = function eqeq(a, b) {
 var identity = function identity(O) {
   return O;
 };
-var indexOf = function indexOf(moreNodes, moreStart, moreEnd, lessNodes, lessStart, lessEnd, compare) {
+var indexOf$1 = function indexOf(moreNodes, moreStart, moreEnd, lessNodes, lessStart, lessEnd, compare) {
   var length = lessEnd - lessStart;
   /* istanbul ignore if */
 
@@ -382,12 +307,9 @@ var isReversed = function isReversed(futureNodes, futureEnd, currentNodes, curre
 var next = function next(get, list, i, length, before) {
   return i < length ? get(list[i], 0) : 0 < i ? get(list[i - 1], -0).nextSibling : before;
 };
-var remove = function remove(get, parent, children, start, end) {
-  if (end - start < 2) parent.removeChild(get(children[start], -1));else {
-    var range = parent.ownerDocument.createRange();
-    range.setStartBefore(get(children[start], -1));
-    range.setEndAfter(get(children[end - 1], -1));
-    range.deleteContents();
+var remove = function remove(get, children, start, end) {
+  while (start < end) {
+    drop(get(children[start++], -1));
   }
 }; // - - - - - - - - - - - - - - - - - - -
 // diff related constants and utilities
@@ -411,23 +333,20 @@ var HS = function HS(futureNodes, futureStart, futureEnd, futureChanges, current
     tresh[i] = currentEnd;
   }
 
-  var keymap = new Map$1();
+  var nodes = currentNodes.slice(currentStart, currentEnd);
 
-  for (var _i = currentStart; _i < currentEnd; _i++) {
-    keymap.set(currentNodes[_i], _i);
-  }
+  for (var _i = futureStart; _i < futureEnd; _i++) {
+    var index = nodes.indexOf(futureNodes[_i]);
 
-  for (var _i2 = futureStart; _i2 < futureEnd; _i2++) {
-    var idxInOld = keymap.get(futureNodes[_i2]);
-
-    if (idxInOld != null) {
+    if (-1 < index) {
+      var idxInOld = index + currentStart;
       k = findK(tresh, minLen, idxInOld);
       /* istanbul ignore else */
 
       if (-1 < k) {
         tresh[k] = idxInOld;
         link[k] = {
-          newi: _i2,
+          newi: _i,
           oldi: idxInOld,
           prev: link[k - 1]
         };
@@ -552,7 +471,7 @@ var OND = function OND(futureNodes, futureStart, rows, currentNodes, currentStar
 };
 
 var applyDiff = function applyDiff(diff, get, parentNode, futureNodes, futureStart, currentNodes, currentStart, currentLength, before) {
-  var live = new Map$1();
+  var live = [];
   var length = diff.length;
   var currentIndex = currentStart;
   var i = 0;
@@ -566,7 +485,7 @@ var applyDiff = function applyDiff(diff, get, parentNode, futureNodes, futureSta
 
       case INSERTION:
         // TODO: bulk appends for sequential nodes
-        live.set(futureNodes[futureStart], 1);
+        live.push(futureNodes[futureStart]);
         append(get, parentNode, futureNodes, futureStart++, futureStart, currentIndex < currentLength ? get(currentNodes[currentIndex], 0) : before);
         break;
 
@@ -586,7 +505,7 @@ var applyDiff = function applyDiff(diff, get, parentNode, futureNodes, futureSta
 
       case DELETION:
         // TODO: bulk removes for sequential nodes
-        if (live.has(currentNodes[currentStart])) currentStart++;else remove(get, parentNode, currentNodes, currentStart++, currentStart);
+        if (-1 < live.indexOf(currentNodes[currentStart])) currentStart++;else remove(get, currentNodes, currentStart++, currentStart);
         break;
     }
   }
@@ -607,6 +526,17 @@ var findK = function findK(ktr, length, j) {
 var smartDiff = function smartDiff(get, parentNode, futureNodes, futureStart, futureEnd, futureChanges, currentNodes, currentStart, currentEnd, currentChanges, currentLength, compare, before) {
   applyDiff(OND(futureNodes, futureStart, futureChanges, currentNodes, currentStart, currentChanges, compare) || HS(futureNodes, futureStart, futureEnd, futureChanges, currentNodes, currentStart, currentEnd, currentChanges), get, parentNode, futureNodes, futureStart, currentNodes, currentStart, currentLength, before);
 };
+
+var drop = function drop(node) {
+  return (node.remove || dropChild).call(node);
+};
+
+function dropChild() {
+  var parentNode = this.parentNode;
+  /* istanbul ignore else */
+
+  if (parentNode) parentNode.removeChild(this);
+}
 
 /*! (c) 2018 Andrea Giammarchi (ISC) */
 
@@ -651,7 +581,7 @@ options // optional object with one of the following properties
 
 
   if (futureSame && currentStart < currentEnd) {
-    remove(get, parentNode, currentNodes, currentStart, currentEnd);
+    remove(get, currentNodes, currentStart, currentEnd);
     return futureNodes;
   }
 
@@ -660,7 +590,7 @@ options // optional object with one of the following properties
   var i = -1; // 2 simple indels: the shortest sequence is a subsequence of the longest
 
   if (currentChanges < futureChanges) {
-    i = indexOf(futureNodes, futureStart, futureEnd, currentNodes, currentStart, currentEnd, compare); // inner diff
+    i = indexOf$1(futureNodes, futureStart, futureEnd, currentNodes, currentStart, currentEnd, compare); // inner diff
 
     if (-1 < i) {
       append(get, parentNode, futureNodes, futureStart, i, get(currentNodes[currentStart], 0));
@@ -670,11 +600,11 @@ options // optional object with one of the following properties
   }
   /* istanbul ignore else */
   else if (futureChanges < currentChanges) {
-      i = indexOf(currentNodes, currentStart, currentEnd, futureNodes, futureStart, futureEnd, compare); // outer diff
+      i = indexOf$1(currentNodes, currentStart, currentEnd, futureNodes, futureStart, futureEnd, compare); // outer diff
 
       if (-1 < i) {
-        remove(get, parentNode, currentNodes, currentStart, i);
-        remove(get, parentNode, currentNodes, i + futureChanges, currentEnd);
+        remove(get, currentNodes, currentStart, i);
+        remove(get, currentNodes, i + futureChanges, currentEnd);
         return futureNodes;
       }
     } // common case with one replacement for many nodes
@@ -685,7 +615,7 @@ options // optional object with one of the following properties
 
   if (currentChanges < 2 || futureChanges < 2) {
     append(get, parentNode, futureNodes, futureStart, futureEnd, get(currentNodes[currentStart], 0));
-    remove(get, parentNode, currentNodes, currentStart, currentEnd);
+    remove(get, currentNodes, currentStart, currentEnd);
     return futureNodes;
   } // the half match diff part has been skipped in petit-dom
   // https://github.com/yelouafi/petit-dom/blob/bd6f5c919b5ae5297be01612c524c40be45f14a7/src/vdom.js#L391-L397
@@ -707,10 +637,8 @@ options // optional object with one of the following properties
 };
 
 /*! (c) Andrea Giammarchi - ISC */
-var self$3 = null ||
-/* istanbul ignore next */
-{};
-self$3.CustomEvent = typeof CustomEvent === 'function' ? CustomEvent : function (__p__) {
+var self$2 = {};
+self$2.CustomEvent = typeof CustomEvent === 'function' ? CustomEvent : function (__p__) {
   CustomEvent[__p__] = new CustomEvent('').constructor[__p__];
   return CustomEvent;
 
@@ -721,7 +649,54 @@ self$3.CustomEvent = typeof CustomEvent === 'function' ? CustomEvent : function 
     return e;
   }
 }('prototype');
-var CustomEvent$1 = self$3.CustomEvent;
+var CustomEvent$1 = self$2.CustomEvent;
+
+/*! (c) Andrea Giammarchi - ISC */
+var self$3 = {};
+
+try {
+  self$3.Map = Map;
+} catch (Map) {
+  self$3.Map = function Map() {
+    var i = 0;
+    var k = [];
+    var v = [];
+    return {
+      "delete": function _delete(key) {
+        var had = contains(key);
+
+        if (had) {
+          k.splice(i, 1);
+          v.splice(i, 1);
+        }
+
+        return had;
+      },
+      forEach: function forEach(callback, context) {
+        k.forEach(function (key, i) {
+          callback.call(context, v[i], key, this);
+        }, this);
+      },
+      get: function get(key) {
+        return contains(key) ? v[i] : void 0;
+      },
+      has: function has(key) {
+        return contains(key);
+      },
+      set: function set(key, value) {
+        v[contains(key) ? i : k.push(key) - 1] = value;
+        return this;
+      }
+    };
+
+    function contains(v) {
+      i = k.indexOf(v);
+      return -1 < i;
+    }
+  };
+}
+
+var Map$1 = self$3.Map;
 
 // able to create Custom Elements like components
 // including the ability to listen to connect/disconnect
@@ -926,8 +901,13 @@ var Intent = {
   }
 };
 
-var isArray = Array.isArray || function (toString) {
+var isArray = Array.isArray ||
+/* istanbul ignore next */
+function (toString) {
+  /* istanbul ignore next */
   var $ = toString.call([]);
+  /* istanbul ignore next */
+
   return function isArray(object) {
     return toString.call(object) === $;
   };
@@ -1091,21 +1071,29 @@ var importNode = function (document, appendChild, cloneNode, createTextNode, imp
   var fragment = document.createDocumentFragment();
   fragment[appendChild](document[createTextNode]('g'));
   fragment[appendChild](document[createTextNode](''));
+  /* istanbul ignore next */
+
   var content = _native ? document[importNode](fragment, true) : fragment[cloneNode](true);
   return content.childNodes.length < 2 ? function importNode(node, deep) {
     var clone = node[cloneNode]();
 
-    for (var childNodes = node.childNodes || [], length = childNodes.length, i = 0; deep && i < length; i++) {
+    for (var
+    /* istanbul ignore next */
+    childNodes = node.childNodes || [], length = childNodes.length, i = 0; deep && i < length; i++) {
       clone[appendChild](importNode(childNodes[i], deep));
     }
 
     return clone;
-  } : _native ? document[importNode] : function (node, deep) {
+  } :
+  /* istanbul ignore next */
+  _native ? document[importNode] : function (node, deep) {
     return node[cloneNode](!!deep);
   };
 }(document, 'appendChild', 'cloneNode', 'createTextNode', 'importNode');
 
-var trim = ''.trim || function () {
+var trim = ''.trim ||
+/* istanbul ignore next */
+function () {
   return String(this).replace(/^\s+|\s+/g, '');
 };
 
@@ -1139,7 +1127,7 @@ function sanitize (template) {
 var spaces = ' \\f\\n\\r\\t';
 var almostEverything = '[^' + spaces + '\\/>"\'=]+';
 var attrName = '[' + spaces + ']+' + almostEverything;
-var tagName = '<([A-Za-z]+[A-Za-z0-9:_-]*)((?:';
+var tagName = '<([A-Za-z]+[A-Za-z0-9:._-]*)((?:';
 var attrPartials = '(?:\\s*=\\s*(?:\'[^\']*?\'|"[^"]*?"|<[^>]*?>|' + almostEverything.replace('\\/', '') + '))?)';
 var attrSeeker = new RegExp(tagName + attrName + attrPartials + '+)([' + spaces + ']*/?>)', 'g');
 var selfClosing = new RegExp(tagName + attrName + attrPartials + '*)([' + spaces + ']*/>)', 'g');
@@ -1157,14 +1145,32 @@ function fullClosing($0, $1, $2) {
   return VOID_ELEMENTS.test($1) ? $0 : '<' + $1 + $2 + '></' + $1 + '>';
 }
 
-function create(type, node, path, name) {
+var umap = (function (_) {
   return {
-    name: name,
-    node: node,
-    path: path,
-    type: type
+    // About: get: _.get.bind(_)
+    // It looks like WebKit/Safari didn't optimize bind at all,
+    // so that using bind slows it down by 60%.
+    // Firefox and Chrome are just fine in both cases,
+    // so let's use the approach that works fast everywhere 👍
+    get: function get(key) {
+      return _.get(key);
+    },
+    set: function set(key, value) {
+      return _.set(key, value), value;
+    }
   };
-}
+});
+
+/* istanbul ignore next */
+
+var normalizeAttributes = UID_IE ? function (attributes, parts) {
+  var html = parts.join(' ');
+  return parts.slice.call(attributes, 0).sort(function (left, right) {
+    return html.indexOf(left.name) <= html.indexOf(right.name) ? -1 : 1;
+  });
+} : function (attributes, parts) {
+  return parts.slice.call(attributes, 0);
+};
 
 function find(node, path) {
   var length = path.length;
@@ -1200,7 +1206,7 @@ function parse(node, holes, parts, path) {
           holes.push( // basicHTML or other non standard engines
           // might end up having comments in nodes
           // where they shouldn't, hence this check.
-          SHOULD_USE_TEXT_CONTENT.test(node.nodeName) ? create('text', node, path) : create('any', child, path.concat(i)));
+          SHOULD_USE_TEXT_CONTENT.test(node.nodeName) ? Text(node, path) : Any(child, path.concat(i)));
         } else {
           switch (textContent.slice(0, 2)) {
             case '/*':
@@ -1225,7 +1231,7 @@ function parse(node, holes, parts, path) {
         /* istanbul ignore if */
         if (SHOULD_USE_TEXT_CONTENT.test(node.nodeName) && trim.call(child.textContent) === UIDC) {
           parts.shift();
-          holes.push(create('text', node, path));
+          holes.push(Text(node, path));
         }
 
         break;
@@ -1236,31 +1242,41 @@ function parse(node, holes, parts, path) {
 }
 
 function parseAttributes(node, holes, parts, path) {
-  var cache = new Map$1();
   var attributes = node.attributes;
+  var cache = [];
   var remove = [];
-  var array = remove.slice.call(attributes, 0);
+  var array = normalizeAttributes(attributes, parts);
   var length = array.length;
   var i = 0;
 
   while (i < length) {
     var attribute = array[i++];
+    var direct = attribute.value === UID;
+    var sparse;
 
-    if (attribute.value === UID) {
+    if (direct || 1 < (sparse = attribute.value.split(UIDC)).length) {
       var name = attribute.name; // the following ignore is covered by IE
       // and the IE9 double viewBox test
 
       /* istanbul ignore else */
 
-      if (!cache.has(name)) {
-        var realName = parts.shift().replace(/^(?:|[\S\s]*?\s)(\S+?)\s*=\s*['"]?$/, '$1');
+      if (cache.indexOf(name) < 0) {
+        cache.push(name);
+        var realName = parts.shift().replace(direct ? /^(?:|[\S\s]*?\s)(\S+?)\s*=\s*('|")?$/ : new RegExp('^(?:|[\\S\\s]*?\\s)(' + name + ')\\s*=\\s*(\'|")[\\S\\s]*', 'i'), '$1');
         var value = attributes[realName] || // the following ignore is covered by browsers
         // while basicHTML is already case-sensitive
 
         /* istanbul ignore next */
         attributes[realName.toLowerCase()];
-        cache.set(name, value);
-        holes.push(create('attr', value, path, realName));
+        if (direct) holes.push(Attr(value, path, realName, null));else {
+          var skip = sparse.length - 2;
+
+          while (skip--) {
+            parts.shift();
+          }
+
+          holes.push(Attr(value, path, realName, sparse));
+        }
       }
 
       remove.push(attribute);
@@ -1269,12 +1285,19 @@ function parseAttributes(node, holes, parts, path) {
 
   length = remove.length;
   i = 0;
+  /* istanbul ignore next */
+
+  var cleanValue = 0 < length && UID_IE && !('ownerSVGElement' in node);
 
   while (i < length) {
     // Edge HTML bug #16878726
-    var attr = remove[i++];
-    if (/^id$/i.test(attr.name)) node.removeAttribute(attr.name); // standard browsers would work just fine here
-    else node.removeAttributeNode(attr);
+    var attr = remove[i++]; // IE/Edge bug lighterhtml#63 - clean the value or it'll persist
+
+    /* istanbul ignore next */
+
+    if (cleanValue) attr.value = ''; // IE/Edge bug lighterhtml#64 - don't use removeAttributeNode
+
+    node.removeAttribute(attr.name);
   } // This is a very specific Firefox/Safari issue
   // but since it should be a not so common pattern,
   // it's probably worth patching regardless.
@@ -1304,24 +1327,50 @@ function parseAttributes(node, holes, parts, path) {
   }
 }
 
+function Any(node, path) {
+  return {
+    type: 'any',
+    node: node,
+    path: path
+  };
+}
+
+function Attr(node, path, name, sparse) {
+  return {
+    type: 'attr',
+    node: node,
+    path: path,
+    name: name,
+    sparse: sparse
+  };
+}
+
+function Text(node, path) {
+  return {
+    type: 'text',
+    node: node,
+    path: path
+  };
+}
+
 // globals
-var parsed = new WeakMap$1();
-var referenced = new WeakMap$1();
+var parsed = umap(new WeakMap$1());
 
 function createInfo(options, template) {
-  var markup = sanitize(template);
+  var markup = (options.convert || sanitize)(template);
   var transform = options.transform;
   if (transform) markup = transform(markup);
   var content = createContent(markup, options.type);
   cleanContent(content);
   var holes = [];
   parse(content, holes, template.slice(0), []);
-  var info = {
+  return {
     content: content,
     updates: function updates(content) {
-      var callbacks = [];
+      var updates = [];
       var len = holes.length;
       var i = 0;
+      var off = 0;
 
       while (i < len) {
         var info = holes[i++];
@@ -1329,59 +1378,86 @@ function createInfo(options, template) {
 
         switch (info.type) {
           case 'any':
-            callbacks.push(options.any(node, []));
+            updates.push({
+              fn: options.any(node, []),
+              sparse: false
+            });
             break;
 
           case 'attr':
-            callbacks.push(options.attribute(node, info.name, info.node));
+            var sparse = info.sparse;
+            var fn = options.attribute(node, info.name, info.node);
+            if (sparse === null) updates.push({
+              fn: fn,
+              sparse: false
+            });else {
+              off += sparse.length - 2;
+              updates.push({
+                fn: fn,
+                sparse: true,
+                values: sparse
+              });
+            }
             break;
 
           case 'text':
-            callbacks.push(options.text(node));
+            updates.push({
+              fn: options.text(node),
+              sparse: false
+            });
             node.textContent = '';
             break;
         }
       }
 
+      len += off;
       return function () {
         var length = arguments.length;
-        var values = length - 1;
-        var i = 1;
 
-        if (len !== values) {
-          throw new Error(values + ' values instead of ' + len + '\n' + template.join(', '));
+        if (len !== length - 1) {
+          throw new Error(length - 1 + ' values instead of ' + len + '\n' + template.join('${value}'));
         }
 
+        var i = 1;
+        var off = 1;
+
         while (i < length) {
-          callbacks[i - 1](arguments[i++]);
+          var update = updates[i - off];
+
+          if (update.sparse) {
+            var values = update.values;
+            var value = values[0];
+            var j = 1;
+            var l = values.length;
+            off += l - 2;
+
+            while (j < l) {
+              value += arguments[i++] + values[j++];
+            }
+
+            update.fn(value);
+          } else update.fn(arguments[i++]);
         }
 
         return content;
       };
     }
   };
-  parsed.set(template, info);
-  return info;
 }
 
 function createDetails(options, template) {
-  var info = parsed.get(template) || createInfo(options, template);
-  var content = importNode.call(document, info.content, true);
-  var details = {
-    content: content,
-    template: template,
-    updates: info.updates(content)
-  };
-  referenced.set(options, details);
-  return details;
+  var info = parsed.get(template) || parsed.set(template, createInfo(options, template));
+  return info.updates(importNode.call(document, info.content, true));
 }
 
+var empty = [];
+
 function domtagger(options) {
+  var previous = empty;
+  var updates = cleanContent;
   return function (template) {
-    var details = referenced.get(options);
-    if (details == null || details.template !== template) details = createDetails(options, template);
-    details.updates.apply(null, arguments);
-    return details.content;
+    if (previous !== template) updates = createDetails(options, previous = template);
+    return updates.apply(null, arguments);
   };
 }
 
@@ -1573,6 +1649,18 @@ var asNode = function asNode(item, i) {
 
 var canDiff = function canDiff(value) {
   return 'ELEMENT_NODE' in value;
+};
+
+var hyperSetter = function hyperSetter(node, name, svg) {
+  return svg ? function (value) {
+    try {
+      node[name] = value;
+    } catch (nope) {
+      node.setAttribute(name, value);
+    }
+  } : function (value) {
+    node[name] = value;
+  };
 }; // when a Promise is used as interpolation value
 // its result must be parsed once resolved.
 // This callback is in charge of understanding what to do
@@ -1625,77 +1713,78 @@ Tagger.prototype = {
     var oldValue; // if the attribute is the style one
     // handle it differently from others
 
-    if (name === 'style') return hyperStyle(node, original, isSVG); // the name is an event one,
-    // add/remove event listeners accordingly
-    else if (/^on/.test(name)) {
-        var type = name.slice(2);
+    if (name === 'style') return hyperStyle(node, original, isSVG); // direct accessors for <input .value=${...}> and friends
+    else if (name.slice(0, 1) === '.') return hyperSetter(node, name.slice(1), isSVG); // the name is an event one,
+      // add/remove event listeners accordingly
+      else if (/^on/.test(name)) {
+          var type = name.slice(2);
 
-        if (type === CONNECTED || type === DISCONNECTED) {
-          observe(node);
-        } else if (name.toLowerCase() in node) {
-          type = type.toLowerCase();
-        }
-
-        return function (newValue) {
-          if (oldValue !== newValue) {
-            if (oldValue) node.removeEventListener(type, oldValue, false);
-            oldValue = newValue;
-            if (newValue) node.addEventListener(type, newValue, false);
+          if (type === CONNECTED || type === DISCONNECTED) {
+            observe(node);
+          } else if (name.toLowerCase() in node) {
+            type = type.toLowerCase();
           }
-        };
-      } // the attribute is special ('value' in input)
-      // and it's not SVG *or* the name is exactly data,
-      // in this case assign the value directly
-      else if (name === 'data' || !isSVG && name in node && !readOnly.test(name)) {
+
           return function (newValue) {
             if (oldValue !== newValue) {
+              if (oldValue) node.removeEventListener(type, oldValue, false);
               oldValue = newValue;
-
-              if (node[name] !== newValue && newValue == null) {
-                // cleanup on null to avoid silly IE/Edge bug
-                node[name] = '';
-                node.removeAttribute(name);
-              } else node[name] = newValue;
+              if (newValue) node.addEventListener(type, newValue, false);
             }
           };
-        } else if (name in Intent.attributes) {
-          return function (any) {
-            var newValue = Intent.attributes[name](node, any);
-
-            if (oldValue !== newValue) {
-              oldValue = newValue;
-              if (newValue == null) node.removeAttribute(name);else node.setAttribute(name, newValue);
-            }
-          };
-        } // in every other case, use the attribute node as it is
-        // update only the value, set it as node only when/if needed
-        else {
-            var owner = false;
-            var attribute = original.cloneNode(true);
+        } // the attribute is special ('value' in input)
+        // and it's not SVG *or* the name is exactly data,
+        // in this case assign the value directly
+        else if (name === 'data' || !isSVG && name in node && !readOnly.test(name)) {
             return function (newValue) {
               if (oldValue !== newValue) {
                 oldValue = newValue;
 
-                if (attribute.value !== newValue) {
-                  if (newValue == null) {
-                    if (owner) {
-                      owner = false;
-                      node.removeAttributeNode(attribute);
-                    }
+                if (node[name] !== newValue && newValue == null) {
+                  // cleanup on null to avoid silly IE/Edge bug
+                  node[name] = '';
+                  node.removeAttribute(name);
+                } else node[name] = newValue;
+              }
+            };
+          } else if (name in Intent.attributes) {
+            return function (any) {
+              var newValue = Intent.attributes[name](node, any);
 
-                    attribute.value = newValue;
-                  } else {
-                    attribute.value = newValue;
+              if (oldValue !== newValue) {
+                oldValue = newValue;
+                if (newValue == null) node.removeAttribute(name);else node.setAttribute(name, newValue);
+              }
+            };
+          } // in every other case, use the attribute node as it is
+          // update only the value, set it as node only when/if needed
+          else {
+              var owner = false;
+              var attribute = original.cloneNode(true);
+              return function (newValue) {
+                if (oldValue !== newValue) {
+                  oldValue = newValue;
 
-                    if (!owner) {
-                      owner = true;
-                      node.setAttributeNode(attribute);
+                  if (attribute.value !== newValue) {
+                    if (newValue == null) {
+                      if (owner) {
+                        owner = false;
+                        node.removeAttributeNode(attribute);
+                      }
+
+                      attribute.value = newValue;
+                    } else {
+                      attribute.value = newValue;
+
+                      if (!owner) {
+                        owner = true;
+                        node.setAttributeNode(attribute);
+                      }
                     }
                   }
                 }
-              }
-            };
-          }
+              };
+            }
   },
   // in a hyper(node)`<div>${content}</div>` case
   // everything could happen:
@@ -1852,7 +1941,7 @@ var _templateLiteral = function templateLiteral(tl) {
   var RAW = 'raw';
 
   var isBroken = function isBroken(UA) {
-    return /(Firefox|Safari)\/(\d+)/.test(UA) && !/(Chrom|Android)\/(\d+)/.test(UA);
+    return /(Firefox|Safari)\/(\d+)/.test(UA) && !/(Chrom[eium]+|Android)\/(\d+)/.test(UA);
   };
 
   var broken = isBroken((document.defaultView.navigator || {}).userAgent);
@@ -1909,6 +1998,15 @@ function tta (template) {
 
   return args;
 }
+/**
+ * best benchmark goes here
+ * https://jsperf.com/tta-bench
+ * I should probably have an @ungap/template-literal-es too
+export default (...args) => {
+  args[0] = unique(args[0]);
+  return args;
+};
+ */
 
 var wires = new WeakMap$1(); // A wire is a callback used as tag function
 // It's represented by either a DOM node, or an Array.
@@ -2001,7 +2099,7 @@ var bind = function bind(context) {
 setup(content); // everything is exported directly or through the
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\n\n\n\n  <div data-magic=\"", "\" class=\"", "\">\n    <div class=\"card radius shadowDepth1\">\n      <div class=\"card__image border-tlr-radius\">\n        <!--<img src=\"csm_hellink_268d15ec81 - Copie.jpg\" alt=\"image\" class=\"border-tlr-radius\" />-->\n        <img src=\"", "\" alt=\"\" class=\"border-tlr-radius\" />\n        <img src=\"./assets/triangle.png\" alt=\"\" class=\"mask\" />\n      </div>\n      <div class=\"card__content card__padding\">  \n        <div class=\"card__article\">\n          <h2>", "</h2>\n          <section class=\"card__meta\">\n           <h3><img src=\"", "\" class=\"icon-black\" role=\"presentation\" aria-hidden=\"true\" alt=\"\" />&nbsp;", "</h3>\n          <div>", "</div>&nbsp;\n            <time>", "</time>\n          </section>\n          <div class=\"card__share\" tabindex=\"-1\" role=\"menu\">\n          <div class=\"card__social card__fix--width\">\n            <a role=\"menuitem\" id=\"", "\" tabindex=\"0\" class=\"", "\" href=\"", "\" title=\"", "\" aria-label=\"", "\" hreflang=\"", "\" target=\"_blank\" rel=\"noopener noreferrer\">\n              <img src=\"", "\" class=\"", "\" aria-hidden=\"true\" alt=\"\" />\n           </a>\n           <a role=\"menuitem\" id=\"", "\" tabindex=\"0\" class=\"", "\" href=\"", "\" title=\"", "\" aria-label=\"", "\" hreflang=\"", "\" target=\"_blank\" rel=\"noopener noreferrer\">\n             <img src=\"", "\" class=\"", "\" aria-hidden=\"true\" alt=\"\" />\n           </a>\n           <a role=\"menuitem\" id=\"", "\" tabindex=\"0\" class=\"", "\" href=\"", "\" title=\"", "\" aria-label=\"", "\" hreflang=\"", "\" target=\"_blank\" rel=\"noopener noreferrer\">\n             <img src=\"", "\" class=\"", "\" aria-hidden=\"true\" alt=\"\" />\n          </a>\n        </div>\n          <a class=\"share-toggle share-icon\"  onclick=\"", "\" href=\"javascript:void(0);\" aria-haspopup=\"true\" aria-label=\"", "\">\n            <img src=\"", "\" class=\"icon-black\" aria-hidden=\"true\" alt=\"\" />\n          </a>\n\n\n      </div>\n          <div class=\"text\">", "</div>\n        </div>\n      </div>\n      <div class=\"card__action\">\n        <a href=\"", "\" class=\"", "\" title=\"", "\" hreflang=\"", "\" rel=\"noopener noreferrer\">", "&nbsp;<img src=\"", "\"  class=\"", "\"  alt=\"\" aria-hidden=\"true\"></a>&nbsp;\n        <a href=\"", "\" class=\"", "\" title=\"", "\" hreflang=\"", "\"  rel=\"noopener noreferrer\">", "&nbsp;<img src=\"", "\"  class=\"", "\"  alt=\"\" aria-hidden=\"true\"></a>\n      </div>\n    </div>\n  </div>\n\n"]);
+  var data = _taggedTemplateLiteral(["\n\n\n\n\n  <div data-magic=\"", "\" class=\"", "\">\n    <div class=\"card radius shadowDepth1\">\n      <div class=\"card__image border-tlr-radius\">\n        <!--<img src=\"csm_hellink_268d15ec81 - Copie.jpg\" alt=\"image\" class=\"border-tlr-radius\" />-->\n        <img src=\"", "\" alt=\"\" class=\"border-tlr-radius\" />\n        <img src=\"./assets/triangle.png\" alt=\"\" class=\"mask\" />\n      </div>\n      <div class=\"card__content card__padding\">  \n        <div class=\"card__article\">\n          <h2>", "</h2>\n          <section class=\"card__meta\">\n           <h3><img src=\"", "\" class=\"icon-black\" role=\"presentation\" aria-hidden=\"true\" alt=\"\" />&nbsp;", "</h3>\n          <div>", "</div>&nbsp;\n            <time>", "</time>\n          </section>\n          <div class=\"card__share\" tabindex=\"-1\" role=\"menu\" aria-busy=\"true\">\n          <div class=\"card__social card__fix--width\">\n            <a role=\"menuitem\" id=\"", "\" tabindex=\"0\" class=\"", "\" href=\"", "\" title=\"", "\" aria-label=\"", "\" hreflang=\"", "\" target=\"_blank\" rel=\"noopener noreferrer\">\n              <img src=\"", "\" class=\"", "\" aria-hidden=\"true\" alt=\"\" />\n           </a>\n           <a role=\"menuitem\" id=\"", "\" tabindex=\"0\" class=\"", "\" href=\"", "\" title=\"", "\" aria-label=\"", "\" hreflang=\"", "\" target=\"_blank\" rel=\"noopener noreferrer\">\n             <img src=\"", "\" class=\"", "\" aria-hidden=\"true\" alt=\"\" />\n           </a>\n           <a role=\"menuitem\" id=\"", "\" tabindex=\"0\" class=\"", "\" href=\"", "\" title=\"", "\" aria-label=\"", "\" hreflang=\"", "\" target=\"_blank\" rel=\"noopener noreferrer\">\n             <img src=\"", "\" class=\"", "\" aria-hidden=\"true\" alt=\"\" />\n          </a>\n        </div>\n          <a class=\"share-toggle share-icon\"  onclick=\"", "\" href=\"javascript:void(0);\" aria-haspopup=\"true\" aria-label=\"", "\">\n            <img src=\"", "\" class=\"icon-black\" aria-hidden=\"true\" alt=\"\" />\n          </a>\n\n\n      </div>\n          <div class=\"text\">", "</div>\n        </div>\n      </div>\n      <div class=\"card__action\">\n        <a href=\"", "\" class=\"", "\" title=\"", "\" hreflang=\"", "\" rel=\"noopener noreferrer\">", "&nbsp;<img src=\"", "\"  class=\"", "\"  alt=\"\" aria-hidden=\"true\"></a>&nbsp;\n        <a href=\"", "\" class=\"", "\" title=\"", "\" hreflang=\"", "\"  rel=\"noopener noreferrer\">", "&nbsp;<img src=\"", "\"  class=\"", "\"  alt=\"\" aria-hidden=\"true\"></a>\n      </div>\n    </div>\n  </div>\n\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -2159,51 +2257,41 @@ function (_HTMLElement) {
 
   }, {
     key: "getMessages",
-    value: function () {
-      var _getMessages = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee() {
-        var response, messages;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.prev = 0;
-                _context.next = 3;
-                return fetch("".concat(this.base, "/messages.json"));
+    value: function getMessages() {
+      var response, messages;
+      return regeneratorRuntime.async(function getMessages$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return regeneratorRuntime.awrap(fetch("".concat(this.base, "/messages.json")));
 
-              case 3:
-                response = _context.sent;
-                _context.next = 6;
-                return response.json();
+            case 3:
+              response = _context.sent;
+              _context.next = 6;
+              return regeneratorRuntime.awrap(response.json());
 
-              case 6:
-                messages = _context.sent;
-                this.data = messages;
-                this.render();
-                _context.next = 14;
-                break;
+            case 6:
+              messages = _context.sent;
+              this.data = messages;
+              this.render();
+              _context.next = 14;
+              break;
 
-              case 11:
-                _context.prev = 11;
-                _context.t0 = _context["catch"](0);
-                // eslint-disable-next-line no-console
-                console.error(_context.t0);
+            case 11:
+              _context.prev = 11;
+              _context.t0 = _context["catch"](0);
+              // eslint-disable-next-line no-console
+              console.error(_context.t0);
 
-              case 14:
-              case "end":
-                return _context.stop();
-            }
+            case 14:
+            case "end":
+              return _context.stop();
           }
-        }, _callee, this, [[0, 11]]);
-      }));
-
-      function getMessages() {
-        return _getMessages.apply(this, arguments);
-      }
-
-      return getMessages;
-    }()
+        }
+      }, null, this, [[0, 11]]);
+    }
   }, {
     key: "render",
     value: function render() {
