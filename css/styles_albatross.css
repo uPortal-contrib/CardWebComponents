@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  --margin: 1.5rem;
+  --modifier: calc(30rem - 100%);
+  margin: calc(var(--margin) * -1);
+}
+
+.container > * {
+  flex-grow: 1;
+  flex-basis: calc(var(--modifier) * 999);
+  min-width: 70vh;
+  margin: var(--margin);
+  background-color: #333;
+}
